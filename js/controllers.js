@@ -5,17 +5,20 @@ pageControllers.controller('PageOne', ['$scope', function($scope){
 
 }]);
 
-pageControllers.controller('home', ['$scope', function($scope){
-    $scope.message = "Hello home page"
-    $(document).ready(function() {
-        $('.carousel').carousel({
-            interval: 5000
-        })
+
+pageControllers.controller('home', ['$scope', '$http', function($scope, $http){
+    $http.get('data/pantal.json').success(function(pantal){
+        $scope.pantal = pantal;
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                interval: 5000
+            })
+        });
     });
 }]);
 
 pageControllers.controller('PageThree', ['$scope', '$http', function($scope, $http){
-    $http.get('js/data.json').success(function(_data){
+    $http.get('js/pantal.json').success(function(_data){
         $scope.data=_data;
     });
 }]);

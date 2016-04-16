@@ -30,15 +30,14 @@
 </div>
 
 <div class="container-fluid">
-    <div class="row"><!--row2 : 3 columns-->
-        <div class="col-xs-3">
+    <ul>
+        <li class="col-xs-3" ng-repeat="p in pantal">
             <div class="thumbnail">
-                <img src="img/men/tshirt.jpg">
+                <img ng-src="img/men/{{p.img}}.jpg" alt="{{p.nom}}"/>
                 <div class="caption">
                     <blockquote>LEVI'S Navy Blue Printed Round Neck T-Shirt</blockquote>
                 </div>
             </div>
-        </div>
-
-    </div>
+        </li>
+    </ul>
 </div>
