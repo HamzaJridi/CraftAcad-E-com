@@ -7,9 +7,9 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller : 'PageOne'
         })
 
-        .when('/pageTwo', {
-            templateUrl: 'views/pageTwo.html',
-            controller: 'PageTwo'
+        .when('/home', {
+            templateUrl: 'views/home.html',
+            controller: 'home'
         })
 
         .when('/pageThree', {

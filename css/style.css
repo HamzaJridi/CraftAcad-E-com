@@ -139,3 +139,15 @@ input.ng-valid.ng-touched {
   color: red;
   padding-bottom: 10px;
 }
+
+
+.carousel, img {
+    max-height: 1000px;
+}
+.carousel {
+    margin-top: 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
