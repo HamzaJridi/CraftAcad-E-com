@@ -141,13 +141,10 @@ input.ng-valid.ng-touched {
 }
 
 
-.carousel, img {
-    max-height: 1000px;
-}
-.carousel {
-    margin-top: 0;
+.thumbnail {
+    margin-top: 100px;
 }
 
-.navbar {
-    margin-bottom: 0;
+li {
+    list-style:none;
 }
