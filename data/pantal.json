@@ -1,41 +1,53 @@
 [
-  {"nom" : "NIKE As Dri-Fit Miler Fuse Ss Blue Round Neck T-Shirt",
+  {"nom" : "Fuse Ss Blue Round Neck T-Shirt",
     "img" : "pantal1",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   },
 
-  {"nom" :"UNITED COLORS OF BENETTON Rust Solid Henley T-Shirt",
+  {"nom" :" Rust Solid Henley T-Shirt",
   "img" : "pantal2",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   },
 
-  {"nom" :"UNITED COLORS OF BENETTON Blue Printed Round Neck T-Shirt",
+  {"nom" :" Blue Printed Round Neck T-Shirt",
   "img" : "pantal3",
-    "prix" : "18£"
+    "prix" : "18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   },
 
-  {"nom" :"UNITED COLORS OF BENETTON Rust Solid Henley T-Shirt",
+  {"nom" :"UNITED  Rust Solid Henley T-Shirt",
   "img" : "pantal4",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   },
 
-  {"nom" :"UNITED COLORS OF BENETTON Blue Printed Round Neck T-Shirt",
+  {"nom" :"UNITED COLORS OF BENETTON",
   "img" : "pantal5",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "quantité" : 50
   },
 
-  {"nom" :"UNITED COLORS OF BENETTON Blue Printed Round Neck T-Shirt",
+  {"nom" :" Blue Printed Round Neck T-Shirt",
     "img" : "pantal6",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "quantité" : 50
   },
 
   {"nom" : "PHOSPHORUS Andrew Hill Casual Collection",
   "img" : "pantal7",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "quantité" : 50
   },
 
-  {"nom" : "PHOSPHORUS Andrew Hill Casual Collection",
+  {"nom" : "Andrew Hill Casual Collection",
   "img" : "pantal8",
-    "prix" :"18£"
+    "prix" :"18£",
+    "description" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "quantité" : 50
   }
 ]

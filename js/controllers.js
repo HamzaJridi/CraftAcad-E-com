@@ -16,7 +16,7 @@ pageControllers.controller('home', ['$scope', '$http', function($scope, $http){
         });
     });
 }]);
-
+// Pantallon Controller
 pageControllers.controller('PantCtrl', ['$scope', '$http',
     function($scope, $http){
     $http.get('data/pantal.json').success(function(pantal){
@@ -31,3 +31,71 @@ pageControllers.controller('DetailsCtrl', ['$scope', '$http','$routeParams',
         $scope.whichItem = $routeParams.itemId;
     });
 }]);
+
+pageControllers.controller('ChemiseCtrl', ['$scope', '$http',
+    function($scope, $http){
+        $http.get('data/chemise.json').success(function(chemise){
+            $scope.chemise = chemise;
+        });
+    }]);
+
+pageControllers.controller('ChemiseDetailsCtrl', ['$scope', '$http','$routeParams',
+    function($scope, $http, $routeParams){
+        $http.get('data/pantal.json').success(function(chemise){
+            $scope.chemise = pantal;
+            $scope.whichItem = $routeParams.itemId;
+        });
+    }]);
+
+myApp.controller('LoginCtrl',
+    ['$scope', '$http', '$location', '$rootScope' ,
+        function($scope, $http, $location, $rootScope) {
+            $http.get('data/users.json').success(function(data) {
+                $scope.data= data;
+                $scope.log=function(){
+                    for (var i =0; i < $scope.data.length; i++) {
+                        if($scope.user.email==$scope.data[i].email && $scope.user.password==$scope.data[i].password) {
+                            $rootScope.isLogin = true;
+                        }
+                    }
+                    if ($rootScope.isLogin) {
+                        $location.path('/panier');
+                    } else {
+                        $scope.errormsg = "Sorry, your Email and Password are not valid"
+                        $scope.user.email = '';
+                        $scope.user.password = '';
+                    }
+                };
+                $rootScope.logOut = function() {
+                    $location.path('/login');
+                    $rootScope.isLogin = false;
+        }
+    });
+}]);
+
+
+//Panier Controller
+
+/*app.controller('PanierController', ['$scope', 'Panier', function($scope, Panier){
+    //récuperation des données depuis le service panier et l'afficher dans la console
+    console.log(Panier.panier);
+    $scope.panier = Panier.panier;
+
+    //traitement effectuer pour afficher un message à l'utilsateur que
+    //son panier est vide
+    if($scope.panier.length == 0){
+        $scope.hidePanier = true;
+        $scope.showMsg = true;
+    }
+
+    //fonction pour mettre à jour la quantité du produit
+    $scope.update = function(){
+        console.log("Update button clicked");
+
+    }
+    //fonction pour supprimer le produit depuis le panier
+    $scope.delete = function(){
+        console.log("Delete button clicked");
+    }
+
+}]);*/

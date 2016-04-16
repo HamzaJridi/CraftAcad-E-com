@@ -1,15 +1,13 @@
 <section>
-
     <div ng-model="pantal" class="dtl col-xs-6 col-xs-offset-3">
         <div class="thumbnail">
             <h2 style="">{{pantal[whichItem].nom}}</h2>
             <img ng-src="img/men/{{pantal[whichItem].img}}.jpg" alt="{{p.nom}}"/>
             <div class="caption">
-                <blockquote>LEVI'S Navy Blue Printed Round Neck T-Shirt</blockquote>
+                <h2>{{pantal[whichItem].prix}}</h2>
+                <p><strong>{{pantal[whichItem].description}}</strong></p>
                 <a href="#/login" class="btn btn-info btn-lg" role="button"><strong>Ajouter au panier</strong></a>
             </div>
             </div>
         </div>
-        <h2>{{pantal[whichItem].prix}}</h2>
-    </div>
 </section>

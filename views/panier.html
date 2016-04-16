@@ -1,0 +1,27 @@
+<!-- afficher les produits depuis le panier -->
+<div class="container">
+    <h1 ng-show="showMsg">Pas de produit dans votre panier</h1>
+    <div class="row" ng-hide="hidePanier">
+        <p>Liste des produits:</p>
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Produit</td>
+                <td>Référence</td>
+                <td>Quantité</td>
+                <td>Total</td>
+            </tr>
+            <tr ng-repeat="pro in panier">
+                <td>{{pro.prod.name}}</td>
+                <td>{{pro.prod.reference}}</td>
+                <td>{{pro.qte}}</td>
+                <td></td>
+                <td>
+                    <button ng-click="update()" class="btn btn-info">Modifier</button>
+                    <button ng-click="delete()" class="btn btn-danger">Supprimer</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

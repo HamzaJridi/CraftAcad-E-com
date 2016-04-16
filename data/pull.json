@@ -1,0 +1,38 @@
+[
+  {"nom" : "pull noir manches longues ",
+    "img" : "pullX1",
+    "prix" :"25£",
+	"description" :"Pull en tricot, col rond. Bords côtes aux poignets et à la base. Motif devant. Pull 100% coton."
+  },
+  
+  {"nom" : "pull blanc simple mode manches courtes ",
+    "img" : "pullX2",
+    "prix" :"20£",
+	"description" :" Pull manches courte Coupe droite et col rond 100% coton. texture devant. T-shirt lavable en machine à 30°"
+  },
+  
+  {"nom" : "pull Bleu coton manches longues ",
+    "img" : "pullX3",
+    "prix" :"25£",
+	"description" :" Pull classique fermé piqué. Manches longues. "
+  },
+  
+  {"nom" : "pull Bleu manches courtes  ",
+    "img" : "pullX4",
+    "prix" :"18£",
+	"description" :" Le polo uni. Polo en maille piquée 100% coton. Manches courtes. Col et bas de manches en côtes."
+  },
+  
+  {"nom" : "pull Sport Vert manches longues  ",
+    "img" : "pullX5",
+    "prix" :"32£",
+	"description" :" Pull en tricot, col rond. Bords côtes aux poignets et à la base. Motif devant. Pull 100% coton."
+  },
+  
+  {"nom" : "pull beige manches langues ",
+    "img" : "pullX6",
+    "prix" :"30£",
+	"description" :" Sweat imprimé 100% coton"
+  }
+
+]

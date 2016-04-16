@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <input type="text" class="form-control" placeholder="Search for article" ng-model="article">
+    <ul>
+        <li class="col-xs-3" ng-repeat="item in chemise | filter : article">
+            <a href="#/details/{{chemise.indexOf(item)}}">
+                <div class="thumbnail">
+                    <img ng-src="img/men/{{item.img}}.jpg" alt="{{item.nom}}"/>
+                    <div class="caption">
+                        <blockquote>{{item.nom}}</blockquote>
+                        <a href="#/chemisedetails/{{chemise.indexOf(item)}}" class="btn btn-info btn-lg" role="button"><strong>Détails</strong></a>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
