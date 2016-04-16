@@ -12,8 +12,13 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller : 'PantCtrl'
         })
 
+        .when('/details/:itemId', {
+            templateUrl : 'views/details.html',
+            controller : 'DetailsCtrl'
+        })
+
         .otherwise({
-            redirectTo : '/'
+            redirectTo : '/home'
         });
 
 }]);

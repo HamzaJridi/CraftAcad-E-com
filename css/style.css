@@ -148,3 +148,9 @@ input.ng-valid.ng-touched {
 li {
     list-style:none;
 }
+.dtl {
+    margin-top : 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #1b6d85;
+}
