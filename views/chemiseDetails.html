@@ -1,0 +1,13 @@
+<section>
+    <div ng-model="chemise" class="dtl col-xs-6 col-xs-offset-3">
+        <div class="thumbnail">
+            <h2 style="">{{chemise[whichItem].nom}}</h2>
+            <img ng-src="img/men/{{chemise[whichItem].img}}.jpg" alt="{{p.nom}}"/>
+            <div class="caption">
+                <h2>{{chemise[whichItem].prix}}</h2>
+                <p><strong>{{chemise[whichItem].description}}</strong></p>
+                <a href="#/login" class="btn btn-info btn-lg" role="button"><strong>Ajouter au panier</strong></a>
+            </div>
+        </div>
+    </div>
+</section>

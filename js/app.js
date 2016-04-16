@@ -22,10 +22,10 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller : 'ChemiseCtrl'
         })
 
-        /*.when('/details/:itemId', {
-            templateUrl : 'views/chemisedetails.html',
+        .when('/chemiseDetails/:itemId', {
+            templateUrl : 'views/chemiseDetails.html',
             controller : 'ChemiseDetailsCtrl'
-        })*/
+        })
 
         .when('/login', {
             templateUrl : 'views/login.html',

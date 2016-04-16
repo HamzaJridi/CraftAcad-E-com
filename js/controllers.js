@@ -72,30 +72,3 @@ myApp.controller('LoginCtrl',
         }
     });
 }]);
-
-
-//Panier Controller
-
-/*app.controller('PanierController', ['$scope', 'Panier', function($scope, Panier){
-    //récuperation des données depuis le service panier et l'afficher dans la console
-    console.log(Panier.panier);
-    $scope.panier = Panier.panier;
-
-    //traitement effectuer pour afficher un message à l'utilsateur que
-    //son panier est vide
-    if($scope.panier.length == 0){
-        $scope.hidePanier = true;
-        $scope.showMsg = true;
-    }
-
-    //fonction pour mettre à jour la quantité du produit
-    $scope.update = function(){
-        console.log("Update button clicked");
-
-    }
-    //fonction pour supprimer le produit depuis le panier
-    $scope.delete = function(){
-        console.log("Delete button clicked");
-    }
-
-}]);*/

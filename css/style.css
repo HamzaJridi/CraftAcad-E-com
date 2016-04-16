@@ -154,3 +154,7 @@ li {
     text-align: center;
     color: #1b6d85;
 }
+
+.carousel-inner {
+    background-size: cover;
+}
