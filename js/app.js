@@ -32,10 +32,17 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller : 'LoginCtrl'
         })
 
-        /*.when('/panier', {
+        .when('/panier', {
+            resolve: {
+                "check" : function($location, $rootScope){
+                    if(!$rootScope.isLogin){
+                        $location.path('/login');
+                    }
+                }
+            },
             templateUrl : 'views/panier.html',
             controller : 'LoginCtrl'
-        })*/
+        })
 
         .otherwise({
             redirectTo : '/home'
