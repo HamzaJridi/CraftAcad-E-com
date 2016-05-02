@@ -11,9 +11,14 @@
 angular
   .module('angularApp', [
     'ngAnimate',
-    'ngRoute'
+    'ngRoute',
+    'restangular',
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider) {
+
+      // Set the base URL for Restangular.
+      RestangularProvider.setBaseUrl('http://localhost:8000');
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -30,7 +35,25 @@ angular
         controller: 'ArticlesCtrl',
         controllerAs: 'articles'
       })
+      .when('/articles', {
+        templateUrl: 'views/articles.html',
+        controller: 'ArticlesCtrl',
+        controllerAs: 'articles'
+      })
       .otherwise({
         redirectTo: '/'
       });
+  })
+
+/*convert "_id" to "id"*/
+.factory('ArticleRestangular', function(Restangular) {
+  return Restangular.withConfig(function(RestangularConfigurer) {
+    RestangularConfigurer.setRestangularFields({
+      id: '_id'
+    });
   });
+})
+
+.factory('Article', function(ArticleRestangular) {
+  return ArticleRestangular.service('articles');
+});
