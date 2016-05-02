@@ -1,6 +1,16 @@
 <!--Articles-->
 <div class="container-fluid" ng-model="article">
     <h1>{{article.title}}</h1>
-    <!--<img ng-src="../images{{article.img}}" alt=""/>-->
-    <p>{{article.prix}}</p>
+    <img ng-src="public/images/men/{{article.img}}.jpg" alt="{{item.title}}"/>
+    <div class="caption">
+        <blockquote>
+            <h3>{{article.title}}</h3>
+            <p>{{article.description}}</p></blockquote>
+        <div>
+            <button class="btn btn-danger btn-lg">{{article.prix}}</button>
+            <a href="#/panier"><button class="btn btn-warning btn-lg">Buy</button></a>
+        </div>
+
+    </div>
+    <p>{{article.description}}</p>
 </div>

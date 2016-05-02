@@ -8,8 +8,4 @@ myApp.controller('ArticleCtrl', ['$scope', '$http','$routeParams', function ($sc
         $http.get('/articles/'+id).success(function (response) {
             $scope.article = response;
         });
-
-
-
-
-}]);
+    }]);
