@@ -29,6 +29,13 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             //access: {restricted: false}
         })
         .when('/panier', {
+            resolve: {
+                "check" : function($location, $rootScope){
+                    if(!$rootScope.isLogin){
+                        $location.path('/login');
+                    }
+                }
+            },
             templateUrl : 'public/views/panier.html',
             controller : 'RegisterCtrl',
             //access: {restricted: false}
