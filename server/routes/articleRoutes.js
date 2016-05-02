@@ -4,7 +4,6 @@ var routes = function(Article){
     var articleRouter = express.Router();
     articleRouter.route('/')
         .get(function (req, res) {
-            var article = new Article(req.body);
             Article.find(function(err,articles){
                 if(err){
                     res.status(500).send(err);

@@ -7,8 +7,9 @@ pageControllers.controller('PageOne', ['$scope', function($scope){
 
 
 pageControllers.controller('home', ['$scope', '$http', function($scope, $http){
-    $http.get('data/pantal.json').success(function(pantal){
-        $scope.pantal = pantal;
+    $http.get('/articles').success(function(response){
+        console.log('I got the requested data');
+        $scope.pantal = response;
         $(document).ready(function() {
             $('.carousel').carousel({
                 interval: 5000

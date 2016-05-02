@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AngularJS & Bootstrap Modal</title>
+
+    <script src="client/lib/jquery-2.2.2.min.js"></script>
+
+    <!-- Angular Libs -->
+    <script src="client/lib/angular/angular.min.js"></script>
+    <script src="client/lib/angular/angular-route.min.js"></script>
+    <script src="client/lib/angular/angular-animate.min.js"></script>
+
+    <!-- Bootstrap Libs -->
+    <script src="client/lib/bootstrap/bootstrap.min.js"></script>
+
+    <!-- My scripts -->
+    <script src="angularApp.js"></script>
+    <script src="client/js/controllers.js"></script>
+    <script src="client/js/script.js"></script>
+
+
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="client/css/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="client/css/login.css"/>
+    <link rel="stylesheet" href="client/css/style.css"/>
+
+</head>
+
+<body>
+<header>
+    <nav class="cf" ng-include="'views/nav.html'"></nav>
+</header>
+<div ng-view></div>
+
+</body>
+</html>

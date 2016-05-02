@@ -3,32 +3,32 @@ var myApp = angular.module('myApp', ['ngRoute', 'pageControllers']);
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/home', {
-            templateUrl: 'views/home.html',
+            templateUrl: 'client/views/home.html',
             controller: 'home'
         })
 
         .when('/pantal', {
-            templateUrl : 'views/pantal.html',
+            templateUrl : 'client/views/pantal.html',
             controller : 'PantCtrl'
         })
 
         .when('/details/:itemId', {
-            templateUrl : 'views/details.html',
+            templateUrl : 'client/views/details.html',
             controller : 'DetailsCtrl'
         })
 
         .when('/chemise', {
-            templateUrl : 'views/chemise.html',
+            templateUrl : 'client/views/chemise.html',
             controller : 'ChemiseCtrl'
         })
 
         .when('/chemiseDetails/:itemId', {
-            templateUrl : 'views/chemiseDetails.html',
+            templateUrl : 'client/views/chemiseDetails.html',
             controller : 'ChemiseDetailsCtrl'
         })
 
         .when('/login', {
-            templateUrl : 'views/login.html',
+            templateUrl : 'client/views/login.html',
             controller : 'LoginCtrl'
         })
 
@@ -40,7 +40,7 @@ myApp.config(['$routeProvider', function($routeProvider){
                     }
                 }
             },
-            templateUrl : 'views/panier.html',
+            templateUrl : 'client/views/panier.html',
             controller : 'LoginCtrl'
         })
 
