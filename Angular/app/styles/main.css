@@ -6,4 +6,8 @@ li {
 
 .carousel-slide, .item {
   max-height: 500px;
+  width: auto;
+}
+#home-articles {
+  margin-top: 5em;
 }

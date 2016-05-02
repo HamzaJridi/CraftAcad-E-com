@@ -1,0 +1,24 @@
+<div class="container-fluid">
+<ul>
+    <li ng-repeat="item in articles" class="col-xs-3">
+        <a href="#/details/{{item._id}}">{{item.title}}</a>
+
+        <a ng-href="#/details/{{item._id}}">
+            <div class="thumbnail">
+                <img ng-src="public/images/men/{{item.img}}.jpg" alt="{{item.title}}"/>
+                <div class="caption">
+                    <blockquote>{{item.title}}</blockquote>
+                    <div>
+                        <a href="#/details/{{item._id}}" class="btn btn-info btn-lg" role="button"><strong>Détails</strong></a>
+                        <button class="btn btn-danger btn-sm">{{item.prix}}</button>
+                        <button class="btn btn-warning btn-group-justified">Buy</button>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+
+
+    </li>
+</ul>
+</div>

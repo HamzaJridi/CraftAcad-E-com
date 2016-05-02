@@ -2,18 +2,16 @@
 
 /**
  * @ngdoc function
- * @name angularApp.controller:MainCtrl
+ * @name clientApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the angularApp
+ * Controller of the clientApp
  */
-angular.module('angularApp')
-  .controller('MainCtrl', function ($scope,Article) {
-      $scope.message = "angular works";
-      $scope.articles = [
-        {"title" : "pantal1"},
-        {"title" : "pantal2"},
-      ];
-
-      $scope.articles = Article.getList().$object;
-  });
+angular.module('clientApp')
+    .controller('MainCtrl', function ($scope) {
+        $scope.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
+    });

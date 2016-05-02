@@ -7,11 +7,23 @@
  * # ArticlesCtrl
  * Controller of the angularApp
  */
+//angular.module('angularApp')
+//  .controller('ArticlesCtrl', function () {
+//    this.awesomeThings = [
+//      'HTML5 Boilerplate',
+//      'AngularJS',
+//      'Karma'
+//    ];
+//  });
+
 angular.module('angularApp')
-  .controller('ArticlesCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('ArticlesCtrl', function ($scope,Article) {
+      //$scope.message = "angular works";
+      //$scope.articles = [
+      //  {"title" : "pantal1"},
+      //  {"title" : "pantal2"},
+      //];
+
+      $scope.articles = Article.getList().$object;
+    });
+

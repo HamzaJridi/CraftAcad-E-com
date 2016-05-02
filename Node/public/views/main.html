@@ -1,0 +1,64 @@
+<!--Carousel-->
+<div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="item active">
+      <a href="#"><img src="../images/1.jpg" /></a>
+      <div class="carousel-caption">
+        <h3>Shop Anytime, from Everywhere</h3>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="../images/1.jpg" /></a>
+      <div class="carousel-caption">
+        <h3>Shop Anytime, from Everywhere</h3>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="../images/1.jpg" /></a>
+      <div class="carousel-caption">
+        <h3>Shop Anytime, from Everywhere</h3>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+
+<!--Articles-->
+<div class="container-fluid">
+  <ul>
+    <li ng-repeat="item in articles" class="col-xs-3">
+      <a href="#/details/{{item._id}}">{{item.title}}</a>
+
+      <a ng-href="#/details/{{item._id}}">
+        <div class="thumbnail">
+          <img ng-src="public/images/men/{{item.img}}.jpg" alt="{{item.title}}"/>
+          <div class="caption">
+            <blockquote>{{item.title}}</blockquote>
+            <div>
+              <button class="btn btn-warning btn-group-justified">{{item.prix}}</button>
+            </div>
+
+          </div>
+        </div>
+      </a>
+
+
+    </li>
+  </ul>
+</div>
+

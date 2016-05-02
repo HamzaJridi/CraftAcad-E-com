@@ -14,6 +14,11 @@
     "lodash": "^4.11.1",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.14",
-    "node-restful": "^0.2.5"
+    "node-restful": "^0.2.5",
+    "debug": "~2.0.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
+
   }
 }

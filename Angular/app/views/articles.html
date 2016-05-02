@@ -1,1 +1,23 @@
 <p>This is the articles view.</p>
+<!--Articles-->
+<div class="container-fluid">
+    <input type="text" class="form-control" placeholder="Search for article" ng-model="article">
+    <ul>
+        <li class="col-xs-3" ng-repeat="item in articles | filter : article">
+            <a ng-href="/#/article/{{item._id}}">
+                <div class="thumbnail">
+                    <img ng-src="../images/men/{{item.img}}.jpg" alt="{{item.title}}"/>
+                    <div class="caption">
+                        <blockquote>{{item.title}}</blockquote>
+                        <div>
+                            <a href="#/details/{{articles.indexOf(item)}}" class="btn btn-info btn-lg" role="button"><strong>Détails</strong></a>
+                            <button class="btn btn-danger btn-sm">{{item.prix}}</button>
+                            <button class="btn btn-warning btn-group-justified">Buy</button>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
