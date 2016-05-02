@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 
 //Connect to MongoDB
 mongoose.connect('mongodb://localhost/ecommerce');
-/*mongoose.connection.once('open', function(){
+mongoose.connection.once('open', function(){
     //load all mongoose Models
     app.models = require ('./models/index');
 
@@ -31,19 +31,15 @@ mongoose.connect('mongodb://localhost/ecommerce');
     _.each(routes, function(controller, route) {
         app.use(route, controller(app, route));
     });
-});*/
+});
 
 
 var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-    res.send('Welcome to my API, The Home Of Movies')
+    res.send('Welcome to my API, The E-commerce Store')
 });
 
-/* Using app.use for Content Routes :
- * app.use('/hello', function(req,res,next){
- res.send('Hello from, The Home Of Movies')
- }); */
 
 app.listen(port, function(){
     console.log('Gulp is running the app on port ' + port);
