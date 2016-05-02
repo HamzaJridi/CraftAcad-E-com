@@ -81,3 +81,9 @@ body {
     border-bottom: 0;
   }
 }
+
+li {
+  list-style:none;
+  background-image:none;
+  background-position:0;
+}
