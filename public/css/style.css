@@ -1,0 +1,28 @@
+.item {
+    max-height: 600px;
+}
+#myCarousel {
+    margin-bottom: 5em;
+}
+
+.featurette {
+    margin: 5em 5em;
+}
+.featurette-image {
+    max-height: 500px;
+}
+
+.navbtn {
+    font-size-adjust: 0.8;
+    padding: 0.4em;
+}
+.navbar-brand {
+    font-size-adjust: 0.8;
+}
+.modal-dialog {width:600px;}
+.thumbnail {margin-bottom:6px;}
+
+.searchbox{
+    background-color: #080808;
+}
+ul {list-style-type: none;}

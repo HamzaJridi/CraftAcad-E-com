@@ -10,7 +10,7 @@ gulp.task('default', function(){
         },
         ignore:['./node_modules/**']
     })
-        .on('restart', function(){
-            console.log('the Server has been restarted ');
-        });
+    .on('restart', function(){
+        console.log('the Server has been restarted ');
+    });
 });
