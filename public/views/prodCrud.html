@@ -13,7 +13,7 @@
   </thead>
   <tbody>
   <tr>
-    <td><input type="text" class="form-control" ng-model="product.title" placeholder="Product Title"/></td>
+    <td><input type="text" class="form-control" ng-model="product.title" placeholder="Product Title" id="title"/></td>
     <td><input type="text" class="form-control" ng-model="product.imgUrl" placeholder="Product's Image Url"/></td>
     <td><input type="text" class="form-control" ng-model="product.price" placeholder="Product's Price"/></td>
     <td><input type="text" class="form-control" ng-model="product.quantity" placeholder="Product's Qantity"/></td>
@@ -34,7 +34,7 @@
     <td>{{product.category}}</td>
     <td><span>
       <a href="#/suitDetails/{{product._id}}"><button class="btn-info btn-sm">details</button></a>
-      <button class="btn-primary btn-sm" ng-click="editProd(product._id)">Edit</button>
+      <button class="btn-primary btn-sm" ng-click="editProd(product._id)" id="edit">Edit</button>
       <button class="btn-danger btn-sm" ng-click="removeProd(product._id)">X</button>
     </span></td>
   </tr>
