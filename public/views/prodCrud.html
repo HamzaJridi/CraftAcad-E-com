@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Image Url</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Reference</th>
+    <th>Category</th>
+    <th>Action</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input type="text" class="form-control" ng-model="product.title" placeholder="Product Title"/></td>
+    <td><input type="text" class="form-control" ng-model="product.imgUrl" placeholder="Product's Image Url"/></td>
+    <td><input type="text" class="form-control" ng-model="product.price" placeholder="Product's Price"/></td>
+    <td><input type="text" class="form-control" ng-model="product.quantity" placeholder="Product's Qantity"/></td>
+    <td><input type="text" class="form-control" ng-model="product.ref" placeholder="Product's Reference"/></td>
+    <td><input type="text" class="form-control" ng-model="product.category" placeholder="Product's Category"/></td>
+    <td><span>
+      <button class="btn btn-primary" ng-click="addProd()">Add Product</button>
+      <button class="btn btn-info" ng-click="updateProd()">Update</button>
+      <button class="btn btn-danger" ng-click="deselect()" style="margin: 1%">Cancel</button>
+    </span></td>
+  </tr>
+  <tr ng-repeat="product in products">
+    <td> {{product.title}}</td>
+    <td><img ng-src="{{product.imgUrl}}" alt="not found" style="height: 40%"/></td>
+    <td>{{product.price}}</td>
+    <td>{{product.quantity}}</td>
+    <td>{{product.ref}}</td>
+    <td>{{product.category}}</td>
+    <td><span>
+      <a href="#/suitDetails/{{product._id}}"><button class="btn-info btn-sm">details</button></a>
+      <button class="btn-primary btn-sm" ng-click="editProd(product._id)">Edit</button>
+      <button class="btn-danger btn-sm" ng-click="removeProd(product._id)">X</button>
+    </span></td>
+  </tr>
+
+  </tbody>
+</table>

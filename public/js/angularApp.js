@@ -9,6 +9,10 @@ angular.module('myApp', ['ngRoute'])
       templateUrl: 'public/views/suits.html',
       controller: 'ProductsCtrl'
     })
+    .when('/prodCrud', {
+      templateUrl: 'public/views/prodCrud.html',
+      controller: 'ProductsCtrl'
+    })
     .when('/casual', {
       templateUrl: 'public/views/casual.html',
       //controller: 'ProductsCtrl'
@@ -21,6 +25,7 @@ angular.module('myApp', ['ngRoute'])
       templateUrl : 'public/views/suitDetails.html',
       controller : 'ProdDetailCtrl'
     })
+
     .otherwise({
       redirectTo : '/home'
     });
