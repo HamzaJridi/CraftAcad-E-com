@@ -1,9 +1,6 @@
 .item {
     max-height: 600px;
 }
-/*#myCarousel {*/
-    /*margin-bottom: 1em;*/
-/*}*/
 
 .featurette {
     margin: 5em 5em;
@@ -19,18 +16,14 @@
 .navbar-brand {
     font-size-adjust: 0.8;
 }
-.modal-dialog {width:600px;}
-.thumbnail {margin-bottom:6px;}
-
-.searchbox{
-    background-color: #080808;
-}
 ul {list-style-type: none;}
 .prods, .constr{
   display: block;
   margin: 1em auto;
 }
-
 .detl{
   margin: 5em auto;
+}
+.articles{
+  margin : 1em auto;
 }

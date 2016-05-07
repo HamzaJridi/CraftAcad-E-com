@@ -1,13 +1,17 @@
-<div class="container row">
+<div class="container-fluid row articles">
   <ul>
-    <li class="col-xs-4 prods" ng-repeat="item in products | filter : article">
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prods"
+        ng-repeat="item in products | filter : article">
       <a href="#/suitDetails/{{item._id}}">
           <img ng-src="{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
       </a>
       <figcaption>
         <h4 style="text-align: center">{{item.title}}</h4>
       </figcaption>
-      <a href="#/suitDetails/{{item._id}}" class="btn btn-info btn-group-justified" role="button"><strong>{{item.price}}... click for détails</strong>
+      <a href="#/suitDetails/{{item._id}}"
+         class="btn btn-info col-xs-push-2 col-xs-8 col-md-push-2 col-md-8"
+         role="button">
+        <strong>{{item.price}}... click for détails</strong>
       </a>
     </li>
   </ul>
