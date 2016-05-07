@@ -1,0 +1,14 @@
+<div class="container row">
+  <ul>
+    <li class="col-xs-4 prods" ng-repeat="item in products | filter : article">
+      <a href="#/details/{{item.indexOf(p)}}">
+          <img ng-src="{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods"/>
+      </a>
+      <figcaption>
+        <h4 style="text-align: center">{{item.title}}</h4>
+      </figcaption>
+      <a href="#/details/{{pantal.indexOf(p)}}" class="btn btn-info btn-group-justified" role="button"><strong>{{item.price}}... click for détails</strong>
+      </a>
+    </li>
+  </ul>
+</div>

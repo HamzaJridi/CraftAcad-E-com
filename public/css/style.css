@@ -1,9 +1,9 @@
 .item {
     max-height: 600px;
 }
-#myCarousel {
-    margin-bottom: 5em;
-}
+/*#myCarousel {*/
+    /*margin-bottom: 1em;*/
+/*}*/
 
 .featurette {
     margin: 5em 5em;
@@ -26,3 +26,7 @@
     background-color: #080808;
 }
 ul {list-style-type: none;}
+.prods, .constr{
+  display: block;
+  margin: 1em auto;
+}

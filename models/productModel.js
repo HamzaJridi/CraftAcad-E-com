@@ -22,6 +22,7 @@ var productModel = new Schema({
   quantity : {type:Number,required : true},
   ref : {type:String,required : true},
   category : {type:String,required : true},
+  descr : {type:String},
 
   /*for now presume that the product is disponible all over the year
   dispoDate : {type : disponibilityDate },*/
