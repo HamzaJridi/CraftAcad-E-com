@@ -19,77 +19,65 @@ var routes = function(Product){
       });
     });
   //
-  ///** create a Middleware to get the bookId and use it
-  // * in get,put and patch requests for a single book */
-  //
-  //bookRouter.use('/:bookId',function(req,res,next){
-  //  /** getting a single book item by its Id */
-  //    //get the id passed in the url using req.params
-  //  Book.findById(req.params.bookId, function(err,book){
-  //    if(err){
-  //      res.status(500).send(err);
-  //    } else if (book){
-  //      req.book = book;
-  //      next();
-  //    } else {
-  //      res.status(404).send('Book not found');
-  //    }
-  //  });
-  //});
-  //
-  //bookRouter.route('/:bookId')
-  //  //get a specific item by its id and display it
-  //  .get(function(req,res){
-  //    //req.book = book in the middleware
-  //    res.json(req.book);
-  //  })
-  //  //get a specific item by its id to update it
-  //  .put(function(req,res){
-  //    /** getting a single book item by its Id */
-  //    //get the id passed in the url using req.params
-  //    /**replace the book properties with what has
-  //     * come back from the req using req.body*/
-  //    req.book.title = req.body.title;
-  //    req.book.author = req.body.author;
-  //    req.book.genre = req.body.genre;
-  //    req.book.read = req.body.read;
-  //    //save changes in the db
-  //    req.book.save(function(err){
-  //      if(err){
-  //        res.status(500).send(err);
-  //      } else {
-  //        res.json(req.book);
-  //      }
-  //    });
-  //    //send back book to display it as a json frmt
-  //  })
-  //
-  //  .patch(function(req,res){
-  //    if (req.body._id) {
-  //      delete req.body._id;
-  //    }
-  //    for (var p in req.body) {
-  //      req.book[p] = req.body[p];
-  //    }
-  //    req.book.save(function(err){
-  //      if(err){
-  //        res.status(500).send(err);
-  //      } else {
-  //        res.json(req.book);
-  //      }
-  //    });
-  //  })
-  //
-  //  .delete(function(req,res){
-  //    req.book.remove(function(err){
-  //      if(err) {
-  //        res.status(500).send(err);
-  //      }
-  //      else{
-  //        res.status(204).send('Removed');
-  //      }
-  //    });
-  //  });
+  /** create a Middleware to get the productId and use it
+   * in get and put requests for a single product */
+
+  productRouter.use('/:productId',function(req,res,next){
+    /** getting a single product item by its Id */
+      //get the id passed in the url using req.params
+    Product.findById(req.params.productId, function(err,product){
+      if(err){
+        res.status(500).send(err);
+      } else if (product){
+        req.product = product;
+        next();
+      } else {
+        res.status(404).send('Product not found');
+      }
+    });
+  });
+
+  productRouter.route('/:productId')
+    //get a specific item by its id and display it
+    .get(function(req,res){
+      //req.product = product in the middleware
+      res.json(req.product);
+    })
+
+    //get a specific item by its id to update it
+    .put(function(req,res){
+      /** getting a single product item by its Id */
+      //get the id passed in the url using req.params
+      /**replace the product properties with what has
+       * come back from the req using req.body*/
+      req.product.title = req.body.title;
+      req.product.imgUrl = req.body.imgUrl;
+      req.product.price = req.body.price;
+      req.product.quantity = req.body.quantity;
+      req.product.ref = req.body.ref;
+      req.product.category = req.body.category;
+      //save changes in the db
+      req.product.save(function(err){
+        if(err){
+          res.status(500).send(err);
+        } else {
+          //send back product to display it as a json frmt
+          res.json(req.product);
+        }
+      });
+
+    })
+
+    .delete(function(req,res){
+      req.product.remove(function(err){
+        if(err) {
+          res.status(500).send(err);
+        }
+        else{
+          res.status(204).send('Removed');
+        }
+      });
+    });
 
   return productRouter
 };

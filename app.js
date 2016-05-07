@@ -24,14 +24,14 @@ productRouter = require('./Routes/productRoutes')(Product);
 /** when you're in the '/products' the productRouter will handle it*/
 app.use('/products', productRouter);
 
-app.use(express.static(__dirname));
-app.get('/', function(req, res){
-  res.sendFile(__dirname+'/index.html');
-});
-
+//app.use(express.static(__dirname));
 //app.get('/', function(req, res){
-//  res.send('Welcome to my API')
+//  res.sendFile(__dirname+'/index.html');
 //});
+
+app.get('/', function(req, res){
+  res.send('Welcome to my API')
+});
 
 app.listen(port, function(){
   console.log('Gulp is running the app on port ' + port);
