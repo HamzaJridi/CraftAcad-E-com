@@ -1,0 +1,14 @@
+<section>
+
+  <div ng-model="product" class=" col-xs-6 col-lg-offset-3">
+      <h1 style="text-align:center">{{product.title}}</h1>
+      <img ng-src="{{product.imgUrl}}" alt="{{product.title}}" class="prods img-responsive"/>
+      <h2 class="prix">PRICE : {{product.price}} Ref : {{product.ref}}</h2>
+      <div class="caption">
+        <md-button ng-click="addpanier(produit)">
+          <strong><img src="public/images/shopping.png" ></strong>
+        </md-button>
+      </div>
+  </div>
+
+</section>

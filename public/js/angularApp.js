@@ -17,6 +17,10 @@ angular.module('myApp', ['ngRoute'])
       templateUrl: 'public/views/sport.html',
       //controller: 'ProductsCtrl'
     })
+    .when('/suitDetails/:itemId', {
+      templateUrl : 'public/views/suitDetails.html',
+      controller : 'ProdDetailCtrl'
+    })
     .otherwise({
       redirectTo : '/home'
     });
