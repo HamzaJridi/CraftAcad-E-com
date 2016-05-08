@@ -25,7 +25,51 @@ var routes = function(User){
       });
   });
 
+  //the login method
+  userRouter.post('/login', function(req,res,next){
+    passport.authenticate('local', function(err, user, info) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.redirect('/login');
+      }
+      //logging in the user depending on its status
+      req.logIn(user, function(err) {
+        if(err){
+          return res.status(500).json({
+            err: 'Could not log in user'
+          });
+        }
+        req.session.user=user;
+        res.status(200).json({
+          status : 'Login Successful!!',
+        });
+      });
+    })(req,res,next);//passport.authenticate method
+  });//router.post method
 
+//The logOut method
+  userRouter.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+    //res.status(200).json({
+    //  status: 'User Logged Out..Bye!!'
+    //});
+
+  });
+
+  //persist the user session after refresh
+  userRouter.get('/status', function(req, res) {
+    if (!req.isAuthenticated()) {
+      return res.status(200).json({
+        status: false
+      });
+    }
+    res.status(200).json({
+      status: true
+    });
+  });
 
 
   return userRouter
