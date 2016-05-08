@@ -25,7 +25,14 @@ angular.module('myApp', ['ngRoute'])
       templateUrl : 'public/views/suitDetails.html',
       controller : 'ProdDetailCtrl'
     })
-
+    .when('/login', {
+      templateUrl : 'public/views/login.html',
+      //controller : 'ProdDetailCtrl'
+    })
+    .when('/register', {
+      templateUrl : 'public/views/register.html',
+      //controller : 'ProdDetailCtrl'
+    })
     .otherwise({
       redirectTo : '/home'
     });
