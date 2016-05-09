@@ -54,6 +54,10 @@ app.get('/', function(req, res){
   res.sendFile(__dirname+'/index.html');
 });
 
+
+app.get('/', function(req, res) {
+  res.send(req.isAuthenticated() ? req.user : '0');
+});
 //app.get('/', function(req, res){
 //  res.send('Welcome to my API')
 //});

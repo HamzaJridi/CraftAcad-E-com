@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#home">Classy Store</a>
+            <a class="navbar-brand" href="#home">Chic & Classy Shop</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,13 +20,15 @@
                 <li class="navbtn"><a href="#casual">Casual Look<span class="sr-only">(current)</span></a></li>
 
                 <li class="navbtn"><a href="#sport">Sport Fashion<span class="sr-only">(current)</span></a></li>
-
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="navbtn"><a href="#login">Sign In</a></li>
-                <li class="navbtn"><a href="#register">Sign Up</a></li>
-                <li class="dropdown navbtn">
+                <li ng-hide="islogged" class="navbtn"><a href="#login">Sign In</a></li>
+                <li ng-hide="islogged" class="navbtn"><a href="#register">Sign Up</a></li>
+                <li ng-hide="!islogged" class="navbtn"><a href="#logout">Sign Out</a></li>
+
+
+              <li class="dropdown navbtn">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="navbtn"><a href="#cartShop">Login</a></li>

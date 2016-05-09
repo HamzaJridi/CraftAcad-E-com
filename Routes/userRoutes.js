@@ -25,6 +25,8 @@ var routes = function(User){
       });
   });
 
+
+
   //the login method
   userRouter.post('/login', function(req,res,next){
     passport.authenticate('local', function(err, user, info) {
@@ -53,11 +55,32 @@ var routes = function(User){
   userRouter.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
-    //res.status(200).json({
-    //  status: 'User Logged Out..Bye!!'
-    //});
+    res.status(200).json({
+      status: 'User Logged Out..Bye!!'
+    });
 
   });
+
+  userRouter.get('/session',function(req,res){
+    console.log(req.session.user);
+    if(!req.session.user){
+      return res.status(404).send("session not found");
+    }
+    return res.json(req.session.user);
+
+  });
+
+  userRouter.get('/:id', function(req, res) {
+    User.id=req.params.id
+    User.find({_id:User.id},function(err){
+      if(err)
+        res.status(500).send(err);
+      else
+        console.log("get user");
+      res.status(204).send('get user');
+    });
+  });
+
 
   //persist the user session after refresh
   userRouter.get('/status', function(req, res) {
@@ -72,6 +95,21 @@ var routes = function(User){
   });
 
 
+
+
+  // add product in CartShop
+  userRouter.get('/:id/panier/:idproduct',function(req,res){
+    var idproduct= req.params.idproduct;
+    var iduser=req.params.id;
+    console.log("aaaaa");
+    User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("sucess");
+      }
+    });
+  })
   return userRouter
 };
 
