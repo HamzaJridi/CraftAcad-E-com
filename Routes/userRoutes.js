@@ -110,6 +110,10 @@ var routes = function(User){
       }
     });
   })
+
+
+
+
   return userRouter
 };
 

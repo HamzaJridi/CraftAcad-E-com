@@ -3,33 +3,27 @@ angular.module('myApp', ['ngRoute'])
   $routeProvider
     .when('/home', {
       templateUrl: 'public/views/home.html',
-      //controller: 'HomeCtrl'
-      access: {restricted: true}
+      controller: 'LoginCtrl'
     })
     .when('/suits', {
       templateUrl: 'public/views/suits.html',
-      controller: 'ProductsCtrl',
-    access: {restricted: true}
+      controller: 'ProductsCtrl'
     })
     .when('/prodCrud', {
       templateUrl: 'public/views/prodCrud.html',
-      controller: 'ProductsCtrl',
-      access: {restricted: true}
+      controller: 'ProductsCtrl'
     })
     .when('/casual', {
       templateUrl: 'public/views/casual.html',
       //controller: 'ProductsCtrl',
-      access: {restricted: true}
     })
     .when('/sport', {
       templateUrl: 'public/views/sport.html',
       //controller: 'ProductsCtrl',
-      access: {restricted: true}
     })
     .when('/suitDetails/:itemId', {
       templateUrl : 'public/views/suitDetails.html',
       controller : 'ProdDetailCtrl',
-      access: {restricted: true}
     })
     .when('/login', {
       templateUrl : 'public/views/login.html',
