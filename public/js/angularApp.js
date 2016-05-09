@@ -27,11 +27,11 @@ angular.module('myApp', ['ngRoute'])
     })
     .when('/login', {
       templateUrl : 'public/views/login.html',
-      //controller : 'ProdDetailCtrl'
+      controller : 'LoginCtrl'
     })
     .when('/register', {
       templateUrl : 'public/views/register.html',
-      //controller : 'ProdDetailCtrl'
+      controller : 'LoginCtrl'
     })
     .otherwise({
       redirectTo : '/home'
