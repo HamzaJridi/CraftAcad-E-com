@@ -74,12 +74,13 @@ var routes = function(User){
 
   userRouter.get('/:id', function(req, res) {
     User.id=req.params.id
-    User.find({_id:User.id},function(err){
+    User.find({_id:User.id},function(err,data){
       if(err)
         res.status(500).send(err);
-      else
-        console.log("get user");
-      res.status(204).send('get user');
+      else{
+        res.json(data);
+      }
+
     });
   });
 

@@ -20,9 +20,7 @@
   <script src="public/js/controllers/AuthCtrl.js"></script>
   <script src="public/js/services/userService.js"></script>
   <script src="public/js/controllers/CartShopCtrl.js"></script>
-
-
-
+  <script src="public/js/directives/navDirective.js"></script>
 
   <!-- StyleSheets -->
     <link rel="stylesheet" href="public/lib/bootstrap/css/bootstrap.min.css"/>
@@ -34,7 +32,7 @@
 
 <body>
 <header>
-    <nav class="cf" ng-include="'public/views/nav.html'"></nav>
+  <navdir></navdir>
 </header>
 <div ng-view></div>
 
