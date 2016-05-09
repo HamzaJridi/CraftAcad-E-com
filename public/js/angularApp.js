@@ -23,7 +23,12 @@ angular.module('myApp', ['ngRoute'])
     })
     .when('/suitDetails/:itemId', {
       templateUrl : 'public/views/suitDetails.html',
-      controller : 'ProdDetailCtrl',
+      controller : 'CartShopCtrl'
+    })
+    .when('/cartshop',{
+      templateUrl:'public/views/cartShop.html',
+      controller:'CartShopCtrl'
+
     })
     .when('/login', {
       templateUrl : 'public/views/login.html',

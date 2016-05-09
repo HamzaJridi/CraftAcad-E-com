@@ -54,12 +54,12 @@ angular.module('myApp').controller('ProductsCtrl',
 
 
 //the details page controller
-angular.module('myApp').controller('ProdDetailCtrl',
-  ['$scope', '$http','$routeParams',
-    function($scope, $http, $routeParams) {
-    var id = $routeParams.itemId;
-    console.log(id);
-    $http.get('/products/' + id).success(function (response) {
-      $scope.product = response;
-    });
-  }]);
+//angular.module('myApp').controller('ProdDetailCtrl',
+//  ['$scope', '$http','$routeParams',
+//    function($scope, $http, $routeParams) {
+//    var id = $routeParams.itemId;
+//    console.log(id);
+//    $http.get('/products/' + id).success(function (response) {
+//      $scope.product = response;
+//    });
+//  }]);

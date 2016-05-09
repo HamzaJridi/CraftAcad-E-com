@@ -1,5 +1,7 @@
 var express = require('express');
 var passport = require('passport');
+var User = require('../models/userModel');
+var Product = require('../models/productModel');
 
 var routes = function(User){
   var userRouter = express.Router();
@@ -98,11 +100,11 @@ var routes = function(User){
 
 
   // add product in CartShop
-  userRouter.get('/:id/panier/:idproduct',function(req,res){
+  userRouter.get('/:id/cart/:idproduct',function(req,res){
     var idproduct= req.params.idproduct;
     var iduser=req.params.id;
     console.log("aaaaa");
-    User.update({_id:iduser},{$push:{panier:idproduct}},function (err) {
+    User.update({_id:iduser},{$push:{cart:idproduct}},function (err) {
       if (err) {
         console.log(err);
       } else {
@@ -111,7 +113,98 @@ var routes = function(User){
     });
   })
 
+// delete product from panier
+  userRouter.delete('/:id/cart/:prodid',function(req, res){
+    User.id=req.params.id;
+    prodid=req.params.prodid;
 
+    User.update({_id:User.id},{$pull:{cart:prodid}},function(err){
+      if(err)
+        res.status(500).send(err);
+      else
+        console.log("aaaa");
+      res.status(204).send('Removed');
+    });
+  });
+
+  // recuperer les produits d'un panier
+  userRouter.get('/:id/cart',function(req, res){
+    User.id=req.params.id;
+
+    User.find({_id:User.id},{cart:[]},function(err){
+      if(err)
+        res.status(500).send(err);
+      else
+        console.log("aaaa");
+      res.status(204).send('reup');
+    });
+  });
+
+  //  Ajouter modifier supprimer un utilisateur
+// recuperer tous les utilisateurs
+  userRouter.get('/',function(req, res){
+    var query = {};
+    if(req.query.id){
+      query.id = req.query.id;
+    }
+    User.find(query, function(err, users){
+      if(err)
+        res.status(500).send(err);
+      else
+        res.json(users);
+    });
+  });
+  //definir le product router pour recuperer un seul produit à partir de la liste des produits
+  userRouter.route('/:id',function(req, res){
+    res.json(req.user);
+  });
+// ajouter un utilisateur
+  userRouter.route('/').post(function(req, res){
+    var user = new User(req.body);
+    user.save();
+    res.status(201).send(user);
+  });
+// recuperer un utilisateur par id
+  userRouter.route('/:id')
+    .get(function(req, res){
+      res.json(req.user);
+    })
+    // modifier un utilisateur
+    .put(function(req, res){
+      User.id=req.params.id;
+
+      User.findOneAndUpdate({_id:User.id}
+        ,{
+
+          $set: {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            username: req.body.username,
+            password: req.body.password,
+            statut :req.body.role,
+            cart:req.body.cart
+
+          }
+
+        },    function(err){
+          if(err)
+            res.status(500).send(err);
+          else{
+            res.json(req.user);
+          }
+        });
+    })
+    // supprimer un utilisateur
+    .delete(function(req, res){
+      User.id=req.params.id;
+      console.log(req.User);
+      User.findOneAndRemove({_id:User.id},function(err){
+        if(err)
+          res.status(500).send(err);
+        else
+          res.status(204).send('Removed');
+      });
+    });
 
 
   return userRouter

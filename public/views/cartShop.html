@@ -1,0 +1,48 @@
+
+<h1 style="font-size:32px;"> IL FAUT S'AUTHENTIFIER POUR CONSULTER VOTRE PANIER </h1>
+<table class="table table-bordered table-striped">
+  <thead>
+
+
+
+  <tr>
+    <td>Article</td>
+    <td>Prix</td>
+    <td>
+      Image
+    </td>
+    <td>Quantité</td>
+
+    <td>Total</td>
+    <td>Retirer</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="product in products | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+    <td>{{product.title}}</td>
+    <td>{{product.price}}</td>
+    <td>
+      <img style="heigth:25%;width:40%" ng-src="{{product.imgUrl}}"/>
+
+
+    </td>
+    <td>
+      <md-input-container >
+        <label> Quantité </label>
+        <input type="number" min="1" max="{{product.quantity}}" ng-model="quantite" placeholder="age" aria-label="age" required/>
+      </md-input-container></td>
+    <td><label style="color:black" >{{quantite*product.price}}</label></td>
+
+    <td>
+
+      <a href="#/details/{{product._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+
+      <button class="btn btn-danger" ng-click="delete(product)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+    </td>
+
+
+  </tr>
+
+  </tbody>
+  <tfoot></tfoot>
+</table>
