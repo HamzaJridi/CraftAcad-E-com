@@ -1,0 +1,47 @@
+<div class="page">
+  <section class="card register">
+    <form name="myform"
+          ng-submit="adminRegister()"
+          novalidate>
+
+      <div class="textintro">
+        <h1>Add an new User from here</h1>
+        <p>Please fill out the following fields</p>
+        <p class="error validationerror" ng-show="error">{{errorMessage}}</p>
+      </div>
+
+      <fieldset>
+        <input type="text" name="firstname"
+               placeholder="First Name"
+               ng-model="registerForm.firstname"
+               ng-required="true">
+        <p class="error validationerror" ng-show="myform.firstname.$invalid && myform.firstname.$touched">
+          You must fill out your first name.</p>
+
+        <input type="text" name="lastname"
+               placeholder="Last Name"
+               ng-model="registerForm.lastname"
+               ng-required="true">
+        <p class="error validationerror" ng-show="myform.lastname.$invalid && myform.lastname.$touched">
+          You must fill out your last name.</p>
+
+        <input type="text" name="username"
+               placeholder="UserName"
+               ng-model="registerForm.username"
+               ng-required="true">
+        <p class="error validationerror" ng-show="myform.username.$invalid && myform.username.$touched">
+          This must be a valid UserName.</p>
+
+        <input type="text" name="role"
+               placeholder="Role"
+               ng-model="registerForm.role">
+
+        <input type="password" name="password"
+               placeholder="Password"
+               ng-model="registerForm.password">
+      </fieldset>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
+</div>

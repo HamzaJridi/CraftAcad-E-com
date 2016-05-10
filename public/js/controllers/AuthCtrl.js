@@ -16,7 +16,7 @@ angular.module('myApp').controller('RegisterCtrl',
           $scope.registerForm.password)
           // handle success
           .then(function () {
-            $location.path('/home');
+            $location.path('/login');
             $scope.disabled = false;
             $scope.registerForm = {};
           })

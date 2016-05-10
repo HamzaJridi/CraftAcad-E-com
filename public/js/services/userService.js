@@ -13,7 +13,8 @@ angular.module('myApp').factory('AuthService',
         getUserStatus: getUserStatus,
         login: login,
         logout: logout,
-        register: register
+        register: register,
+        adminReg : adminReg
       });
 
       function isLoggedIn() {
@@ -103,6 +104,37 @@ angular.module('myApp').factory('AuthService',
             firstname: firstname,
             lastname : lastname,
             username: username,
+            password: password})
+          // handle success
+          .success(function (data, status) {
+            if(status === 200 && data.status){
+              deferred.resolve();
+            } else {
+              deferred.reject();
+            }
+          })
+          // handle error
+          .error(function (data) {
+            deferred.reject();
+          });
+
+        // return promise object
+        return deferred.promise;
+
+      }
+
+      function adminReg (firstname,lastname,username,role,password) {
+
+        // create a new instance of deferred
+        var deferred = $q.defer();
+
+        // send a post request to the server
+        $http.post('/admins/register',
+          {
+            firstname: firstname,
+            lastname : lastname,
+            username: username,
+            role: role,
             password: password})
           // handle success
           .success(function (data, status) {

@@ -46,6 +46,10 @@ angular.module('myApp', ['ngRoute'])
       templateUrl : 'public/views/logout.html',
       controller : 'LogoutCtrl'
     })
+    .when('/adminreg', {
+      templateUrl : 'public/views/adminReg.html',
+      controller : 'AdminAuthCtrl'
+    })
     .otherwise({
       redirectTo : '/home'
     });

@@ -42,6 +42,11 @@ var User = require('./models/userModel');
 userRouter = require('./Routes/userRoutes')(User);
 app.use('/users', userRouter);
 
+/* The Admin model Schema and the route handler for the '/admins' Route*/
+var Admin = require('./models/userModel');
+adminRouter = require('./Routes/adminRoutes')(Admin);
+app.use('/admins', adminRouter);
+
 app.use(logger('dev'));
 
 // Passport Configuration
