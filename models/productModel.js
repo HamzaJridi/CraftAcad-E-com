@@ -1,20 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//set the disponibility date Schema of a product
-/*var disponibilityDate = new Schema ({
-  start : {type:Date},
-  end : {type : Date}
-});*/
-
-/*set the list of reservations of a product that contains info about
-* the user who reserved the product, the product_id and the date of reservation*/
-//var listReservation = new  Schema ({
-//  userId : {type : String},
-//  productId : {type : String},
-//  dateReserv : {type : Date}
-//});
-
 var productModel = new Schema({
   title : {type:String,required : true},
   imgUrl : {type:String,required : true},
@@ -22,17 +8,13 @@ var productModel = new Schema({
   quantity : {type:Number,required : true},
   ref : {type:String,required : true},
   category : {type:String,required : true},
+  toReserve: { type:Boolean , default:false},
   descr : {type:String},
   listReser : [{
     userId : {type :String },
     prodId : {type :String },
     dateRes : {type :Date }
   }]
-
-  /*for now presume that the product is disponible all over the year
-  dispoDate : {type : disponibilityDate },*/
-
-  //listReserv : {type : [listReservation] }
 });
 
 

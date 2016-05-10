@@ -79,6 +79,24 @@ var routes = function(Product){
       });
     });
 
+
+  // add the Res infos (prodId,uderId, date) into the Prod collection
+  productRouter.post('/:prodId/reservation/:userId/date/:dateRes',
+    function(req,res){
+      var prodId= req.params.prodId;
+      var userId=req.params.userId;
+      var dateRes= req.params.dateRes;
+
+      Product.update({_id:prodId},
+        { $push:{listReser:{prodId:prodId,userId:userId,
+          dateRes:dateRes}}
+        },
+        function (err,data) {
+          if (err) { console.log(err); }
+          else { res.json(data); }
+        });
+    })
+
   return productRouter
 };
 

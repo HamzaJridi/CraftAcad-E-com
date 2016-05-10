@@ -8,20 +8,6 @@ angular.module('myApp').controller('CartShopCtrl',
       $scope.product = data;
     });
       $scope.quantityPr=1;
-      $scope.product={};
-
-      $scope.myDate = new Date();
-      $scope.availableDate = function(date) {
-        var available = true;
-        if($scope.product.listReser) {
-          for (var i=0 ; i<$scope.product.listReser.length;i++){
-            if ((new Date($scope.product.listReser[i].dateRes).getFullYear()===date.getFullYear())
-              &&(new Date($scope.product.listReser[i].dateRes).getMonth()===date.getMonth())
-              &&(new Date($scope.product.listReser[i].dateRes).getDate()===date.getDate()))
-            { available = false; }
-          }}
-        return available;
-      };
 
       var getUsers = function () {
         $scope.products = [] ;
@@ -74,4 +60,34 @@ angular.module('myApp').controller('CartShopCtrl',
         });
       });
     }
+
+      // Reserve a product
+      $scope.reserve=function(date,product){
+        console.log(product._id);
+        console.log(date);
+        $http.get('/users/session').success(function(response){
+          console.log(response._id);
+          $http.get('/users/'+response._id).success(function(user){
+            console.log(user[0]);
+
+            $http.post('products/'+ product._id+'/reservation/'+user[0]._id+'/date/'+date).success(function(res){
+              console.log("callback product reservé pour la date"+date);
+            });
+          });
+        });
+      }//reserver function
+
+      //disable reserved date
+      $scope.product={};
+      $scope.disableDate = function(date) {
+        var available = true;
+        if($scope.product.listReser) {
+          for (var i=0 ; i<$scope.product.listReser.length;i++){
+            if ((new Date($scope.product.listReser[i].dateRes).getFullYear()===date.getFullYear())
+              &&(new Date($scope.product.listReser[i].dateRes).getMonth()===date.getMonth())
+              &&(new Date($scope.product.listReser[i].dateRes).getDate()===date.getDate()))
+            { available = false; }
+          }}
+        return available;
+      };
   }]);

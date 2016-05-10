@@ -12,13 +12,16 @@
         <div class="col-xs-4" style="margin-top: 0.5em">
           <h3 style="color: #1b6d85">Please pick a date</h3>
         <md-datepicker
-            md-date-filter="availableDate"
+            md-date-filter="disableDate"
             ng-model="date"
             md-placeholder="Date debut">
         </md-datepicker>
         </div>
         <div class="col-xs-4">
-        <button class="btn btn-md btn-danger detl" style="margin-left: 2em">
+        <button
+            class="btn btn-md btn-danger detl"
+            style="margin-left: 2em"
+            ng-click="reserve(date,product)">
           <strong>Reserve this Product</strong>
         </button>
         </div>
