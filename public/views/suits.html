@@ -2,7 +2,7 @@
   <input type="text" ng-model="article" placeholder="Search for an article"/>
   <ul>
     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prods"
-        ng-repeat="item in products | filter : article">
+        ng-repeat="item in products | filter : article| limitTo:maxSize:(currentPage - 1) * maxSize">
       <a href="#/suitDetails/{{item._id}}">
           <img ng-src="{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
       </a>
@@ -16,4 +16,8 @@
       </a>
     </li>
   </ul>
+
+</div>
+<div class="col-md-12">
+  <uib-pagination total-items="products.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
 </div>
