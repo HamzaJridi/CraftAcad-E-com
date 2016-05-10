@@ -8,11 +8,20 @@ angular.module('myApp').controller('CartShopCtrl',
       $scope.product = data;
     });
       $scope.quantityPr=1;
+      $scope.product={};
+
       $scope.myDate = new Date();
-      $scope.onlyWeekendsPredicate = function(date) {
-        var day = date.getDay();
-        return day === 0 || day === 6;
-      }
+      $scope.availableDate = function(date) {
+        var available = true;
+        if($scope.product.listReser) {
+          for (var i=0 ; i<$scope.product.listReser.length;i++){
+            if ((new Date($scope.product.listReser[i].dateRes).getFullYear()===date.getFullYear())
+              &&(new Date($scope.product.listReser[i].dateRes).getMonth()===date.getMonth())
+              &&(new Date($scope.product.listReser[i].dateRes).getDate()===date.getDate()))
+            { available = false; }
+          }}
+        return available;
+      };
 
       var getUsers = function () {
         $scope.products = [] ;

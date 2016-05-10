@@ -23,6 +23,11 @@ var productModel = new Schema({
   ref : {type:String,required : true},
   category : {type:String,required : true},
   descr : {type:String},
+  listReser : [{
+    userId : {type :String },
+    prodId : {type :String },
+    dateRes : {type :Date }
+  }]
 
   /*for now presume that the product is disponible all over the year
   dispoDate : {type : disponibilityDate },*/
