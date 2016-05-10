@@ -18,5 +18,5 @@ gulp.task('default', function(){
 
 gulp.task('metadata', function() {
   gulp.src('./metadata/*.json')
-    .pipe(mongodbData({ mongoUrl: 'mongodb://localhost/testDB' }));
+    .pipe(mongodbData({ mongoUrl: 'mongodb://localhost/ecommerce' }));
 });
