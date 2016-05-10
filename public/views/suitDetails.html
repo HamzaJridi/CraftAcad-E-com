@@ -11,21 +11,26 @@
     </div>
 
     <div class="col-xs-5">
-      <h1 style="text-align:center">{{product.title}}</h1>
-      <p class=""><strong>{{product.descr}}</strong> <br/>
-
-      </p>
-      <button class="btn btn-md btn-primary detl">
-        <strong> Price : {{product.price}}</strong>
-      </button>
-      <button class="btn btn-md btn-default detl">
-        <strong>Ref : {{product.ref}}</strong>
-      </button>
-      <button class="btn btn-md btn-danger detl"
-              ng-click="addToCart(product)">
-        <strong>Buy the product</strong>
-      </button>
-
+      <div>
+        <h1 style="text-align:center">{{product.title}}</h1>
+        <p class=""><strong>{{product.descr}}</strong> <br/></p>
+      </div>
+      <div class="row">
+        <button class="btn btn-md btn-primary detl">
+          <strong> Price : ‎€ {{product.price}}</strong>
+        </button>
+        <button class="btn btn-md btn-default detl">
+          <strong>Ref : {{product.ref}}</strong>
+        </button>
+        <button class="btn btn-md btn-danger detl"
+                ng-click="addToCart(product)">
+          <strong>Buy the product</strong>
+        </button>
+        <a href="#cartshop"><button class="btn btn-md btn-warning detl"
+                ng-click="addToCart(product)">
+          <strong>My Shopping Cart</strong>
+        </button></a>
+      </div>
     </div>
   </div>
 

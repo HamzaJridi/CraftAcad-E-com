@@ -1,5 +1,5 @@
 
-<h1 style="font-size:32px;"> IL FAUT S'AUTHENTIFIER POUR CONSULTER VOTRE PANIER </h1>
+<h1 style="font-size:32px;" ng-hide="islogged"> IL FAUT S'AUTHENTIFIER POUR CONSULTER VOTRE PANIER </h1>
 <table class="table table-bordered table-striped">
   <thead>
 
@@ -7,14 +7,14 @@
 
   <tr>
     <td>Article</td>
-    <td>Prix</td>
+    <td>Price</td>
     <td>
       Image
     </td>
-    <td>Quantité</td>
+    <td>Quantity</td>
 
     <td>Total</td>
-    <td>Retirer</td>
+    <td>Remove</td>
   </tr>
   </thead>
   <tbody>
@@ -28,16 +28,22 @@
     </td>
     <td>
       <md-input-container >
-        <label> Quantité </label>
-        <input type="number" min="1" max="{{product.quantity}}" ng-model="quantite" placeholder="age" aria-label="age" required/>
+        <label> Quantity </label>
+        <input type="number"
+               min="1"
+               max="{{product.quantity}}"
+               ng-model="quantityPr"
+               placeholder="age"
+               aria-label="age"
+               required/>
       </md-input-container></td>
-    <td><label style="color:black" >{{quantite*product.price}}</label></td>
+    <td><label style="color:black" >€ {{quantityPr*product.price}}</label></td>
 
     <td>
-
-      <a href="#/details/{{product._id}}" class="btn btn-primary" ><span class="glyphicon glyphicon-zoom-in"></span></a>
-
-      <button class="btn btn-danger" ng-click="delete(product)"><span class="glyphicon glyphicon-remove-sign"></span></button>
+      <button class="btn btn-danger"
+              ng-click="delete(product)">
+        <span class="glyphicon glyphicon-remove-sign"></span>
+      </button>
     </td>
 
 

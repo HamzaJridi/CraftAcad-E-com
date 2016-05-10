@@ -5,52 +5,35 @@ angular.module('myApp').controller('CartShopCtrl',
     function($location,$scope, $http, $routeParams){
     var id =$routeParams.itemId;
     $http.get('/products/'+id).success(function(data){
-      $scope.product = data;});
+      $scope.product = data;
+    });
 
-    $scope.quantite=1;
+    $scope.quantityPr=1;
 
       var getUsers = function () {
         $scope.products = [] ;
         $http.get('/users/session').success(function(response){
           console.log(response._id);
           $http.get('/users/'+response._id).success(function(user){
+            console.log(response);
             $scope.cart = user[0].cart;
             console.log($scope.cart);
             for (var i = 0; i < $scope.cart.length; i++) {
               $http.get('/products/'+$scope.cart[i]).success(function(data){
+                //console.log(data);
                 $scope.products.push(data);
               });
+
             }
             console.log('I\'ve got the requested data');
-          });
-        });
+          });});
       };
-
-    //var getUsers = function () {
-    //  $scope.products = [] ;
-    //  $http.get('/users/session').success(function(response){
-    //    console.log(response);
-    //    $scope.cart = response.cart;
-    //    for (var i = 0; i < $scope.cart.length; i++) {
-    //      $http.get('/products/'+$scope.cart[i]).success(function(data){
-    //        console.log(data);
-    //        $scope.products.push(data);
-    //      });
-    //
-    //    }
-    //    console.log('I\'ve got the requested data');
-    //  });
-    //};
 
     $http.get('/products/' + id).success(function (response) {
       $scope.product = response;
     });
 
     getUsers();
-    $scope.maxSize = 9;
-    $scope.currentPage = 1;
-    $scope.totalItems = 0;
-    $scope.prix=500
 
     // Add a product to the Cart
     $scope.addToCart=function(product){
@@ -71,12 +54,11 @@ angular.module('myApp').controller('CartShopCtrl',
     $scope.delete= function (product) {
       $http.get('/users/session').success(function(response){
         $scope.user=response;
-
         console.log($scope.user);
         $http.delete('/users/'+$scope.user._id+'/cart/'+product._id).success(function(data){
-          console.log('Product deleted');
+          console.log('Product deleted Succefully');
+          getUsers();
         });
-        getUsers();
       });
     }
   }]);

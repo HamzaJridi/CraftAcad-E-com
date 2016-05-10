@@ -13,6 +13,10 @@ angular.module('myApp', ['ngRoute'])
       templateUrl: 'public/views/prodCrud.html',
       controller: 'ProductsCtrl'
     })
+    .when('/userCrud', {
+      templateUrl: 'public/views/userCrud.html',
+      controller: 'UsersCtrl'
+    })
     .when('/casual', {
       templateUrl: 'public/views/casual.html',
       //controller: 'ProductsCtrl',
@@ -36,7 +40,7 @@ angular.module('myApp', ['ngRoute'])
     })
     .when('/register', {
       templateUrl : 'public/views/register.html',
-      controller : 'LoginCtrl'
+      controller : 'RegisterCtrl'
     })
     .when('/logout', {
       templateUrl : 'public/views/logout.html',

@@ -98,23 +98,21 @@ var routes = function(User){
   });
 
 
-
-
-  // add product in CartShop
+  // add product in shopping cart
   userRouter.get('/:id/cart/:idproduct',function(req,res){
     var idproduct= req.params.idproduct;
     var iduser=req.params.id;
-    console.log("aaaaa");
+    console.log("adding product...");
     User.update({_id:iduser},{$push:{cart:idproduct}},function (err) {
       if (err) {
         console.log(err);
       } else {
-        console.log("sucess");
+        console.log("product added succefully");
       }
     });
   })
 
-// delete product from panier
+// delete product from shopping cart
   userRouter.delete('/:id/cart/:prodid',function(req, res){
     User.id=req.params.id;
     prodid=req.params.prodid;
@@ -123,12 +121,12 @@ var routes = function(User){
       if(err)
         res.status(500).send(err);
       else
-        console.log("aaaa");
+        console.log("cart updated");
       res.status(204).send('Removed');
     });
   });
 
-  // recuperer les produits d'un panier
+  // get the product from the shopping cart
   userRouter.get('/:id/cart',function(req, res){
     User.id=req.params.id;
 
@@ -136,47 +134,39 @@ var routes = function(User){
       if(err)
         res.status(500).send(err);
       else
-        console.log("aaaa");
       res.status(204).send('reup');
     });
   });
 
-  //  Ajouter modifier supprimer un utilisateur
-// recuperer tous les utilisateurs
-  userRouter.get('/',function(req, res){
-    var query = {};
-    if(req.query.id){
-      query.id = req.query.id;
-    }
-    User.find(query, function(err, users){
-      if(err)
-        res.status(500).send(err);
-      else
+  // The Users CRUD API
+  userRouter.route('/')
+    //Add a user
+    .post(function(req,res){
+      var user = new User(req.body);
+      user.save();
+      res.status(201).send(user);
+    })
+    // get all users
+    .get(function(req,res){
+      console.log('I got a GET Request')
+      User.find(function (err,users) {
+        if(err){console.log(err)};
+
         res.json(users);
+      });
     });
-  });
-  //definir le product router pour recuperer un seul produit à partir de la liste des produits
-  userRouter.route('/:id',function(req, res){
-    res.json(req.user);
-  });
-// ajouter un utilisateur
-  userRouter.route('/').post(function(req, res){
-    var user = new User(req.body);
-    user.save();
-    res.status(201).send(user);
-  });
-// recuperer un utilisateur par id
+
+// Get a user by its ID
   userRouter.route('/:id')
     .get(function(req, res){
       res.json(req.user);
     })
-    // modifier un utilisateur
+    // Update a user
     .put(function(req, res){
       User.id=req.params.id;
 
-      User.findOneAndUpdate({_id:User.id}
-        ,{
-
+      User.findOneAndUpdate({_id:User.id},
+        {
           $set: {
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -184,10 +174,9 @@ var routes = function(User){
             password: req.body.password,
             statut :req.body.role,
             cart:req.body.cart
-
           }
-
-        },    function(err){
+        },
+        function(err){
           if(err)
             res.status(500).send(err);
           else{
@@ -195,7 +184,7 @@ var routes = function(User){
           }
         });
     })
-    // supprimer un utilisateur
+    // Delete a User
     .delete(function(req, res){
       User.id=req.params.id;
       console.log(req.User);

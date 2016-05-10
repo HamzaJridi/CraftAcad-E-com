@@ -1,0 +1,38 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>User Name</th>
+    <th>Role</th>
+    <th>Action</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input type="text" class="form-control" ng-model="user.firstname" placeholder="First Name" id="title"/></td>
+    <td><input type="text" class="form-control" ng-model="user.lastname" placeholder="Last Name"/></td>
+    <td><input type="text" class="form-control" ng-model="user.username" placeholder="User Name"/></td>
+    <td><input type="text" class="form-control" ng-model="user.role" placeholder="Role"/></td>
+    <td><span>
+
+      <button class="btn btn-primary" ng-click="addUser()">Add Product</button>
+      <button class="btn btn-info" ng-click="updateUser()">Update</button>
+      <button class="btn btn-danger" ng-click="deselect()" style="margin: 1%">Cancel</button>
+    </span></td>
+  </tr>
+  <tr ng-repeat="user in users">
+    <td> {{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.role}}</td>
+    <td><span>
+      <!--<a href="#/suitDetails/{{user._id}}"><button class="btn-info btn-sm">details</button></a>-->
+      <button class="btn-primary" ng-click="editUser(user._id)" id="edit">Edit</button>
+      <button class="btn-danger" ng-click="removeUser(user._id)">X</button>
+    </span></td>
+  </tr>
+
+  </tbody>
+</table>
