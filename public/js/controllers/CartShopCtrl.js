@@ -7,8 +7,12 @@ angular.module('myApp').controller('CartShopCtrl',
     $http.get('/products/'+id).success(function(data){
       $scope.product = data;
     });
-
-    $scope.quantityPr=1;
+      $scope.quantityPr=1;
+      $scope.myDate = new Date();
+      $scope.onlyWeekendsPredicate = function(date) {
+        var day = date.getDay();
+        return day === 0 || day === 6;
+      }
 
       var getUsers = function () {
         $scope.products = [] ;

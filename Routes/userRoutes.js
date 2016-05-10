@@ -56,6 +56,7 @@ var routes = function(User){
 //The logOut method
   userRouter.get('/logout', function(req, res) {
     req.logout();
+    req.session.user=null;
     res.redirect('/');
     res.status(200).json({
       status: 'User Logged Out..Bye!!'
