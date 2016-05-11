@@ -90,4 +90,5 @@ angular.module('myApp').controller('CartShopCtrl',
           }}
         return available;
       };
+
   }]);

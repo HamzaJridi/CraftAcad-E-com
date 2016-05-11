@@ -7,7 +7,7 @@ angular.module('myApp').controller('ProductsCtrl',
       $scope.totalItems = 0;
 
       var getProducts = function () {
-        $http.get('/products').success(function (response) {
+        $http.get('/products/suits').success(function (response) {
           console.log('I received the data', response);
           $scope.products = response;
           $scope.product = "";
