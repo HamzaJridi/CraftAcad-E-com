@@ -7,7 +7,11 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
     })
     .when('/suits', {
       templateUrl: 'public/views/suits.html',
-      controller: 'ProductsCtrl'
+      controller: 'SuitsCtrl'
+    })
+    .when('/wedding', {
+      templateUrl: 'public/views/wedding.html',
+      controller: 'WedCtrl'
     })
     .when('/prodCrud', {
       templateUrl: 'public/views/prodCrud.html',

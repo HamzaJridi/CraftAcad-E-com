@@ -43,4 +43,7 @@ ul {list-style-type: none;}
   color: black;
 }
 
-
+.wedArticles {
+  height: 35em;
+  width: 25em;
+}

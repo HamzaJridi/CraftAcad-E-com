@@ -9,8 +9,18 @@ var routes = function(Product){
       var product = new Product(req.body);
       product.save();
       res.status(201).send(product);
+    })
+    .get(function(req,res){
+      console.log('I got a GET Request')
+      Product.find(function (err,products) {
+        if(err){console.log(err)};
+
+        res.json(products);
+      });
     });
-  productRouter.route('/:category')
+
+//Get prods by category
+  productRouter.route('/category/:category')
     .get(function(req,res){
       console.log('I got a GET Request');
       var category = req.params.category;
