@@ -93,14 +93,14 @@ var routes = function(Product){
 
 
   // add the Res infos (prodId,userId, date) into the Prod collection
-  productRouter.post('/:prodId/reservation/:userId/date/:dateRes',
+  productRouter.post('/:prodId/reservation/:username/date/:dateRes',
     function(req,res){
       var prodId= req.params.prodId;
-      var userId=req.params.userId;
+      var username=req.params.username;
       var dateRes= req.params.dateRes;
 
       Product.update({_id:prodId},
-        { $push:{listReser:{prodId:prodId,userId:userId,
+        { $push:{listReser:{prodId:prodId,username:username,
           dateRes:dateRes}}
         },
         function (err,data) {

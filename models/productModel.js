@@ -11,7 +11,7 @@ var productModel = new Schema({
   toReserve: { type:Boolean , default:false},
   descr : {type:String},
   listReser : [{
-    userId : {type :String },
+    username : {type :String },
     prodId : {type :String },
     dateRes : {type :Date }
   }]

@@ -70,8 +70,9 @@ angular.module('myApp').controller('CartShopCtrl',
           $http.get('/users/'+response._id).success(function(user){
             console.log(user[0]);
 
-            $http.post('products/'+ product._id+'/reservation/'+user[0]._id+'/date/'+date).success(function(res){
-              console.log("callback product reservé pour la date"+date);
+            $http.post('products/'+ product._id+'/reservation/'+user[0].username+'/date/'+date).success(function(res){
+              $scope.message = 'Your product is reserved for the date ' + date;
+              console.log("Your product is reserved for the date "+date);
             });
           });
         });
