@@ -29,6 +29,10 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       templateUrl: 'public/views/sport.html',
       //controller: 'ProductsCtrl',
     })
+    .when('/reservations/:itemId', {
+      templateUrl: 'public/views/reservations.html',
+      controller: 'ProdDetailCtrl',
+    })
     .when('/suitDetails/:itemId', {
       templateUrl : 'public/views/prodsDetails.html',
       controller : 'CartShopCtrl'

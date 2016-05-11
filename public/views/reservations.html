@@ -1,0 +1,29 @@
+<div class="container-fluid row articles" id="navbar">
+  <table class="col-md-8 col-xs-12 table table-responsive table-hover ">
+    <thead>
+    <tr>
+      <th>Utilisateur</th>
+      <th>produit</th>
+      <th>Date de réservation</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="res in product.listReser">
+      <td>{{res.userId}}</td>
+      <td>{{res.prodId}}</td>
+      <td>{{res.dateRes}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+    <!--<ul>-->
+      <!--<li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 prods"-->
+          <!--ng-repeat="res in product.listReser">-->
+        <!--<h4>{{res.userId}}</h4>-->
+        <!--<h4>{{res.prodId}}</h4>-->
+        <!--<h4>{{res.dateRes}}</h4>-->
+      <!--</li>-->
+    <!--</ul>-->
+</div>

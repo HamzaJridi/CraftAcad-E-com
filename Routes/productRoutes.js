@@ -92,7 +92,7 @@ var routes = function(Product){
     });
 
 
-  // add the Res infos (prodId,uderId, date) into the Prod collection
+  // add the Res infos (prodId,userId, date) into the Prod collection
   productRouter.post('/:prodId/reservation/:userId/date/:dateRes',
     function(req,res){
       var prodId= req.params.prodId;
