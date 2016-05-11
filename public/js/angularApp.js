@@ -30,7 +30,7 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       //controller: 'ProductsCtrl',
     })
     .when('/suitDetails/:itemId', {
-      templateUrl : 'public/views/suitDetails.html',
+      templateUrl : 'public/views/prodsDetails.html',
       controller : 'CartShopCtrl'
     })
     .when('/cartshop',{
