@@ -35,11 +35,11 @@
       <h3 style="color: #1b6d85">Please pick a date for the reservation</h3>
     </div>
     <div class="col-xs-push-4 col-xs-7">
-      <md-datepicker
-          md-date-filter="disableDate"
-          ng-model="date"
-          md-placeholder="Reservation Date">
-      </md-datepicker>
+      <!--<md-datepicker-->
+          <!--md-date-filter="disableDate"-->
+          <!--ng-model="date"-->
+          <!--md-placeholder="Reservation Date">-->
+      <!--</md-datepicker>-->
       <button
             class="btn btn-md btn-danger detl"
             style="margin-left: 2em"
@@ -47,6 +47,19 @@
           <strong>Reserve this Product</strong>
         </button>
     </div> <!--Calendar-->
+
+    <!--New Calendar-->
+    <div class="row">
+      <div class="col-md-6">
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="date" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+    </div>
+
 
     <div class="container-fluid">
 

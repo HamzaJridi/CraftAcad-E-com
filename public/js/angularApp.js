@@ -58,10 +58,6 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       templateUrl : 'public/views/adminReg.html',
       controller : 'AdminAuthCtrl'
     })
-    //when('/reservations', {
-    //  templateUrl:'public/views/reservations.html',
-    //  controller:'RentProdCtrl'
-    //})
     .otherwise({
       redirectTo : '/home'
     });

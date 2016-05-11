@@ -4,7 +4,7 @@ var mongodbData = require('gulp-mongodb-data');
 
 gulp.task('default', function(){
     nodemon({
-        script:'app.js',
+        script:'server.js',
         ext:'js',
         env:{
             PORT:8000
