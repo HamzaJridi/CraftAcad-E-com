@@ -68,12 +68,11 @@ angular.module('myApp').controller('CartShopCtrl',
         $http.get('/users/session').success(function(response){
           console.log(response._id);
           $http.get('/users/'+response._id).success(function(user){
-            console.log(user[0]);
-
-            $http.post('products/'+ product._id+'/reservation/'+user[0].username+'/date/'+date).success(function(res){
-              $scope.message = 'Your product is reserved for the date ' + date;
-              console.log("Your product is reserved for the date "+date);
-            });
+              console.log(user[0]);
+              $http.post('products/'+ product._id+'/reservation/'+user[0].username+'/date/'+date).success(function(res){
+                $scope.message = 'Your product has been  reserved Succefully';
+                console.log("Your product h reserved succefully");
+              });
           });
         });
       }//reserver function
@@ -90,13 +89,6 @@ angular.module('myApp').controller('CartShopCtrl',
             { available = false; }
           }}
         return available;
-      };
-
-      $scope.open1 = function() {
-        $scope.popup1.opened = true;
-      };
-      $scope.popup1 = {
-        opened: false
       };
 
   }]);
