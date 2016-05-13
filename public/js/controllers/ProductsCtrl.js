@@ -24,7 +24,7 @@ angular.module('myApp').controller('ProductsCtrl',
         });
       };
 
-      //edit a product method to get the prod props in fie
+      //edit a product method to get the prod props in the input fields
       $scope.editProd = function(id) {
         console.log(id);
         $http.get('/products/' + id).success(function(response) {

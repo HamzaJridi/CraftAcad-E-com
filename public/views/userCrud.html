@@ -1,27 +1,15 @@
-<table class="table" id="navbar">
+<table class="table table-hover table-responsive" id="navbar">
   <thead>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>User Name</th>
-    <th>Role</th>
-    <th>Action</th>
+  <tr style="color: purple">
+    <th><h3>First Name</h3></th>
+    <th><h3>Last Name</h3></th>
+    <th><h3>User Name</h3></th>
+    <th><h3>Role</h3></th>
+    <th><h3>Delete</h3></th>
 
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td><input type="text" class="form-control" ng-model="user.firstname" placeholder="First Name" id="title"/></td>
-    <td><input type="text" class="form-control" ng-model="user.lastname" placeholder="Last Name"/></td>
-    <td><input type="text" class="form-control" ng-model="user.username" placeholder="User Name"/></td>
-    <td><input type="text" class="form-control" ng-model="user.role" placeholder="Role"/></td>
-    <td><span>
-
-      <a href="#adminreg"><button class="btn btn-primary">Add User</button></a>
-      <button class="btn btn-info" ng-click="updateUser()">Update</button>
-      <button class="btn btn-danger" ng-click="deselect()" style="margin: 1%">Cancel</button>
-    </span></td>
-  </tr>
   <tr ng-repeat="user in users">
     <td> {{user.firstname}}</td>
     <td>{{user.lastname}}</td>
@@ -29,10 +17,13 @@
     <td>{{user.role}}</td>
     <td><span>
       <!--<a href="#/suitDetails/{{user._id}}"><button class="btn-info btn-sm">details</button></a>-->
-      <button class="btn-primary" ng-click="editUser(user._id)" id="edit">Edit</button>
       <button class="btn-danger" ng-click="removeUser(user._id)">X</button>
     </span></td>
   </tr>
-
   </tbody>
 </table>
+<div style="margin: 1em 0 0 1em">
+    <span>
+      <a href="#adminreg"><button class="btn btn-danger btn-lg">Add a User</button></a>
+    </span>
+</div>

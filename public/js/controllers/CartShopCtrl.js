@@ -63,10 +63,7 @@ angular.module('myApp').controller('CartShopCtrl',
 
       // Reserve a product
       $scope.reserve=function(date,product){
-        console.log(product._id);
-        console.log(date);
         $http.get('/users/session').success(function(response){
-          console.log(response._id);
           $http.get('/users/'+response._id).success(function(user){
               console.log(user[0]);
               $http.post('products/'+ product._id+'/reservation/'+user[0].username+'/date/'+date).success(function(res){
