@@ -1,16 +1,10 @@
 <table class="table table-bordered table-striped" id="navbar">
   <thead>
-
-
-
   <tr>
     <td>Article</td>
     <td>Price</td>
-    <td>
-      Image
-    </td>
+    <td>Image</td>
     <td>Quantity</td>
-
     <td>Total</td>
     <td>Remove</td>
   </tr>
@@ -21,8 +15,6 @@
     <td>{{product.price}}</td>
     <td>
       <img style="heigth:25%;width:40%" ng-src="{{product.imgUrl}}"/>
-
-
     </td>
     <td>
       <md-input-container >
@@ -36,17 +28,13 @@
                required/>
       </md-input-container></td>
     <td><label style="color:black" >€ {{quantityPr*product.price}}</label></td>
-
     <td>
       <button class="btn btn-danger"
               ng-click="delete(product)">
         <span class="glyphicon glyphicon-remove-sign"></span>
       </button>
     </td>
-
-
   </tr>
-
   </tbody>
   <tfoot></tfoot>
 </table>

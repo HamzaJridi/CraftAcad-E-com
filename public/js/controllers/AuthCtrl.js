@@ -2,7 +2,6 @@
 angular.module('myApp').controller('RegisterCtrl',
   ['$scope', '$location', 'AuthService',
     function ($scope, $location, AuthService) {
-
       $scope.register = function () {
 
         // initial values
@@ -27,19 +26,14 @@ angular.module('myApp').controller('RegisterCtrl',
             $scope.disabled = false;
             $scope.registerForm = {};
           });
-
       };
-
     }]);
-
 
 //Login Controller
 angular.module('myApp').controller('LoginCtrl',
   ['$scope', '$location', 'AuthService','$rootScope',
     function ($scope, $location, AuthService,$rootScope) {
-
       $scope.login = function () {
-
         // initial values
         $scope.error = false;
         $scope.disabled = true;
@@ -60,9 +54,7 @@ angular.module('myApp').controller('LoginCtrl',
             $scope.loginForm = {};
             $rootScope.islogged = false;
           });
-
       };
-
       $scope.logout = function () {
 
         // call logout from service

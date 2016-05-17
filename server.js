@@ -8,9 +8,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var localStrategy = require('passport-local' ).Strategy;
-/** open a connection to the db which is 'ecommerce'
- *  if the ecommerce db doesn't exist it'll be created */
-var db = mongoose.connect('mongodb://localhost/ecommerce');
+/** open a connection to the db which is 'E-com'
+ *  if the E-com db doesn't exist it'll be created */
+var db = mongoose.connect('mongodb://localhost/E-com');
 
 var app = express();
 var port = process.env.PORT || 3000;

@@ -16,7 +16,6 @@ angular.module('myApp').controller('ProductsCtrl',
       //invoke the getProducts method to display all the prods
       getProducts();
 
-
       //add a product method
       $scope.addProd = function () {
         $http.post('/products', $scope.product).success(function (response) {

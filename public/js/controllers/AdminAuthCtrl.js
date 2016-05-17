@@ -29,7 +29,5 @@ angular.module('myApp').controller('AdminAuthCtrl',
             $scope.disabled = false;
             $scope.registerForm = {};
           });
-
       };
-
     }]);

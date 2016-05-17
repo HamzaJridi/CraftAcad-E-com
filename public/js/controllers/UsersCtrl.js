@@ -11,7 +11,6 @@ angular.module('myApp').controller('UsersCtrl',
       //invoke the getUsers method to display all the users
       getUsers();
 
-
       //add a user method
       $scope.addUser = function () {
         $http.post('/users', $scope.user).success(function (response) {
@@ -51,15 +50,3 @@ angular.module('myApp').controller('UsersCtrl',
         $scope.user="";
       };
     }]);
-
-
-//the details page controller
-//angular.module('myApp').controller('UserDetailCtrl',
-//  ['$scope', '$http','$routeParams',
-//    function($scope, $http, $routeParams) {
-//      var id = $routeParams.itemId;
-//      console.log(id);
-//      $http.get('/users/' + id).success(function (response) {
-//        $scope.user = response;
-//      });
-//    }]);

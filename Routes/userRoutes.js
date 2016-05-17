@@ -27,8 +27,6 @@ var routes = function(User){
       });
   });
 
-
-
   //the login method
   userRouter.post('/login', function(req,res,next){
     passport.authenticate('local', function(err, user, info) {
@@ -70,9 +68,7 @@ var routes = function(User){
       return res.status(404).send("session not found");
     }
     return res.json(req.session.user);
-
   });
-
   userRouter.get('/:id', function(req, res) {
     User.id=req.params.id
     User.find({_id:User.id},function(err,data){
@@ -100,25 +96,25 @@ var routes = function(User){
 
 
   // add product in shopping cart
-  userRouter.get('/:id/cart/:idproduct',function(req,res){
-    var idproduct= req.params.idproduct;
-    var iduser=req.params.id;
+  userRouter.get('/:id/cart/:productId',function(req,res){
+    var productId= req.params.productId;
+    var userId=req.params.id;
     console.log("adding product...");
-    User.update({_id:iduser},{$push:{cart:idproduct}},function (err) {
+    User.update({_id:userId},{$push:{cart:productId}},function (err) {
       if (err) {
         console.log(err);
       } else {
         console.log("product added succefully");
       }
     });
-  })
+  });
 
 // delete product from shopping cart
-  userRouter.delete('/:id/cart/:prodid',function(req, res){
+  userRouter.delete('/:id/cart/:productId',function(req, res){
     User.id=req.params.id;
-    prodid=req.params.prodid;
+    productId=req.params.productId;
 
-    User.update({_id:User.id},{$pull:{cart:prodid}},function(err){
+    User.update({_id:User.id},{$pull:{cart:productId}},function(err){
       if(err)
         res.status(500).send(err);
       else
