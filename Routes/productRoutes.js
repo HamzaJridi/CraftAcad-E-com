@@ -4,16 +4,16 @@ var routes = function(Product){
   var productRouter = express.Router();
   /** set the product route using productRouter.route('newRoute') method*/
   productRouter.route('/')
-    //the post methode require the bodyParser
+    //the post method require the bodyParser
     .post(function(req,res){
       var product = new Product(req.body);
       product.save();
       res.status(201).send(product);
     })
     .get(function(req,res){
-      console.log('I got a GET Request')
+      console.log('I got a GET Request');
       Product.find(function (err,products) {
-        if(err){console.log(err)};
+        if(err){console.log(err)}
 
         res.json(products);
       });
@@ -25,7 +25,7 @@ var routes = function(Product){
       console.log('I got a GET Request');
       var category = req.params.category;
       Product.find({"category" : category},function (err,products) {
-        if(err){console.log(err)};
+        if(err){console.log(err)}
 
         res.json(products);
       });
@@ -107,7 +107,7 @@ var routes = function(Product){
           if (err) { console.log(err); }
           else { res.json(data); }
         });
-    })
+    });
 
   return productRouter
 };

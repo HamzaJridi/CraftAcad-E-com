@@ -56,7 +56,6 @@ angular.module('myApp').controller('ProductsCtrl',
       };
     }]);
 
-
 //the details page controller
 angular.module('myApp').controller('ProdDetailCtrl',
   ['$scope', '$http','$routeParams',

@@ -7,7 +7,7 @@ angular.module('myApp').controller('CartShopCtrl',
     $http.get('/products/'+id).success(function(data){
       $scope.product = data;
     });
-    $scope.quantityPr=1;
+    $scope.qte=1;
 
     var refresh = function () {
       $scope.products = [] ;
@@ -33,18 +33,17 @@ angular.module('myApp').controller('CartShopCtrl',
     });
 
     refresh();
-
+    $scope.shops = {};
     // Add a product to the Cart
-    $scope.addToCart=function(product){
+    $scope.addToCart=function(product,qte){
       console.log(product._id);
       $http.get('/users/session').success(function(response){
         console.log(response);
         $scope.user=response;
-
-        $http.get('/users/'+$scope.user._id+'/cart/'+product._id).success(function(res){
-          console.log(res);
-          $scope.products.push(product._id);
-          $location.path('/cart');
+        $http.get('/users/' + $scope.user._id + '/cart/' +product._id + '/' +product.title + '/' +product.imgUrl+ '/' +product.price+ '/' +product.quantity+ '/' +$scope.qte).success(function(err){
+          console.log("aaaa");
+          //$scope.shops.push();
+          //$location.path('/cart');
           refresh();
         })
       })};
@@ -67,8 +66,8 @@ angular.module('myApp').controller('CartShopCtrl',
           $http.get('/users/'+response._id).success(function(user){
               console.log(user[0]);
               $http.post('products/'+ product._id+'/reservation/'+user[0].username+'/date/'+date).success(function(res){
-                $scope.message = 'Your product has been  reserved Succefully';
-                console.log("Your product h reserved succefully");
+                $scope.message = 'Your product has been  reserved Successfully';
+                console.log("Your product has been reserved successfully");
               });
           });
         });

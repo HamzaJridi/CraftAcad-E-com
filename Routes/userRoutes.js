@@ -94,17 +94,31 @@ var routes = function(User){
     });
   });
 
-
   // add product in shopping cart
-  userRouter.get('/:id/cart/:productId',function(req,res){
-    var productId= req.params.productId;
-    var userId=req.params.id;
-    console.log("adding product...");
-    User.update({_id:userId},{$push:{cart:productId}},function (err) {
+  userRouter.get('/:id/cart/:productId/:title/:imgUrl/:price/:prodQte/:qte',
+    function(req,res){
+      var productId= req.params.productId;
+      var title= req.params.title;
+      var imgUrl= req.params.imgUrl;
+      var price= req.params.price;
+      var prodQte= req.params.prodQte;
+      var qte= req.params.qte;
+      var userId=req.params.id;
+      console.log("adding product...");
+      User.update({_id:userId},{$push:
+      {cart:{
+        productId:productId,
+        title:title,
+        imgUrl:imgUrl,
+        price:price,
+        prodQte:prodQte,
+        qte:qte
+      }}}
+      ,function (err) {
       if (err) {
         console.log(err);
       } else {
-        console.log("product added succefully");
+        console.log("product added successfully");
       }
     });
   });
@@ -114,7 +128,7 @@ var routes = function(User){
     User.id=req.params.id;
     productId=req.params.productId;
 
-    User.update({_id:User.id},{$pull:{cart:productId}},function(err){
+    User.update({_id:User.id},{$pull:{cart:{productId:productId}}},function(err){
       if(err)
         res.status(500).send(err);
       else
@@ -122,6 +136,21 @@ var routes = function(User){
       res.status(204).send('Removed');
     });
   });
+
+  //Clear the Shopping Cart
+  userRouter.delete('/:id/cart', function (req, res) {
+    User.id = req.params.id;
+
+    User.update({
+      _id: User.id},
+      {$set: {cart: []}},
+      function (err) {
+        if (err) {res.status(500).send(err)}
+
+        res.status(204).send('Shop Cart Cleared');
+    });
+  });
+
 
   // get the product from the shopping cart
   userRouter.get('/:id/cart',function(req, res){
@@ -145,9 +174,9 @@ var routes = function(User){
     })
     // get all users
     .get(function(req,res){
-      console.log('I got a GET Request')
+      console.log('I got a GET Request');
       User.find(function (err,users) {
-        if(err){console.log(err)};
+        if(err){console.log(err)}
 
         res.json(users);
       });
