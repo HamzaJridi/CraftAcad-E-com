@@ -67,8 +67,8 @@ angular.module('myApp').controller('CartShopCtrl',
           $http.get('/users/'+response._id).success(function(user){
               console.log(user[0]);
               $http.post('products/'+ product._id+'/reservation/'+user[0].username+'/date/'+date).success(function(res){
-                $scope.message = 'Your product has been  reserved Succefully';
-                console.log("Your product h reserved succefully");
+                $scope.message = 'Your product has been  reserved Successfully';
+                console.log("Your product has been reserved successfully");
               });
           });
         });
@@ -76,6 +76,7 @@ angular.module('myApp').controller('CartShopCtrl',
 
       //disable reserved date
       $scope.product={};
+      $scope.minDate = new Date();
       $scope.disableDate = function(date) {
         var available = true;
         if($scope.product.listReser) {

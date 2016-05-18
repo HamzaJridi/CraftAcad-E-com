@@ -37,18 +37,19 @@
       <md-datepicker
           md-date-filter="disableDate"
           ng-model="date"
-          md-placeholder="Reservation Date">
+          md-placeholder="Reservation Date"
+          md-min-date="minDate">
       </md-datepicker>
       <button
             class="btn btn-md btn-danger detl"
             style="margin-left: 2em"
-            ng-click="reserve(date,product)">
+            ng-click="reserve(date,product)"
+            ng-disabled="message">
           <strong>Reserve this Product</strong>
         </button>
-      <h3 ng-show="message">{{message}}</h3>
+      <h3 ng-show="message" style="color: #DA3637">{{message}}</h3>
     </div> <!--Calendar-->
     </div>
-  </div>
 </section>
 
 
