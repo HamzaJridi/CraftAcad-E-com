@@ -13,7 +13,15 @@ var User = new Schema({
   username : {type : String, unique : true },
   role : { type:String , default : "customer"},
   password : {type : String },
-  cart : [String]
+  cart : [{
+    productId : String,
+    title : String,
+    imgUrl : String,
+    price : String,
+    quantity : String,
+    qte : Number,
+    purchased : {type : Boolean, default: false}
+  }]
 
 });
 
