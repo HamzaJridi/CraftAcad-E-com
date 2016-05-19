@@ -97,7 +97,9 @@ var routes = function(Product){
     function(req,res){
       var prodId= req.params.prodId;
       var username=req.params.username;
-      var dateRes= req.params.dateRes;
+      var date= new Date(req.params.dateRes);
+      var dateRes= new Date();
+      dateRes.setDate(date.getDate());
 
       Product.update({_id:prodId},
         { $push:{listReser:{prodId:prodId,username:username,
@@ -105,7 +107,10 @@ var routes = function(Product){
         },
         function (err,data) {
           if (err) { console.log(err); }
-          else { res.json(data); }
+          else {
+            res.json(data);
+            console.log(dateRes);
+          }
         });
     });
 

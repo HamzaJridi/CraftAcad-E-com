@@ -104,7 +104,7 @@ var routes = function(User){
       if (err) {
         console.log(err);
       } else {
-        console.log("product added succefully");
+        console.log("product added successfully");
       }
     });
   });
@@ -131,7 +131,7 @@ var routes = function(User){
       if(err)
         res.status(500).send(err);
       else
-      res.status(204).send('reup');
+      res.status(204).send('data from Cart');
     });
   });
 
@@ -145,9 +145,9 @@ var routes = function(User){
     })
     // get all users
     .get(function(req,res){
-      console.log('I got a GET Request')
+      console.log('I got a GET Request');
       User.find(function (err,users) {
-        if(err){console.log(err)};
+        if(err){console.log(err)}
 
         res.json(users);
       });
