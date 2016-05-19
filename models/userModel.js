@@ -20,7 +20,16 @@ var User = new Schema({
     price : String,
     quantity : String,
     qte : Number,
-    purchased : {type : Boolean, default: false}
+    totalPrice : Number
+  }],
+  purchasedProds : [{
+    productId : String,
+    title : String,
+    imgUrl : String,
+    price : String,
+    quantity : String,
+    qte : Number,
+    date : {type : Date, default : Date.now}
   }]
 
 });

@@ -10,25 +10,22 @@ angular.module('myApp').controller('CartShopCtrl',
       $scope.qte=1;
 
       var refresh = function () {
-        //$scope.products = [] ;
+        $scope.products = [] ;
         $http.get('/users/session').success(function(response){
           $http.get('/users/'+response._id).success(function(user){
             console.log(response);
             $scope.cart = user[0].cart;
-            //for (var i = 0; i < $scope.cart.length; i++) {
-            //  //$http.get('/products/'+$scope.cart[i]).success(function(data){
-            //    //console.log(data);
-            //    $scope.products.push($scope.cart[i]);
-            //  //});
-            //}
+            for (var i = 0; i < $scope.cart.length; i++) {
+                $scope.products.push($scope.cart[i]);
+            }
             console.log('I\'ve got the requested data');
           });
         });
       };
 
-      $http.get('/products/' + id).success(function (response) {
-        $scope.product = response;
-      });
+      //$http.get('/products/' + id).success(function (response) {
+      //  $scope.product = response;
+      //});
 
       refresh();
 
@@ -42,6 +39,8 @@ angular.module('myApp').controller('CartShopCtrl',
             refresh();
           })
         })};
+
+
 
       //remove prod from the Shopping Cart
       $scope.delete = function (id) {

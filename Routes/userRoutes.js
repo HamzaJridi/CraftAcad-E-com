@@ -104,6 +104,7 @@ var routes = function(User){
       var price= req.params.price;
       var prodQte= req.params.prodQte;
       var qte= req.params.qte;
+      var totalPrice = qte * price;
       var userId=req.params.id;
       console.log("adding product...");
       User.update({_id:userId},{$push:
@@ -113,7 +114,8 @@ var routes = function(User){
           imgUrl:imgUrl,
           price:price,
           prodQte:prodQte,
-          qte:qte
+          qte:qte,
+          totalPrice : totalPrice
         }}}
         ,function (err) {
           if (err) {
@@ -138,18 +140,10 @@ var routes = function(User){
     });
   });
 
-  // get the product from the shopping cart
-  userRouter.get('/:id/cart',function(req, res){
-    User.id=req.params.id;
+  //Validate Shopping Cart method
+userRouter.get('/:id/cart').success(function () {
 
-    User.find({_id:User.id},{cart:[]},function(err){
-      if(err)
-        res.status(500).send(err);
-      else
-      res.status(204).send('data from Cart');
-    });
-  });
-
+});
   // The Users CRUD API
   userRouter.route('/')
     //Add a user
