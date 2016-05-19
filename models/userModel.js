@@ -17,8 +17,8 @@ var User = new Schema({
     productId : String,
     title : String,
     imgUrl : String,
-    price : String,
-    quantity : String,
+    price : Number,
+    quantity : Number,
     qte : Number,
     totalPrice : Number
   }],
@@ -26,8 +26,8 @@ var User = new Schema({
     productId : String,
     title : String,
     imgUrl : String,
-    price : String,
-    quantity : String,
+    price : Number,
+    quantity : Number,
     qte : Number,
     date : {type : Date, default : Date.now}
   }]

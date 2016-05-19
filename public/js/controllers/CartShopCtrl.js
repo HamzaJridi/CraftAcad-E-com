@@ -40,6 +40,15 @@ angular.module('myApp').controller('CartShopCtrl',
           })
         })};
 
+      /* Validating the Shopping Cart : Ordering chosen prods
+      get added prods from the shop cart and insert them in purchased prods*/
+      $scope.getProdFromCart = function () {
+        for (var i=0; i< $scope.cart.length; i++) {
+          $scope.prod =  $scope.cart[i];
+          console.log($scope.prod);
+        }
+      };
+
 
 
       //remove prod from the Shopping Cart

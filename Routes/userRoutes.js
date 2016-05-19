@@ -96,13 +96,13 @@ var routes = function(User){
 
 
   // add product in shopping cart
-  userRouter.get('/:id/cart/:productId/:title/:imgUrl/:price/:prodQte/:qte',
+  userRouter.get('/:id/cart/:productId/:title/:imgUrl/:price/:quantity/:qte',
     function(req,res){
       var productId= req.params.productId;
       var title= req.params.title;
       var imgUrl= req.params.imgUrl;
       var price= req.params.price;
-      var prodQte= req.params.prodQte;
+      var quantity= req.params.quantity;
       var qte= req.params.qte;
       var totalPrice = qte * price;
       var userId=req.params.id;
@@ -113,7 +113,7 @@ var routes = function(User){
           title:title,
           imgUrl:imgUrl,
           price:price,
-          prodQte:prodQte,
+          quantity:quantity,
           qte:qte,
           totalPrice : totalPrice
         }}}
@@ -140,10 +140,38 @@ var routes = function(User){
     });
   });
 
-  //Validate Shopping Cart method
-userRouter.get('/:id/cart').success(function () {
+  //insert ordered prods into the user's purchased prods list
+  userRouter.get('/:id/purchased/:productId/:title/:imgUrl/:price/:quantity/:qte',
+    function(req,res){
+      var productId= req.params.productId;
+      var title= req.params.title;
+      var imgUrl= req.params.imgUrl;
+      var price= req.params.price;
+      var quantity= req.params.quantity;
+      var qte= req.params.qte;
+      var totalPrice = qte * price;
+      var userId=req.params.id;
+      console.log("adding product...");
+      User.update({_id:userId},{$push:
+        {cart:{
+          productId:productId,
+          title:title,
+          imgUrl:imgUrl,
+          price:price,
+          quantity:quantity,
+          qte:qte,
+          totalPrice : totalPrice
+        }}}
+        ,function (err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("product added successfully");
+          }
+        });
+    });
 
-});
+
   // The Users CRUD API
   userRouter.route('/')
     //Add a user
