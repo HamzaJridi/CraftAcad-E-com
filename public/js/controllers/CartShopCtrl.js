@@ -33,18 +33,15 @@ angular.module('myApp').controller('CartShopCtrl',
       refresh();
 
       // Add a product to the Cart
-      $scope.addToCart=function(product){
+      $scope.addToCart=function(product,qte){
         console.log(product._id);
         $http.get('/users/session').success(function(response){
           console.log(response);
           $scope.user=response;
-
-          $http.get('/users/'+$scope.user._id+'/cart/'+product._id).success(function(res){
-            console.log(res);
+          $http.get('/users/' + $scope.user._id + '/cart/' +product._id + '/' +product.title + '/' +product.imgUrl+ '/' +product.price+ '/' +product.quantity+ '/' +$scope.qte).success(function(err){
             refresh();
           })
-        })
-      };
+        })};
 
       //remove prod from the Shopping Cart
       $scope.delete = function (product) {

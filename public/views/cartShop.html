@@ -17,17 +17,19 @@
       <img style="heigth:25%;width:40%" ng-src="{{product.imgUrl}}"/>
     </td>
     <td>
-      <md-input-container >
-        <label> Quantity </label>
-        <input type="number"
-               min="1"
-               max="{{product.quantity}}"
-               ng-model="quantityPr"
-               placeholder="age"
-               aria-label="age"
-               required/>
-      </md-input-container></td>
-    <td><label style="color:black" >€ {{quantityPr*product.price}}</label></td>
+      <!--<md-input-container >-->
+        <!--<label> Quantity </label>-->
+        <!--<input type="number"-->
+               <!--min="1"-->
+               <!--max="{{product.quantity}}"-->
+               <!--ng-model="quantityPr"-->
+               <!--placeholder="age"-->
+               <!--aria-label="age"-->
+               <!--required/>-->
+      <!--</md-input-container>-->
+      <p>{{product.qte}}</p>
+    </td>
+    <td><label style="color:black" >€ {{product.qte * product.price}}</label></td>
     <td>
       <button class="btn btn-danger" ng-click="delete(product)">
         <span class="glyphicon glyphicon-remove-sign"></span>
