@@ -7,20 +7,20 @@ angular.module('myApp').controller('CartShopCtrl',
       $http.get('/products/'+id).success(function(data){
         $scope.product = data;
       });
-      $scope.quantityPr=1;
+      $scope.qte=1;
 
       var refresh = function () {
-        $scope.products = [] ;
+        //$scope.products = [] ;
         $http.get('/users/session').success(function(response){
           $http.get('/users/'+response._id).success(function(user){
             console.log(response);
             $scope.cart = user[0].cart;
-            for (var i = 0; i < $scope.cart.length; i++) {
-              $http.get('/products/'+$scope.cart[i]).success(function(data){
-                //console.log(data);
-                $scope.products.push(data);
-              });
-            }
+            //for (var i = 0; i < $scope.cart.length; i++) {
+            //  //$http.get('/products/'+$scope.cart[i]).success(function(data){
+            //    //console.log(data);
+            //    $scope.products.push($scope.cart[i]);
+            //  //});
+            //}
             console.log('I\'ve got the requested data');
           });
         });
@@ -33,7 +33,7 @@ angular.module('myApp').controller('CartShopCtrl',
       refresh();
 
       // Add a product to the Cart
-      $scope.addToCart=function(product,qte){
+      $scope.addToCart=function(product){
         console.log(product._id);
         $http.get('/users/session').success(function(response){
           console.log(response);
@@ -44,11 +44,11 @@ angular.module('myApp').controller('CartShopCtrl',
         })};
 
       //remove prod from the Shopping Cart
-      $scope.delete = function (product) {
+      $scope.delete = function (id) {
         $http.get('/users/session').success(function(response){
           $scope.user=response;
           console.log($scope.user);
-          $http.delete('/users/'+$scope.user._id+'/cart/'+ product._id).success(function(data){
+          $http.delete('/users/'+$scope.user._id+'/cart/'+ id).success(function(data){
             console.log('Product deleted Successfully');
             refresh();
           });

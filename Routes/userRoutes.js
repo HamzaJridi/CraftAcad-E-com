@@ -129,7 +129,7 @@ var routes = function(User){
     User.id=req.params.id;
     productId=req.params.productId;
 
-    User.update({_id:User.id},{$pull:{cart:productId}},function(err){
+    User.update({_id:User.id},{$pull:{cart:{productId:productId}}},function(err){
       if(err)
         res.status(500).send(err);
       else

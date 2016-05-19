@@ -11,9 +11,9 @@ var routes = function(Product){
       res.status(201).send(product);
     })
     .get(function(req,res){
-      console.log('I got a GET Request')
+      console.log('I got a GET Request');
       Product.find(function (err,products) {
-        if(err){console.log(err)};
+        if(err){console.log(err)}
 
         res.json(products);
       });

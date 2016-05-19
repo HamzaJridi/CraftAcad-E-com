@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="product in products | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
+  <tr ng-repeat="product in cart | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
     <td>{{product.title}}</td>
     <td>{{product.price}}</td>
     <td>
@@ -31,7 +31,7 @@
     </td>
     <td><label style="color:black" >€ {{product.qte * product.price}}</label></td>
     <td>
-      <button class="btn btn-danger" ng-click="delete(product)">
+      <button class="btn btn-danger" ng-click="delete(product.productId)">
         <span class="glyphicon glyphicon-remove-sign"></span>
       </button>
     </td>
