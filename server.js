@@ -10,8 +10,9 @@ var session = require('express-session');
 var localStrategy = require('passport-local' ).Strategy;
 /** open a connection to the db which is 'E-com'
  *  if the E-com db doesn't exist it'll be created */
-var db = mongoose.connect('mongodb://localhost/E-com');
-
+//var db = mongoose.connect('mongodb://localhost/E-com');
+var uri = 'mongodb://hamza:hamza@ds025742.mlab.com:25742/e-commerce';
+mongoose.connect(uri);
 var app = express();
 var port = process.env.PORT || 3000;
 
