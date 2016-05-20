@@ -27,8 +27,8 @@ var User = new Schema({
     title : String,
     imgUrl : String,
     price : Number,
-    quantity : Number,
     qte : Number,
+    totalPrice : Number,
     date : {type : Date, default : Date.now}
   }]
 

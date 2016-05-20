@@ -141,24 +141,22 @@ var routes = function(User){
   });
 
   //insert ordered prods into the user's purchased prods list
-  userRouter.get('/:id/purchased/:productId/:title/:imgUrl/:price/:quantity/:qte',
+  userRouter.get('/:id/purchased/:productId/:title/:price/:qte/:totalPrice',
     function(req,res){
       var productId= req.params.productId;
       var title= req.params.title;
-      var imgUrl= req.params.imgUrl;
+      //var imgUrl= req.params.imgUrl;
       var price= req.params.price;
-      var quantity= req.params.quantity;
       var qte= req.params.qte;
       var totalPrice = qte * price;
       var userId=req.params.id;
       console.log("adding product...");
       User.update({_id:userId},{$push:
-        {cart:{
+        {purchasedProds:{
           productId:productId,
           title:title,
-          imgUrl:imgUrl,
+          //imgUrl:imgUrl,
           price:price,
-          quantity:quantity,
           qte:qte,
           totalPrice : totalPrice
         }}}
@@ -166,9 +164,15 @@ var routes = function(User){
           if (err) {
             console.log(err);
           } else {
-            console.log("product added successfully");
+            console.log("product purchased successfully");
           }
         });
+      User.update({_id:User.id},{$pull:{cart:{$exists: true}}},function(err){
+        if(err)
+          res.status(500).send(err);
+        else
+        res.status(204).send('shopCart cleared');
+      });
     });
 
 

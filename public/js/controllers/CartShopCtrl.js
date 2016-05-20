@@ -42,12 +42,26 @@ angular.module('myApp').controller('CartShopCtrl',
 
       /* Validating the Shopping Cart : Ordering chosen prods
       get added prods from the shop cart and insert them in purchased prods*/
-      $scope.getProdFromCart = function () {
-        for (var i=0; i< $scope.cart.length; i++) {
-          $scope.prod =  $scope.cart[i];
-          console.log($scope.prod);
-        }
-      };
+      $scope.PurchaseProds=function(){
+        $http.get('/users/session').success(function(response){
+          console.log(response);
+          $scope.user=response;
+          for (var i=0; i< $scope.cart.length; i++) {
+            $scope.prod =  $scope.cart[i];
+            console.log($scope.prod);
+            $http.get('/users/' + $scope.user._id + '/purchased/' +$scope.prod._id + '/' +$scope.prod.title + '/' +$scope.prod.price+ '/' +$scope.prod.qte+ '/' +$scope.prod.totalPrice).success(function(err){
+              refresh();
+            })
+          }
+        })};
+
+
+      //$scope.getProdFromCart = function () {
+      //      for (var i=0; i< $scope.cart.length; i++) {
+      //        $scope.prod =  $scope.cart[i];
+      //        console.log($scope.prod);
+      //      }
+      //};
 
 
 
