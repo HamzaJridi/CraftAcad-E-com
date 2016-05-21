@@ -25,7 +25,7 @@ var routes = function(Product){
       console.log('I got a GET Request');
       var category = req.params.category;
       Product.find({"category" : category},function (err,products) {
-        if(err){console.log(err)};
+        if(err){console.log(err)}
 
         res.json(products);
       });

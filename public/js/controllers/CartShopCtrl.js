@@ -7,6 +7,7 @@ angular.module('myApp').controller('CartShopCtrl',
       $http.get('/products/'+id).success(function(data){
         $scope.product = data;
       });
+      $scope.product = {};
       $scope.qte=1;
 
       var refresh = function () {
@@ -47,26 +48,26 @@ angular.module('myApp').controller('CartShopCtrl',
           console.log(response);
           $scope.user=response;
           for (var i=0; i< $scope.cart.length; i++) {
-            $scope.prod =  $scope.cart[i];
-            console.log($scope.prod);
-            $http.get('/users/' + $scope.user._id + '/purchased/' +$scope.prod._id + '/' +$scope.prod.title + '/' +$scope.prod.price+ '/' +$scope.prod.qte+ '/' +$scope.prod.totalPrice).success(function(err){
-              refresh();
-            })
-          }
-        })};
-
-
-      //$scope.getProdFromCart = function () {
-      //      for (var i=0; i< $scope.cart.length; i++) {
-      //        $scope.prod =  $scope.cart[i];
-      //        console.log($scope.prod);
-      //      }
-      //};
-
-
+            let prod =  $scope.cart[i];
+            console.log('prod is ', prod);
+            $http.get('/products/'+prod.productId).success(function(data){
+              $scope.product = data;
+              $scope.product.quantity -= prod.qte;
+              console.log($scope.product.quantity);
+              console.log($scope.product);
+              console.log(prod.qte);
+              $http.put('/products/'+$scope.product._id, $scope.product).success(function(data){
+                console.log($scope.product.quantity);
+              });
+              $http.get('/users/' + $scope.user._id + '/purchased/' +prod.productId + '/' +prod.title + '/' + prod.price+ '/' +prod.qte+ '/' +prod.totalPrice).success(function(err){
+                refresh();
+              });// get('/users/' request
+            }); //get('/products/'+$scope.prod.productId) Request
+          } // for Loop
+        })}; // the PurchaseProds method
 
       //remove prod from the Shopping Cart
-      $scope.delete = function (id) {
+      $scope.deleteFromCart = function (id) {
         $http.get('/users/session').success(function(response){
           $scope.user=response;
           console.log($scope.user);
