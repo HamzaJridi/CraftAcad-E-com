@@ -70,7 +70,7 @@ var routes = function(User){
     return res.json(req.session.user);
   });
   userRouter.get('/:id', function(req, res) {
-    User.id=req.params.id
+    User.id=req.params.id;
     User.find({_id:User.id},function(err,data){
       if(err)
         res.status(500).send(err);
@@ -174,6 +174,25 @@ var routes = function(User){
         res.status(204).send('shopCart cleared');
       });
     });
+
+  ////get the prodId inserted into purchased list to update its total quantity
+  //userRouter.get('/:id/cart/:productId/',
+  //  function(req,res){
+  //    var productId= req.params.productId;
+  //    //var qte= req.params.qte;
+  //    var userId=req.params.id;
+  //    //console.log("adding product...");
+  //    User.find({_id:productId});
+  //    res.json(req.product);
+  //    console.log(product);
+  //    //  ,function (err) {
+  //    //    if (err) {
+  //    //      console.log(err);
+  //    //    } else {
+  //    //      console.log("product added successfully");
+  //    //    }
+  //    //  });
+  //  });
 
 
   // The Users CRUD API
