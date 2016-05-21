@@ -39,7 +39,25 @@ angular.module('myApp').controller('CartShopCtrl',
           $http.get('/users/' + $scope.user._id + '/cart/' +product._id + '/' +product.title + '/' +product.imgUrl+ '/' +product.price+ '/' +product.quantity+ '/' +$scope.qte).success(function(err){
             refresh();
           })
-        })};
+        })
+      };
+
+      $scope.totalPrice = function() {
+        $scope.cartTotalPrice = 0;
+        $http.get('/users/session').success(function(response) {
+          console.log(response);
+          $scope.user = response;
+          for (var i = 0; i < $scope.cart.length; i++) {
+            let cartProd = $scope.cart[i];
+            console.log('prod is ', cartProd);
+            console.log('prod.price : ', cartProd.price);
+            console.log('prod.qte : ', cartProd.qte);
+            $scope.cartTotalPrice += (cartProd.price * cartProd.qte);
+            console.log('cartTotalPrice : ', $scope.cartTotalPrice);
+          }
+        })
+      };
+
 
       /* Validating the Shopping Cart : Ordering chosen prods
       get added prods from the shop cart and insert them in purchased prods*/
