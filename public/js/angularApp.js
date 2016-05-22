@@ -22,25 +22,32 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       controller: 'UsersCtrl'
     })
     .when('/casual', {
-      templateUrl: 'public/views/casual.html',
+      templateUrl: 'public/views/casual.html'
       //controller: 'ProductsCtrl',
     })
     .when('/sport', {
-      templateUrl: 'public/views/sport.html',
+      templateUrl: 'public/views/sport.html'
       //controller: 'ProductsCtrl',
     })
     .when('/reservations/:itemId', {
       templateUrl: 'public/views/reservations.html',
-      controller: 'ProdDetailCtrl',
+      controller: 'ProdDetailCtrl'
     })
     .when('/suitDetails/:itemId', {
       templateUrl : 'public/views/prodsDetails.html',
       controller : 'CartShopCtrl'
     })
+    .when('/userDetails/:itemId', {
+      templateUrl : 'public/views/userDetails.html',
+      controller : 'UserDetailCtrl'
+    })
     .when('/cartshop',{
       templateUrl:'public/views/cartShop.html',
       controller:'CartShopCtrl'
-
+    })
+    .when('/myItems',{
+      templateUrl:'public/views/myItems.html',
+      controller:'CartShopCtrl'
     })
     .when('/login', {
       templateUrl : 'public/views/login.html',

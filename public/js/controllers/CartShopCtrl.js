@@ -3,6 +3,11 @@
 angular.module('myApp').controller('CartShopCtrl',
   ['$location','$scope', '$http','$routeParams',
     function($location,$scope, $http, $routeParams){
+
+      $scope.maxSize = 9;
+      $scope.currentPage = 1;
+      $scope.totalItems = 0;
+
       var id =$routeParams.itemId;
       $http.get('/products/'+id).success(function(data){
         $scope.product = data;
@@ -12,6 +17,7 @@ angular.module('myApp').controller('CartShopCtrl',
 
       var refresh = function () {
         $scope.products = [] ;
+        $scope.purchasedProducts = [] ;
         $http.get('/users/session').success(function(response){
           $http.get('/users/'+response._id).success(function(user){
             console.log(response);
@@ -20,6 +26,18 @@ angular.module('myApp').controller('CartShopCtrl',
                 $scope.products.push($scope.cart[i]);
             }
             console.log('I\'ve got the requested data');
+
+            $scope.purchasedProds = user[0].purchasedProds;
+            for (var j = 0; j < $scope.purchasedProds.length; j++) {
+              $scope.purchasedProducts.push($scope.purchasedProds[j]);
+              console.log('$scope.purchasedProducts: ', $scope.purchasedProducts);
+              $scope.purchasedProd = $scope.purchasedProds[j];
+              $scope.title = $scope.purchasedProd.title;
+              console.log('$scope.purchasedProduct: ', $scope.purchasedProd.title);
+
+            }
+
+
           });
         });
       };
@@ -77,7 +95,7 @@ angular.module('myApp').controller('CartShopCtrl',
               $http.put('/products/'+$scope.product._id, $scope.product).success(function(data){
                 console.log($scope.product.quantity);
               });
-              $http.get('/users/' + $scope.user._id + '/purchased/' +prod.productId + '/' +prod.title + '/' + prod.price+ '/' +prod.qte+ '/' +prod.totalPrice).success(function(err){
+              $http.get('/users/' + $scope.user._id + '/purchased/' +prod.productId + '/' +prod.title + '/' + prod.price+ '/' +prod.qte+ '/' +prod.totalPrice + '/' + prod.imgUrl).success(function(err){
                 refresh();
               });// get('/users/' request
             }); //get('/products/'+$scope.prod.productId) Request

@@ -4,7 +4,7 @@
     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
         ng-repeat="item in products | filter : article| limitTo:maxSize:(currentPage - 1) * maxSize">
       <a href="#/suitDetails/{{item._id}}">
-          <img ng-src="{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+          <img ng-src="public/img/prods/{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
       </a>
       <figcaption>
         <h4 style="text-align: center">{{item.title}}</h4>

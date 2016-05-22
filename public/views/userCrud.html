@@ -5,7 +5,7 @@
     <th><h3>Last Name</h3></th>
     <th><h3>User Name</h3></th>
     <th><h3>Role</h3></th>
-    <th><h3>Delete</h3></th>
+    <th><h3>Action</h3></th>
 
   </tr>
   </thead>
@@ -16,7 +16,7 @@
     <td>{{user.username}}</td>
     <td>{{user.role}}</td>
     <td><span>
-      <!--<a href="#/suitDetails/{{user._id}}"><button class="btn-info btn-sm">details</button></a>-->
+      <a href="#/userDetails/{{user._id}}"><button class="btn-info btn-sm">details</button></a>
       <button class="btn-danger" ng-click="removeUser(user._id)">X</button>
     </span></td>
   </tr>

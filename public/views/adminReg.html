@@ -32,9 +32,11 @@
         <p class="error validationerror" ng-show="myform.username.$invalid && myform.username.$touched">
           This must be a valid UserName.</p>
 
-        <input type="text" name="role"
-               placeholder="Role"
-               ng-model="registerForm.role">
+        <select required>
+          <option value="" disabled selected>Please Select the User Role</option>
+          <option value="Customer">Customer</option>
+          <option value="Admin">Admin</option>
+        </select>
 
         <input type="password" name="password"
                placeholder="Password"

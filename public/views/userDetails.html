@@ -1,0 +1,74 @@
+<section id="navbar">
+  <h1>User details :</h1>
+  <div class="row">
+    <h3 class="col-xs-12"><span style="color: #2b669a">User ID : </span>{{user[0]._id}}</h3>
+    <h3 class="col-xs-4"><span style="color: #2b669a">First Name : </span>{{user[0].firstname}}</h3>
+    <h3 class="col-xs-4"><span style="color: #2b669a">Last Name : </span>{{user[0].lastname}}</h3>
+    <h3 class="col-xs-4"><span style="color: #2b669a">UserName : </span>{{user[0].username}}</h3>
+  </div>
+  <hr class="featurette-divider" style="border: inset thick">
+
+  <!--Products currently In Cart-->
+  <div class="container" ng-show="!title">
+    <h3  style="text-align: center">This Client has no Products in his Shopping Cart right Now</h3>
+    <hr class="featurette-divider" style="border: inset">
+  </div>
+  <div class="container-fluid row articles" ng-show="cartTitle">
+    <h1 style="text-decoration: underline">Products currently In Cart :</h1>
+    <ul>
+      <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
+          ng-repeat="cartProd in cartProds | limitTo:maxSize:(currentPage - 1) * maxSize">
+        <a href="#/suitDetails/{{cartProd.productId}}">
+          <img ng-src="public/img/prods/{{cartProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+          <figcaption>
+            <h4 style="text-align: center">{{cartProd.title}}</h4>
+          </figcaption>
+        </a>
+        <ul>
+          <li>Purchased Items : {{cartProd.qte}}</li>
+          <li>Product's Price: €{{cartProd.price}}</li>
+          <li>Total Price : €{{cartProd.totalPrice}}</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="col-md-12">
+      <uib-pagination total-items="cartProds.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
+  </div>
+
+  <!--Purchased Products-->
+  <div class="container" ng-show="!title">
+    <h3  style="text-align: center">This Client has no Purchased Products until Now</h3>
+    <hr class="featurette-divider" style="border: inset">
+  </div>
+
+
+  <div class="container-fluid row articles" ng-show="title">
+    <h1 style="text-decoration: underline">Purchased Products :</h1>
+    <ul>
+      <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
+          ng-repeat="orderedProd in orderedProds | limitTo:maxSize:(currentPage - 1) * maxSize">
+        <a href="#/suitDetails/{{orderedProd.productId}}">
+          <img ng-src="public/img/prods/{{orderedProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+          <figcaption>
+           <h4 style="text-align: center">{{orderedProd.title}}</h4>
+          </figcaption>
+        </a>
+        <ul>
+          <li>Purchased Items : {{orderedProd.qte}}</li>
+          <li>Product's Price: €{{orderedProd.price}}</li>
+          <li>Total Price : €{{orderedProd.totalPrice}}</li>
+          <li>Date :
+            {{orderedProd.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="col-md-12">
+      <uib-pagination total-items="orderedProds.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
+    </div>
+  </div>
+
+</section>

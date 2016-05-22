@@ -24,6 +24,8 @@ angular.module('myApp').controller('UsersCtrl',
         $http.get('/users/' + id).success(function(response) {
           //get the sent back data from the server and put it in the input fields
           $scope.user = response;
+          console.log(response);
+          console.log(response.username);
         });
       };
       $scope.updateUser = function() {
@@ -49,4 +51,46 @@ angular.module('myApp').controller('UsersCtrl',
       $scope.deselect = function() {
         $scope.user="";
       };
+    }]);
+
+
+//the details page controller
+angular.module('myApp').controller('UserDetailCtrl',
+  ['$scope', '$http','$routeParams',
+    function($scope, $http, $routeParams) {
+
+      $scope.maxSize = 9;
+      $scope.currentPage = 1;
+      $scope.totalItems = 0;
+
+      var id = $routeParams.itemId;
+      console.log(id);
+      $http.get('/users/' + id).success(function (response) {
+        $scope.user = response;
+        console.log($scope.user);
+        console.log($scope.user[0].username);
+
+        //display User's Purchased Products
+        $scope.orderedProds = $scope.user[0].purchasedProds;
+        console.log('orderedProds are: ', $scope.orderedProds);
+        for (var i =0; i<$scope.orderedProds.length; i++) {
+          $scope.orderedProd = $scope.orderedProds[i];
+          console.log('orderedProd is: ', $scope.orderedProd);
+          console.log('orderedProd.date is: ', $scope.orderedProd.date);
+          $scope.title = $scope.orderedProd.title
+        }
+
+        //display actual Products in user's Cart
+        $scope.cartProds = $scope.user[0].cart;
+        console.log('cartProds are: ', $scope.cartProds);
+        for (var j =0; j<$scope.cartProds.length; j++) {
+          $scope.cartProd = $scope.cartProds[j];
+          console.log('cartProd is: ', $scope.cartProd);
+          console.log('cartProd.title is: ', $scope.cartProd.title);
+          $scope.cartTitle = $scope.cartProd.title
+        }
+
+
+
+      });
     }]);

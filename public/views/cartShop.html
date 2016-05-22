@@ -12,7 +12,7 @@
   <tr ng-repeat="product in products | filter:searchBook | limitTo:maxSize:(currentPage - 1) * maxSize">
     <td style="width: 25%">
       <figcaption style="color: #DA3637"><h3>{{product.title}}</h3></figcaption>
-      <img style="heigth:20%;width:100%" ng-src="{{product.imgUrl}}"/>
+      <img style="heigth:20%;width:100%" ng-src="public/img/prods/{{product.imgUrl}}"/>
     </td>
     <td>
       <p><h2>{{product.qte}} from {{product.quantity}} available</h2></p>

@@ -1,7 +1,7 @@
 [
   {
     "title": "Slim Suit In Grey Nepp Fabric",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer1.jpg",
+    "imgUrl": "blazer1.jpg",
     "price": 225,
     "quantity": 200,
     "ref": "suitXA125",
@@ -13,7 +13,7 @@
   },
   {
     "title": "Skinny Suit With Tails In Black",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer2.jpg",
+    "imgUrl": "blazer2.jpg",
     "price": 135.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -25,7 +25,7 @@
   },
   {
     "title": "Wedding Skinny Suit Trousers",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer3.jpg",
+    "imgUrl": "blazer3.jpg",
     "price": 125.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -37,7 +37,7 @@
   },
   {
     "title": "Skinny Suit Jacket in Linen Mix",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer4.jpg",
+    "imgUrl": "blazer4.jpg",
     "price": 155.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -49,7 +49,7 @@
   },
   {
     "title": "Noose \u0026 Monkey Navy Suit",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer5.jpg",
+    "imgUrl": "blazer5.jpg",
     "price": 115.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -61,7 +61,7 @@
   },
   {
     "title": "Noose \u0026 Monkey Sky Blue",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer6.jpg",
+    "imgUrl": "blazer6.jpg",
     "price": 165.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -73,7 +73,7 @@
   },
   {
     "title": "Wedding Skinny Suit In Grey",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer7.jpg",
+    "imgUrl": "blazer7.jpg",
     "price": 195.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -85,7 +85,7 @@
   },
   {
     "title": "Noose \u0026 Monkey Sky Blue Suit",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer8.jpg",
+    "imgUrl": "blazer8.jpg",
     "price": 205.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -97,7 +97,7 @@
   },
   {
     "title": "River Island Slim Fit Suit Jacket",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer9.jpg",
+    "imgUrl": "blazer9.jpg",
     "price": 215.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -109,7 +109,7 @@
   },
   {
     "title": "River Island Suit Jacket In Black",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer10.jpg",
+    "imgUrl": "blazer10.jpg",
     "price": 135.0,
     "quantity": 200,
     "ref": "suitXA135",
@@ -121,7 +121,7 @@
   },
   {
     "title": "Wedding Skinny Suit Jacket",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer11.jpg",
+    "imgUrl": "blazer11.jpg",
     "price": 135,
     "quantity": 200,
     "ref": "suitXA135",
@@ -133,19 +133,7 @@
   },
   {
     "title": "Super Skinny Suit Jacket In Grey",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer12.jpg",
-    "price": 135,
-    "quantity": 200,
-    "ref": "suitXA135",
-    "category": "suits",
-    "descr": "Lorem ipsum dolor sit amet, amet mi. Luctus integer volutpat placerat, volutpat nisl cras in arcu vivamus, facilisi euismod iaculis, etiam risus pede sed pharetra erat. Qui in, dolor rhoncus vel vivamus, et neque corporis scelerisque dis",
-    "listReser" : [],
-    "toReserve" : true,
-    "__v" : 0
-  },
-  {
-    "title": "Super Skinny Suit Jacket In Grey",
-    "imgUrl": "public%2Fimg%2Fmen%2Fblazer12.jpg",
+    "imgUrl": "blazer12.jpg",
     "price": 135,
     "quantity": 200,
     "ref": "suitXA135",
@@ -157,7 +145,7 @@
   },
   {
     "title": "YolanCris Couture Bridal Wedding Dresses",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed1.jpg",
+    "imgUrl": "wed1.jpg",
     "price": 325,
     "quantity": 200,
     "ref": "wedtXA125",
@@ -169,7 +157,7 @@
   },
   {
     "title": "Mermaid ball gown pink tulle wedding dresses",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed2.jpg",
+    "imgUrl": "wed2.jpg",
     "price": 305,
     "quantity": 200,
     "ref": "wedtXA105",
@@ -181,7 +169,7 @@
   },
   {
     "title": "Women strapless sweetheart bridal ball gown",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed3.jpg",
+    "imgUrl": "wed3.jpg",
     "price": 305,
     "quantity": 200,
     "ref": "wedtXA105",
@@ -193,7 +181,7 @@
   },
   {
     "title": "David tutera wedding dress",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed4.jpg",
+    "imgUrl": "wed4.jpg",
     "price": 355,
     "quantity": 200,
     "ref": "wedXA305",
@@ -205,7 +193,7 @@
   },
   {
     "title": "Strapless Organza Ball Gowns Designs",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed5.jpg",
+    "imgUrl": "wed5.jpg",
     "price": 335,
     "quantity": 200,
     "ref": "wedXA315",
@@ -217,7 +205,7 @@
   },
   {
     "title": "Princess gown wedding dresses",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed6.jpg",
+    "imgUrl": "wed6.jpg",
     "price": 385,
     "quantity": 200,
     "ref": "wedXA345",
@@ -229,7 +217,7 @@
   },
   {
     "title": "Vintage wedding-dresses",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed7.jpg",
+    "imgUrl": "wed7.jpg",
     "price": 405,
     "quantity": 200,
     "ref": "wedXA395",
@@ -241,7 +229,7 @@
   },
   {
     "title": "YolanCris Couture Bridal Wedding Dresses",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed8.jpg",
+    "imgUrl": "wed8.jpg",
     "price": 455,
     "quantity": 200,
     "ref": "wedXA405",
@@ -253,7 +241,7 @@
   },
   {
     "title": "Women strapless sweetheart bridal ball gown",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed7.jpg",
+    "imgUrl": "wed7.jpg",
     "price": 485,
     "quantity": 200,
     "ref": "wedXA405",
@@ -265,7 +253,7 @@
   },
   {
     "title": "Strapless Organza Ball Gowns Designs",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed9.jpg",
+    "imgUrl": "wed9.jpg",
     "price": 435,
     "quantity": 200,
     "ref": "wedXA475",
@@ -277,7 +265,7 @@
   },
   {
     "title": "Women strapless sweetheart bridal ball gown",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed10.jpg",
+    "imgUrl": "wed10.jpg",
     "price": 535,
     "quantity": 200,
     "ref": "wedXA285",
@@ -289,7 +277,7 @@
   },
   {
     "title": "Princess gown wedding dresses",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed11.jpg",
+    "imgUrl": "wed11.jpg",
     "price": 525,
     "quantity": 200,
     "ref": "wedXA485",
@@ -301,7 +289,7 @@
   },
   {
     "title": "David tutera wedding dress",
-    "imgUrl": "public%2Fimg%2Fwedding%2Fwed12.jpg",
+    "imgUrl": "wed12.jpg",
     "price": 595,
     "quantity": 200,
     "ref": "wedXA585",
