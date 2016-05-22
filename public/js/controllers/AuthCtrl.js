@@ -69,7 +69,7 @@ angular.module('myApp').controller('LoginCtrl',
   ]);
 
 
-//Login Controller
+//Logout Controller
 angular.module('myApp').controller('LogoutCtrl',
   ['$scope', '$location', 'AuthService','$rootScope',
     function ($scope, $location, AuthService,$rootScope) {
