@@ -1,8 +1,8 @@
 //Set an angular Service for handling authentication
 
 angular.module('myApp').factory('AuthService',
-  ['$q', '$timeout', '$http',
-    function ($q, $timeout, $http) {
+  ['$q', '$timeout', '$http','$rootScope',
+    function ($q, $timeout, $http,$rootScope) {
 
       // create user variable
       var user = null;
@@ -10,6 +10,7 @@ angular.module('myApp').factory('AuthService',
       // return available functions for use in the controllers
       return ({
         isLoggedIn: isLoggedIn,
+        isAdmin : $rootScope.isAdmin,
         getUserStatus: getUserStatus,
         login: login,
         logout: logout,
@@ -24,6 +25,14 @@ angular.module('myApp').factory('AuthService',
           return false;
         }
       }
+
+      //function isAdmin(user) {
+      //  if(user && user.role === "admin") {
+      //    return true;
+      //  } else {
+      //    return false;
+      //  }
+      //}
 
       function getUserStatus() {
         return $http.get('/users/status')

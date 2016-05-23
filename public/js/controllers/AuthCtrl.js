@@ -31,8 +31,22 @@ angular.module('myApp').controller('RegisterCtrl',
 
 //Login Controller
 angular.module('myApp').controller('LoginCtrl',
-  ['$scope', '$location', 'AuthService','$rootScope',
-    function ($scope, $location, AuthService,$rootScope) {
+  ['$scope', '$location', 'AuthService','$rootScope','$http',
+    function ($scope, $location, AuthService,$rootScope,$http) {
+
+      $rootScope.islogged = false;
+      $rootScope.isAdmin = false;
+      $http.get('/users/session').success(function (response) {
+        console.log(response);
+        if (response) {
+          $rootScope.islogged = true;
+
+        }
+        if (response.role === 'admin') {
+          $rootScope.isAdmin = true;
+        }
+      });
+
       $scope.login = function () {
         // initial values
         $scope.error = false;

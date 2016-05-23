@@ -1,10 +1,12 @@
 var express = require('express');
+var passport = require('passport');
+var User = require('../models/userModel');
 
 var routes = function(Product){
   var productRouter = express.Router();
   /** set the product route using productRouter.route('newRoute') method*/
   productRouter.route('/')
-    //the post methode require the bodyParser
+    //the post method require the bodyParser
     .post(function(req,res){
       var product = new Product(req.body);
       product.save();
