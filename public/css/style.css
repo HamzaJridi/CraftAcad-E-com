@@ -61,7 +61,7 @@ ul {list-style-type: none;}
 header .navbar {
   padding-top: 1em;
   transition: all .5s ease-out;
-  /*background-color:rgba(219,203,180,1);*/
+  margin-right: 1em
 }
 
 header .navbar-default {
@@ -96,7 +96,7 @@ header .navbar-default .navbar-nav .active a:hover {
 /**  Navbar Brand **/
 
 header .navbar-brand {
-  background: url(../img/icon.png);
+  background: url(../img/icon2.png);
   background-repeat: no-repeat;
   background-position: 15px 0;
   height: auto;
@@ -171,4 +171,9 @@ header .inbody .navbar-brand span.subhead {
 
 .bar{
   font-size: 1.2em;
+}
+
+.shoplogo {
+  width: 2.8em;
+  height: 3em;
 }
