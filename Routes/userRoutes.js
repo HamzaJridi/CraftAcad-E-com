@@ -171,7 +171,7 @@ var routes = function(User){
         if(err)
           res.status(500).send(err);
         else
-        res.status(204).send('shopCart cleared');
+          res.status(204).send('shopCart cleared');
       });
     });
 
