@@ -13,6 +13,10 @@ angular.module('myApp').directive('navdir', function() {
           if(user){
             $rootScope.islogged = true;
           }
+          if(user.role === "admin"){
+            $rootScope.islogged = true;
+            $rootScope.isAdmin = true;
+          }
         });
       });
     }]

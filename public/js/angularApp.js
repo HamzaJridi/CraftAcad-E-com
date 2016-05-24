@@ -94,7 +94,7 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
     .when('/adminreg', {
       templateUrl : 'public/views/adminReg.html',
       controller : 'AdminAuthCtrl',
-      access: {restricted: false},
+      access: {restricted: true},
       admin: {restricted: false}
     })
     .when('/404', {
@@ -115,16 +115,28 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       //AuthService.getUserStatus()
       //  .then(function () {
           //user authenticated restriction
-          if (next.access.restricted && AuthService.isLoggedIn() === false) {
+          if (next.access.restricted
+            && !AuthService.isLoggedIn()) {
             $location.path('/login');
             $route.reload();
           }
           //admin restriction
-          if (next.admin.restricted && $rootScope.isAdmin === false) {
+          if (next.admin.restricted
+            && $rootScope.isAdmin === false
+            && !AuthService.isLoggedIn()) {
             alert('This page is accessed only by admins');
             $location.path('/404');
             $route.reload();
           }
+
+          if (next.admin.restricted
+            && $rootScope.isAdmin === false
+            && AuthService.isLoggedIn()) {
+            alert('This page is accessed only by admins');
+            $location.path('/404');
+            $route.reload();
+          }
+
         //});
     });
 });

@@ -5,7 +5,7 @@ angular.module('myApp').factory('AuthService',
 
       // create user variable
       var user = null;
-
+      $rootScope.isAdmin = false;
       // return available functions for use in the controllers
       return ({
         isLoggedIn: isLoggedIn,
