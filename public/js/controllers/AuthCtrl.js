@@ -43,6 +43,7 @@ angular.module('myApp').controller('LoginCtrl',
 
         }
         if (response.role === 'admin') {
+          $rootScope.islogged = true;
           $rootScope.isAdmin = true;
         }
       });

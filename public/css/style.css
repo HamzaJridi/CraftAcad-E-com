@@ -1,20 +1,20 @@
 .item {
-    max-height: 600px;
+  max-height: 600px;
 }
 
 .featurette {
-    margin: 5em 5em;
+  margin: 5em 5em;
 }
 .featurette-image {
-    max-height: 500px;
+  max-height: 500px;
 }
 
 .navbtn {
-    font-size-adjust: 0.8;
-    padding: 0.4em;
+  font-size-adjust: 0.8;
+  padding: 0.4em;
 }
 .navbar-brand {
-    font-size-adjust: 0.8;
+  font-size-adjust: 0.8;
 }
 ul {list-style-type: none;}
 .prods, .constr{
@@ -29,7 +29,7 @@ ul {list-style-type: none;}
 }
 
 #navbar {
-  margin-top : 4em;
+  margin-top : 7.8em;
 }
 
 .full button span {
@@ -43,7 +43,132 @@ ul {list-style-type: none;}
   color: black;
 }
 
+.not {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+
 .wedArticles {
   height: 35em;
   width: 25em;
+}
+
+
+/**  Header Navigation **/
+
+header .navbar {
+  padding-top: 1em;
+  transition: all .5s ease-out;
+  /*background-color:rgba(219,203,180,1);*/
+}
+
+header .navbar-default {
+  background-color:transparent;
+  border: none;
+}
+
+header .navbar-default .navbar-nav a {
+  color: black;
+  padding: 5px 8px;
+}
+
+header .navbar-default .navbar-nav a:hover {
+  color: #E15D5F;
+}
+
+header .navbar-default .navbar-nav .active a {
+  font-weight: 700;
+  color: #E15D5F;
+  background: transparent;
+  border-bottom: 4px solid #222222;
+  text-shadow: none;
+}
+
+header .navbar-default .navbar-nav .active a:hover {
+  color: #E15D5F;
+  background: transparent;
+  text-shadow: none;
+
+}
+
+/**  Navbar Brand **/
+
+header .navbar-brand {
+  background: url(../img/icon.png);
+  background-repeat: no-repeat;
+  background-position: 15px 0;
+  height: auto;
+}
+
+header .navbar-brand h1 {
+  font-family: serif;
+  color: black;
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 400;
+  padding-left: 105px;
+}
+.navbar {
+  margin-bottom: 0;
+}
+
+header .navbar-brand span.subhead {
+  display: block;
+  font-family: "Roboto Slab", serif;
+  font-size: .6em;
+  font-weight: 100;
+}
+
+/**  Navbar Toggle **/
+header .navbar-toggle {
+  background-color: #279182;
+}
+
+header .navbar-default .navbar-toggle .icon-bar {
+  background-color: black;
+}
+
+@media only screen
+and (max-width: 768px) {
+  header .navbar-collapse.in {
+    background-color: rgba(228,193,193, .5);
+  }
+}
+
+/**  nav inbody **/
+
+header .inbody {
+  background: rgba(104,73,49,.9);
+}
+
+header .navbar.inbody {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header .navbar.inbody .navbar-nav {
+  /*padding-top: 10px;*/
+}
+
+header .inbody .navbar-brand {
+  background-size: 43px;
+  background-position: top left;
+  margin-top: 5px;
+  padding-bottom: 0;
+  margin-left: 10px;
+}
+
+header .inbody .navbar-brand h1 {
+  font-size: 1.1em;
+  padding-left: 38px;
+}
+
+header .inbody .navbar-brand span.subhead {
+  display: none;
+}
+
+.bar{
+  font-size: 1.2em;
 }

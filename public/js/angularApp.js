@@ -97,6 +97,12 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       access: {restricted: false},
       admin: {restricted: false}
     })
+    .when('/404', {
+      templateUrl : 'public/views/404.html',
+      //controller : 'AdminAuthCtrl',
+      access: {restricted: false},
+      admin: {restricted: false}
+    })
     .otherwise({
       redirectTo : '/home'
     });
@@ -106,17 +112,20 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
 .run(function ($rootScope, $location, $route, AuthService) {
   $rootScope.$on('$routeChangeStart',
     function (event, next, current) {
-      //user authenticated restriction
-      if (next.access.restricted && AuthService.isLoggedIn() === false) {
-        $location.path('/login');
-        $route.reload();
-      }
-      //admin restriction
-      if (next.admin.restricted && $rootScope.isAdmin === false) {
-        alert('This page is accessed only by admins');
-        $location.path('/suits');
-        $route.reload();
-      }
+      //AuthService.getUserStatus()
+      //  .then(function () {
+          //user authenticated restriction
+          if (next.access.restricted && AuthService.isLoggedIn() === false) {
+            $location.path('/login');
+            $route.reload();
+          }
+          //admin restriction
+          if (next.admin.restricted && $rootScope.isAdmin === false) {
+            alert('This page is accessed only by admins');
+            $location.path('/404');
+            $route.reload();
+          }
+        //});
     });
 });
 
