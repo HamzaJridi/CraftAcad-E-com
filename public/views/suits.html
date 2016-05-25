@@ -3,13 +3,13 @@
   <ul>
     <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
         ng-repeat="item in products | filter : article| limitTo:maxSize:(currentPage - 1) * maxSize">
-      <a href="#/suitDetails/{{item._id}}">
+      <a href="#/articlesDetails/{{item._id}}">
           <img ng-src="public/img/prods/{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
       </a>
       <figcaption>
         <h4 style="text-align: center">{{item.title}}</h4>
       </figcaption>
-      <a href="#/suitDetails/{{item._id}}"
+      <a href="#/articlesDetailss/{{item._id}}"
          class="btn btn-info col-xs-push-2 col-xs-8 col-md-push-2 col-md-8"
          role="button"
          style="color: white">
