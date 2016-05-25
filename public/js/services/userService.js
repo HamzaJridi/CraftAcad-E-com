@@ -5,17 +5,27 @@ angular.module('myApp').factory('AuthService',
 
       // create user variable
       var user = null;
-      $rootScope.isAdmin = false;
+      var admin = null;
+      //$rootScope.isAdmin = false;
       // return available functions for use in the controllers
       return ({
         isLoggedIn: isLoggedIn,
-        isAdmin : $rootScope.isAdmin,
+        isAdmins : isAdmins,
         getUserStatus: getUserStatus,
         login: login,
         logout: logout,
         register: register,
         adminReg : adminReg
       });
+
+      function isAdmins() {
+        if (admin) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
 
       function isLoggedIn() {
         if(user) {
@@ -29,10 +39,17 @@ angular.module('myApp').factory('AuthService',
         return $http.get('/users/status')
           // handle success
           .success(function (data) {
-            if(data.status){
+            if(data.status && !data.administrator){
               user = true;
-            } else {
+              admin = false;
+            }
+            if (data.status && data.administrator) {
+              user = true;
+              admin = true;
+            }
+            else {
               user = false;
+              admin = false;
             }
           })
           // handle error
