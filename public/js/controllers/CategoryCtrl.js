@@ -46,3 +46,22 @@ angular.module('myApp').controller('SportCtrl',
     }
   ]);
 
+angular.module('myApp').controller('RoomCtrl',
+  ['$scope', '$http','AuthService','$rootScope',
+    function($scope,$http,$rootScope,AuthService){
+
+      $scope.maxSize = 4;
+      $scope.currentPage = 1;
+      $scope.totalItems = 0;
+
+      $http.get('/products/category/rooms').success(function (response) {
+        console.log('I received the data', response);
+        $scope.products = response;
+        $scope.product = "";
+        //$rootScope.rent = true;
+      });
+    }
+  ]);
+
+
+
