@@ -119,31 +119,50 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
   $rootScope.$on('$routeChangeStart',
     function (event, next, current) {
       AuthService.getUserStatus()
-        .then(function () {
-          //user authenticated restriction
-          if (next.access.restricted
-            && !AuthService.isLoggedIn() && !AuthService.isAdmins()) {
+        .then(function(){
+          if (next.access.restricted && !AuthService.isLoggedIn()){
             $location.path('/login');
             $route.reload();
           }
-          //admin restriction
-          if (next.admin.restricted
-            && !AuthService.isAdmins()
-            && !AuthService.isLoggedIn()) {
-            alert('This page is accessed only by admins');
-            $location.path('/404');
-            $route.reload();
-          }
+          else {
+            if (next.admin.restricted){
+              alert('This page is accessed only by admins');
+              $location.path('/login');
+              $route.reload();
+            }
 
-          if (next.admin.restricted
-            && !AuthService.isAdmins()
-            && AuthService.isLoggedIn()) {
-            alert('This page is accessed only by admins');
-            $location.path('/404');
-            $route.reload();
           }
-
         });
     });
-});
+  });
 
+
+//.run(function ($rootScope, $location, $route, AuthService) {
+//  $rootScope.$on('$routeChangeStart',
+//    function (event, next, current) {
+//      AuthService.getAdminStatus()
+//        .then(function(){
+//          if (next.admin.restricted && !AuthService.isLoggedIn()){
+//            $location.path('/404');
+//            $route.reload();
+//          }
+//        });
+//    });
+//  });
+
+////admin restriction
+//if (next.admin.restricted
+//  && !AuthService.isAdmins()
+//  && !AuthService.isLoggedIn()) {
+//  alert('This page is accessed only by admins');
+//  $location.path('/404');
+//  $route.reload();
+//}
+//
+//if (next.admin.restricted
+//  && !AuthService.isAdmins()
+//  && AuthService.isLoggedIn()) {
+//  alert('This page is accessed only by admins');
+//  $location.path('/404');
+//  $route.reload();
+//}

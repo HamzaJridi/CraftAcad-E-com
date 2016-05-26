@@ -86,25 +86,27 @@ var routes = function(User){
   userRouter.get('/status', function(req, res) {
     if (!req.isAuthenticated()) {
       return res.status(200).json({
-        status: false,
-        administrator : false
+        status: false
       });
     }
-    if (req.isAuthenticated() && req.role !=="admin") {
+    res.status(200).json({
+      status: true
+    });
+    console.log(res);
+  });
+
+  userRouter.get('/admin', function(req, res) {
+    if (req.isAuthenticated() && req.role !== "admin") {
       return res.status(200).json({
-        status: true,
-        administrator : false
+        status: false
       });
     }
-    if (req.isAuthenticated() && req.role ==="admin") {
-      return res.status(200).json({
-        status: true,
-        administrator : true
+    if (req.isAuthenticated() && req.role === "admin") {
+      res.status(200).json({
+        status: true
       });
     }
-    //res.status(200).json({
-    //  status: true
-    //});
+
   });
 
 

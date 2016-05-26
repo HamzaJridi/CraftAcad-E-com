@@ -10,7 +10,7 @@ angular.module('myApp').factory('AuthService',
       // return available functions for use in the controllers
       return ({
         isLoggedIn: isLoggedIn,
-        isAdmins : isAdmins,
+        getAdminStatus : getAdminStatus,
         getUserStatus: getUserStatus,
         login: login,
         logout: logout,
@@ -18,13 +18,20 @@ angular.module('myApp').factory('AuthService',
         adminReg : adminReg
       });
 
-      function isAdmins() {
-        if (admin) {
-          return true;
-        }
-        else {
-          return false;
-        }
+      function getAdminStatus() {
+        return $http.get('/users/admin')
+          // handle success
+          .success(function (response) {
+            if(response){
+              admin = true;
+            } else {
+              admin = false;
+            }
+          })
+          // handle error
+          .error(function (data) {
+            user = false;
+          });
       }
 
       function isLoggedIn() {
@@ -34,22 +41,14 @@ angular.module('myApp').factory('AuthService',
           return false;
         }
       }
-
       function getUserStatus() {
-        return $http.get('/users/status')
+        return $http.get('/user/status')
           // handle success
           .success(function (data) {
-            if(data.status && !data.administrator){
+            if(data.status){
               user = true;
-              admin = false;
-            }
-            if (data.status && data.administrator) {
-              user = true;
-              admin = true;
-            }
-            else {
+            } else {
               user = false;
-              admin = false;
             }
           })
           // handle error
