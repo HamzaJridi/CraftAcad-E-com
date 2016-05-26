@@ -274,7 +274,7 @@ header .inbody .navbar-brand span.subhead {
 .fashion-new-main h3 {
   font-size: 2em;
   font-weight: 600;
-  color: #bd4e83;
+  color: #ECDEE5;
   font-family: 'Merriweather', serif;
   text-align: center;
   margin: 0em 0em 1.2em 0em;
@@ -282,14 +282,14 @@ header .inbody .navbar-brand span.subhead {
 .fash-gd-text h4 {
   font-size: 1.2em;
   font-weight: 600;
-  color: #bd4e83;
+  color: #FFFFFF;
   font-family: 'Merriweather', serif;
   margin: 0em 0em 0.4em 0em;
 }
 .fash-gd-text p {
   font-size: 1.15em;
   font-weight: 400;
-  color: #B52E2E;
+  color: #FFFFFF;
   line-height: 1.8em;
 }
 .new-btn {
@@ -376,7 +376,10 @@ header .inbody .navbar-brand span.subhead {
 
 .secondfeaturette {
   background: no-repeat center center fixed;
-  background-image: url("../img/home/fashionweek1.jpg");
+  background-image: url("../img/home/fashionweek11.jpg");
   background-position: center;
   background-size: cover;
+}
+.secondfeaturette p a {
+  margin-bottom: 1em;
 }
