@@ -1,5 +1,7 @@
-<table class="table table-responsive table-hover" id="navbar">
-  <thead>
+<section id="navbar" class="container-fluid">
+  <input type="text" ng-model="article" placeholder="Search for an article"/>
+  <table class="table table-responsive table-hover">
+    <thead>
     <tr>
       <th>Title</th>
       <th>Image Url</th>
@@ -9,9 +11,9 @@
       <th>Category</th>
       <th>Action</th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <tr>
       <td><input type="text" class="form-control" ng-model="product.title" placeholder="Product Title" id="title"/></td>
       <td><input type="text" class="form-control" ng-model="product.imgUrl" placeholder="Product's Image Url"/></td>
@@ -25,7 +27,7 @@
         <button class="btn btn-danger" ng-click="deselect()" style="margin: 1%">Cancel</button>
       </span></td>
     </tr>
-    <tr ng-repeat="product in products">
+    <tr ng-repeat="product in products | filter : article">
       <td> {{product.title}}</td>
       <td><img ng-src="public/img/prods/{{product.imgUrl}}" alt="not found" style="height: 100px"/></td>
       <td>{{product.price}}</td>
@@ -33,11 +35,12 @@
       <td>{{product.ref}}</td>
       <td>{{product.category}}</td>
       <td><span>
-        <a href="#/suitDetails/{{product._id}}"><button class="btn-info btn-sm">details</button></a>
+        <a href="#/articlesDetails/{{product._id}}"><button class="btn-info btn-sm">details</button></a>
         <a href="#/reservations/{{product._id}}"><button class="btn-info btn-sm">Reservations List</button></a>
         <button class="btn-primary btn-sm" ng-click="editProd(product._id)" id="edit">Edit</button>
         <button class="btn-danger btn-sm" ng-click="removeProd(product._id)">X</button>
       </span></td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</section>

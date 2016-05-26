@@ -1,8 +1,8 @@
 /* The cart shop controller
 * add, delete products*/
 angular.module('myApp').controller('CartShopCtrl',
-  ['$location','$scope', '$http','$routeParams',
-    function($location,$scope, $http, $routeParams){
+  ['$location','$scope', '$http','$routeParams','$rootScope',
+    function($location,$scope, $http, $routeParams,$rootScope){
 
       $scope.maxSize = 9;
       $scope.currentPage = 1;
@@ -11,6 +11,11 @@ angular.module('myApp').controller('CartShopCtrl',
       var id =$routeParams.itemId;
       $http.get('/products/'+id).success(function(data){
         $scope.product = data;
+        if ($scope.product.toReserve) {
+          $rootScope.rent = true;
+        } else {
+          $rootScope.rent = false;
+        }
       });
       $scope.product = {};
       $scope.qte=1;
@@ -42,10 +47,6 @@ angular.module('myApp').controller('CartShopCtrl',
         });
       };
 
-      //$http.get('/products/' + id).success(function (response) {
-      //  $scope.product = response;
-      //});
-
       refresh();
 
       // Add a product to the Cart
@@ -56,10 +57,13 @@ angular.module('myApp').controller('CartShopCtrl',
           $scope.user=response;
           $http.get('/users/' + $scope.user._id + '/cart/' +product._id + '/' +product.title + '/' +product.imgUrl+ '/' +product.price+ '/' +product.quantity+ '/' +$scope.qte).success(function(err){
             refresh();
-          })
-        })
+          });
+        });
+        $scope.successMessage = 'Your product has been added Successfully';
+        console.log('Your product has been added Successfully');
       };
 
+      //get the Total Price of the selected prods in the cart
       $scope.totalPrice = function() {
         $scope.cartTotalPrice = 0;
         $http.get('/users/session').success(function(response) {

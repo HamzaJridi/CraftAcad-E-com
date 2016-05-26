@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
+angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
   .config(['$routeProvider',function($routeProvider){
   $routeProvider
     .when('/home', {
@@ -13,9 +13,9 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       access: {restricted: false},
       admin: {restricted: false}
     })
-    .when('/wedding', {
-      templateUrl: 'public/views/wedding.html',
-      controller: 'WedCtrl',
+    .when('/showrooms', {
+      templateUrl: 'public/views/showRooms.html',
+      controller: 'RoomCtrl',
       access: {restricted: false},
       admin: {restricted: false}
     })
@@ -33,15 +33,15 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
     })
     .when('/casual', {
       templateUrl: 'public/views/casual.html',
+      controller: 'CasualCtrl',
       access: {restricted: false},
       admin: {restricted: false}
-      //controller: 'ProductsCtrl',
     })
     .when('/sport', {
       templateUrl: 'public/views/sport.html',
+      controller: 'SportCtrl',
       access: {restricted: false},
       admin: {restricted: false}
-      //controller: 'ProductsCtrl',
     })
     .when('/reservations/:itemId', {
       templateUrl: 'public/views/reservations.html',
@@ -49,8 +49,14 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap'])
       access: {restricted: true},
       admin: {restricted: true}
     })
-    .when('/suitDetails/:itemId', {
+    .when('/articlesDetails/:itemId', {
       templateUrl : 'public/views/prodsDetails.html',
+      controller : 'CartShopCtrl',
+      access: {restricted: false},
+      admin: {restricted: false}
+    })
+    .when('/roomsDetails/:itemId', {
+      templateUrl : 'public/views/roomsDetails.html',
       controller : 'CartShopCtrl',
       access: {restricted: false},
       admin: {restricted: false}
