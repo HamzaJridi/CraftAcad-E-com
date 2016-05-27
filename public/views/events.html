@@ -1,15 +1,16 @@
 <section class="container" id="navbar">
+  <input type="text" ng-model="eventItem" placeholder="Search for an Event"/>
   <h1 class="col-xs-push-4 col-xs-10"
       style="margin: 1.5em 0">Fashion Events</h1>
   <div class="row">
-    <ul ng-repeat="event in events">
+    <ul ng-repeat="event in events | filter : eventItem| limitTo:maxSize:(currentPage - 1) * maxSize">
       <li class="col-xs-12" style="margin: 2em 0">
         <img ng-src="public/img/events/{{event.imgUrl}}"
              alt="{{event.imgUrl}}"
              class="img-responsive event"
              style="float: left">
         <div class="col-xs-6">
-          <h4 class="">{{event.name}}</h4>
+          <h2 class="">{{event.name}}</h2>
           <p>{{event.description}}</p>
           <div class="new-btn">
             <a href="#/eventDetails/{{event._id}}" class="hvr-shutter-out-horizontal">More</a>
@@ -22,5 +23,9 @@
         </div>
       </li>
     </ul>
+  </div>
+
+  <div class="col-md-12">
+    <uib-pagination total-items="events.length" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()"></uib-pagination>
   </div>
 </section>
