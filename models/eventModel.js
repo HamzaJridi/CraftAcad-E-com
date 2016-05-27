@@ -1,19 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var eventtModel = new Schema({
-  name : {type:String,required : true},
-  ticketPrice  :{type:Number,required : true},
+var eventModel = new Schema({
+  name : {type:String},
+  ticketPrice  :{type:Number},
   description : {type:String},
-  maxVisitors : {type : String},
-  subsDeadLine : {type : Date},
+  maxVisitors : {type : Number},
+  subsDeadLine : {type : Date, Default:Date.now},
   listOfVisitors : [{
     userId : {type :String },
     username : {type :String }
   }]
-
 });
 
 
 
-module.exports= mongoose.model('Product', eventtModel);
+module.exports = mongoose.model('Event', eventModel);

@@ -34,8 +34,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-/** bookRouter is returned from the routes() method in
- * the bookRoutes.js file */
+/** productRouter is returned from the routes() method in
+ * the productRoutes.js file */
 /** when you're in the '/products' the productRouter will handle it*/
 var Product = require('./models/productModel');
 productRouter = require('./Routes/productRoutes')(Product);
@@ -50,6 +50,11 @@ app.use('/users', userRouter);
 var Admin = require('./models/userModel');
 adminRouter = require('./Routes/adminRoutes')(Admin);
 app.use('/admins', adminRouter);
+
+/* The Event model Schema and the route handler for the '/events' Route*/
+var Event = require('./models/eventModel');
+eventRouter = require('./Routes/eventRoutes')(Event);
+app.use('/events', eventRouter);
 
 app.use(logger('dev'));
 
