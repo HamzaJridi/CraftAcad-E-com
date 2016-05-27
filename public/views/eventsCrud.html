@@ -4,9 +4,11 @@
     <thead>
     <tr>
       <th>Event Name</th>
+      <th>Event's Date</th>
+      <th>Image Url</th>
       <th>Ticket's Price</th>
       <th>Number of Visitors</th>
-      <th>Subs DeadLine</th>
+      <!--<th>Subs DeadLine</th>-->
       <th>Event's Description</th>
     </tr>
     </thead>
@@ -14,9 +16,25 @@
     <tbody>
     <tr>
       <td><input type="text" class="form-control" ng-model="event.name" placeholder="Event's Name" id="title"/></td>
+      <td>
+        <md-datepicker
+            md-date-filter="disableDate"
+            ng-model="event.date"
+            md-placeholder="Event's Date"
+            md-min-date="minDate">
+        </md-datepicker>
+      </td>
+      <td><input type="text" class="form-control" ng-model="event.imgUrl" placeholder="Event's imgUrl" id="image"/></td>
       <td><input type="text" class="form-control" ng-model="event.ticketPrice" placeholder="ticket's Price"/></td>
       <td><input type="text" class="form-control" ng-model="event.maxVisitors" placeholder="Number of max Visitors"/></td>
-      <td><input type="text" class="form-control" ng-model="event.subsDeadLine" placeholder="Subscribtion DeadLine"/></td>
+      <!--<td>-->
+        <!--<md-datepicker-->
+            <!--md-date-filter="disableDate"-->
+            <!--ng-model="event.subsDeadLine"-->
+            <!--md-placeholder="subscription DeadLine"-->
+            <!--md-min-date="minDate">-->
+        <!--</md-datepicker>-->
+      <!--</td>-->
       <td><input type="text" class="form-control" ng-model="event.description" placeholder="Event's Description"/></td>
       <td><span>
         <button class="btn btn-primary" ng-click="addEvent()">Add Event</button>
@@ -25,13 +43,15 @@
       </span></td>
     </tr>
     <tr ng-repeat="event in events | filter : eventItem">
-      <td> {{event.name}}</td>
+      <td>{{event.name}}</td>
+      <td>{{event.date}}</td>
+      <td><img ng-src="public/img/events/{{event.imgUrl}}" alt="not found" style="height: 100px"/></td>
       <td>{{event.ticketPrice}}</td>
       <td>{{event.maxVisitors}}</td>
-      <td>{{event.subsDeadLine}}</td>
+      <!--<td>{{event.subsDeadLine}}</td>-->
       <td>{{event.description}}</td>
       <td><span>
-        <a href="#/eventsDetails/{{event._id}}"><button class="btn-info btn-sm">details</button></a>
+        <a href="#/eventDetails/{{event._id}}"><button class="btn-info btn-sm">details</button></a>
         <a href="#/visitors/{{event._id}}"><button class="btn-info btn-sm">List of Visitors</button></a>
         <button class="btn-primary btn-sm" ng-click="editEvent(event._id)" id="edit">Edit</button>
         <button class="btn-danger btn-sm" ng-click="removeEvent(event._id)">X</button>

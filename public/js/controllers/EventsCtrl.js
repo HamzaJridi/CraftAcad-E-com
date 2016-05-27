@@ -68,4 +68,17 @@ angular.module('myApp').controller('EventsCtrl',
       $scope.clearFields = function() {
         $scope.event="";
       };
+
+      $scope.minDate = new Date();
+    }]);
+
+//the event details page controller
+angular.module('myApp').controller('EventDetailCtrl',
+  ['$scope', '$http','$routeParams',
+    function($scope, $http, $routeParams) {
+      var id = $routeParams.itemId;
+      console.log(id);
+      $http.get('/events/' + id).success(function (response) {
+        $scope.event = response;
+      });
     }]);

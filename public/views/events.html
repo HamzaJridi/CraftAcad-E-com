@@ -1,0 +1,26 @@
+<section class="container" id="navbar">
+  <h1 class="col-xs-push-4 col-xs-10"
+      style="margin: 1.5em 0">Fashion Events</h1>
+  <div class="row">
+    <ul ng-repeat="event in events">
+      <li class="col-xs-12" style="margin: 2em 0">
+        <img ng-src="public/img/events/{{event.imgUrl}}"
+             alt="{{event.imgUrl}}"
+             class="img-responsive event"
+             style="float: left">
+        <div class="col-xs-6">
+          <h4 class="">{{event.name}}</h4>
+          <p>{{event.description}}</p>
+          <div class="new-btn">
+            <a href="#/eventDetails/{{event._id}}" class="hvr-shutter-out-horizontal">More</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="fash-date">
+            <h5>{{event.date |  date:"MM/dd"}}</h5>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

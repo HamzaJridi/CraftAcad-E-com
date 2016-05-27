@@ -107,6 +107,18 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
       templateUrl : 'public/views/eventsCrud.html',
       controller : 'EventsCtrl',
       access: {restricted: true},
+      admin: {restricted: true}
+    })
+    .when('/events', {
+      templateUrl : 'public/views/events.html',
+      controller : 'EventsCtrl',
+      access: {restricted: false},
+      admin: {restricted: false}
+    })
+    .when('/eventDetails/:itemId', {
+      templateUrl : 'public/views/eventDetails.html',
+      controller : 'EventDetailCtrl',
+      access: {restricted: false},
       admin: {restricted: false}
     })
     .when('/404', {

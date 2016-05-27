@@ -2,11 +2,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var eventModel = new Schema({
-  name : {type:String},
-  ticketPrice  :{type:Number},
-  description : {type:String},
-  maxVisitors : {type : Number},
-  subsDeadLine : {type : Date},
+  name : {type:String,required : true},
+  imgUrl : {type :String },
+  ticketPrice  :{type:Number,required : true},
+  description : {type:String,required : true},
+  maxVisitors : {type : Number,required : true},
+  date :  {type : Date}, //,required : true
   listOfVisitors : [{
     userId : {type :String },
     username : {type :String }

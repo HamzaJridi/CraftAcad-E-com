@@ -50,10 +50,12 @@ var routes = function(Event){
       /**replace the event properties with what has
        * come back from the req using req.body*/
       req.event.name = req.body.name;
+      req.event.imgUrl = req.body.imgUrl;
       req.event.ticketPrice = req.body.ticketPrice;
       req.event.description = req.body.description;
       req.event.maxVisitors = req.body.maxVisitors;
-      req.event.subsDeadLine = req.body.subsDeadLine;
+      req.event.date = req.body.date;
+      //req.event.subsDeadLine = req.body.subsDeadLine;
       //req.event.listOfVisitors = req.body.listOfVisitors;
       //save changes in the db
       req.event.save(function(err){
