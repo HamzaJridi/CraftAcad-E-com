@@ -9,8 +9,9 @@ var eventModel = new Schema({
   maxVisitors : {type : Number,required : true},
   date :  {type : Date}, //,required : true
   listOfVisitors : [{
-    userId : {type :String },
-    username : {type :String }
+    eventId : {type : String},
+    userId : {type : String },
+    username : {type : String }
   }]
 });
 

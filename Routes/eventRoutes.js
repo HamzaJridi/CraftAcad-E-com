@@ -80,17 +80,29 @@ var routes = function(Event){
       });
     });
 
+  /** THE SUBSCRIPTION METHODE */
+  //add the userID and username into the list of the event's visitors
+  eventRouter.put('/:eventId/subscribe/:userId/:username/',
+    function(req,res){
+      var eventId= req.params.eventId;
+      var userId= req.params.userId;
+      var username=req.params.username;
 
-
-
-
-
-
-
-
-
-
-
+      Event.update({_id:eventId},
+        { $push:{listOfVisitors:
+        { eventId:eventId,
+          userId:userId,
+          username:username
+        }
+        }},
+        function (err,data) {
+          if (err) { console.log(err); }
+          else {
+            res.json(data);
+            console.log('data from subs event: ', data);
+          }
+        });
+    });
 
   return eventRouter
 };

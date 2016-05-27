@@ -69,6 +69,21 @@ angular.module('myApp').controller('EventsCtrl',
         $scope.event="";
       };
 
+      /** Subscribe IN AN EVENT */
+        // Subscribe in an Event
+      $scope.subscribe = function(){
+        //$http.get('/users/session').success(function(response){
+        //  $http.get('/users/'+response._id).success(function(user){
+        //    console.log("the user is : ",user[0]);
+        //    $http.put('events/'+ event._id+'/subscribe/'+user[0]._id+'/'+user[0].username).success(function(res){
+        //      $scope.message = 'Your product has been  reserved Successfully';
+        //      console.log("You are subscribed Successfully ");
+        //    });
+        //  });
+        //});
+        alert('button success');
+      }; //reserve function
+
       $scope.minDate = new Date();
     }]);
 
@@ -81,4 +96,20 @@ angular.module('myApp').controller('EventDetailCtrl',
       $http.get('/events/' + id).success(function (response) {
         $scope.event = response;
       });
+
+      $scope.subscribe = function(){
+        $http.get('/users/session').success(function(response){
+          $http.get('/users/'+response._id).success(function(user){
+            console.log("the user is : ",user[0]);
+            $http.get('/events/' + id).success(function(event) {
+              console.log("the event is : ",event);
+              $http.put('events/'+ event._id+'/subscribe/'+user[0]._id+'/'+user[0].username).success(function(res){
+                $scope.message = 'Your product has been  reserved Successfully';
+                console.log("You are subscribed Successfully ");
+              });
+            });
+          });
+        });
+      }; //reserve function
+
     }]);
