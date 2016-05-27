@@ -6,7 +6,7 @@ var eventModel = new Schema({
   ticketPrice  :{type:Number},
   description : {type:String},
   maxVisitors : {type : Number},
-  subsDeadLine : {type : Date, Default:Date.now},
+  subsDeadLine : {type : Date},
   listOfVisitors : [{
     userId : {type :String },
     username : {type :String }
