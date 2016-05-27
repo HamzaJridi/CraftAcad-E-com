@@ -6,8 +6,8 @@
  * */
 
 angular.module('myApp').controller('EventsCtrl',
-  ['$scope','http',
-    function($scope,$http){
+  ['$scope','$http','AuthService',
+    function($scope,$http,AuthService){
       $scope.maxSize = 4;
       $scope.currentPage = 1;
       $scope.totalItems = 0;
@@ -65,7 +65,7 @@ angular.module('myApp').controller('EventsCtrl',
 
       /** CLEAR INPUT FIELDS */
       //clear the input fieds in case of canceling an event update
-      $scope.deselect = function() {
+      $scope.clearFields = function() {
         $scope.event="";
       };
     }]);

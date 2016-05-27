@@ -1,0 +1,42 @@
+<section id="navbar" class="container-fluid">
+  <input type="text" ng-model="eventItem" placeholder="Search for an event"/>
+  <table class="table table-responsive table-hover">
+    <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Ticket's Price</th>
+      <th>Number of Visitors</th>
+      <th>Subs DeadLine</th>
+      <th>Event's Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><input type="text" class="form-control" ng-model="event.name" placeholder="Event's Name" id="title"/></td>
+      <td><input type="text" class="form-control" ng-model="event.ticketPrice" placeholder="ticket's Price"/></td>
+      <td><input type="text" class="form-control" ng-model="event.maxVisitors" placeholder="Number of max Visitors"/></td>
+      <td><input type="text" class="form-control" ng-model="event.subsDeadLine" placeholder="Subscribtion DeadLine"/></td>
+      <td><input type="text" class="form-control" ng-model="event.description" placeholder="Event's Description"/></td>
+      <td><span>
+        <button class="btn btn-primary" ng-click="addEvent()">Add Event</button>
+        <button class="btn btn-info" ng-click="updateEvent()">Update</button>
+        <button class="btn btn-danger" ng-click="clearFields()" style="margin: 1%">Cancel</button>
+      </span></td>
+    </tr>
+    <tr ng-repeat="event in events | filter : eventItem">
+      <td> {{event.name}}</td>
+      <td>{{event.ticketPrice}}</td>
+      <td>{{event.maxVisitors}}</td>
+      <td>{{event.subsDeadLine}}</td>
+      <td>{{event.description}}</td>
+      <td><span>
+        <a href="#/eventsDetails/{{event._id}}"><button class="btn-info btn-sm">details</button></a>
+        <a href="#/visitors/{{event._id}}"><button class="btn-info btn-sm">List of Visitors</button></a>
+        <button class="btn-primary btn-sm" ng-click="editEvent(event._id)" id="edit">Edit</button>
+        <button class="btn-danger btn-sm" ng-click="removeEvent(event._id)">X</button>
+      </span></td>
+    </tr>
+    </tbody>
+  </table>
+</section>

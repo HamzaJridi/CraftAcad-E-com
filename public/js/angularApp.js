@@ -103,6 +103,12 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
       access: {restricted: true},
       admin: {restricted: false}
     })
+    .when('/eventsCrud', {
+      templateUrl : 'public/views/eventsCrud.html',
+      controller : 'EventsCtrl',
+      access: {restricted: true},
+      admin: {restricted: false}
+    })
     .when('/404', {
       templateUrl : 'public/views/404.html',
       //controller : 'AdminAuthCtrl',
