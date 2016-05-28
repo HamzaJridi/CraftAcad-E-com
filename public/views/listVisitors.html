@@ -1,0 +1,25 @@
+<section class="container" id="navbar">
+  <div class="row">
+    <img ng-src="public/img/events/{{event.imgUrl}}"
+         alt="{{event.imgUrl}}"
+         class="img-responsive event"
+         style="float: left">
+    <div class="col-xs-6">
+      <h2 class="">{{event.name}}</h2>
+      <p>{{event.description}}</p>
+    </div>
+    <div class="col-md-3">
+      <div class="fash-date">
+        <h5>{{event.date |  date:"MM/dd"}}</h5>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 2em">
+    <h2 style="text-decoration: underline"> List Of Visitors</h2>
+    <ul>
+      <li ng-repeat="visitor in visitors">
+        <h3> - {{visitor.username}}</h3>
+      </li>
+    </ul>
+  </div>
+</section>

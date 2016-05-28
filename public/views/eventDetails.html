@@ -8,10 +8,15 @@
           <h2 class="">{{event.name}}</h2>
           <p>{{event.description}}</p>
           <div class="new-btn">
-            <button class="btn-danger" ng-click="subscribe()">Get Ticket</button>
-            <!--<a href=""-->
-               <!--ng-click="subscribe()"-->
-               <!--class="hvr-shutter-out-horizontal">Get Ticket</a>-->
+            <a href=""
+               class="hvr-shutter-out-horizontal">Price : € {{event.ticketPrice}}</a>
+
+            <a href=""
+               class="hvr-shutter-out-horizontal"
+               ng-click="subscribe()"
+               ng-hide="successsub">Get your Ticket</a>
+            <!--<button class="hvr-shutter-out-horizontal"-->
+                    <!--ng-click="subscribe()">Get Ticket</button>-->
           </div>
         </div>
         <div class="col-md-3">
@@ -19,5 +24,10 @@
             <h5>{{event.date |  date:"MM/dd"}}</h5>
           </div>
         </div>
+  </div>
+
+  <div class="col-xs-8 col-xs-push-2">
+    <h2>{{successsub}}</h2>
+    <h2>{{failsub}}</h2>
   </div>
 </section>

@@ -69,21 +69,7 @@ angular.module('myApp').controller('EventsCtrl',
         $scope.event="";
       };
 
-      /** Subscribe IN AN EVENT */
-        // Subscribe in an Event
-      $scope.subscribe = function(){
-        //$http.get('/users/session').success(function(response){
-        //  $http.get('/users/'+response._id).success(function(user){
-        //    console.log("the user is : ",user[0]);
-        //    $http.put('events/'+ event._id+'/subscribe/'+user[0]._id+'/'+user[0].username).success(function(res){
-        //      $scope.message = 'Your product has been  reserved Successfully';
-        //      console.log("You are subscribed Successfully ");
-        //    });
-        //  });
-        //});
-        alert('button success');
-      }; //reserve function
-
+      //disabe the dates before today
       $scope.minDate = new Date();
     }]);
 
@@ -95,21 +81,71 @@ angular.module('myApp').controller('EventDetailCtrl',
       console.log(id);
       $http.get('/events/' + id).success(function (response) {
         $scope.event = response;
+        console.log('$scope.event: ' ,$scope.event);
+
+        //display the list of visitors in an event
+        $scope.visitors = $scope.event.listOfVisitors;
+        console.log('the visitors are: ', $scope.visitors);
+        for (var i =0; i<$scope.visitors.length; i++) {
+          $scope.visitor = $scope.visitors[i];
+          console.log('visitor is: ', $scope.visitor);
+          console.log('visitors.name is: ', $scope.visitor.username);
+        }
       });
 
+      /** Subscribe IN AN EVENT */
+        // Subscribe in an Event
       $scope.subscribe = function(){
+        //get the user session
         $http.get('/users/session').success(function(response){
+          //get the user data
           $http.get('/users/'+response._id).success(function(user){
             console.log("the user is : ",user[0]);
+            //get the event data
             $http.get('/events/' + id).success(function(event) {
-              console.log("the event is : ",event);
-              $http.put('events/'+ event._id+'/subscribe/'+user[0]._id+'/'+user[0].username).success(function(res){
-                $scope.message = 'Your product has been  reserved Successfully';
-                console.log("You are subscribed Successfully ");
-              });
+              $scope.event = event;
+              console.log("the $scope.event is : ",$scope.event);
+              //test if the listOfVisitors array is empty then subs the user
+              if ($scope.event.listOfVisitors.length === 0) {
+                $http.put('/events/'+ $scope.event._id+'/subscribe/'+user[0]._id+'/'+user[0].username).success(function(res){
+                  $scope.event.maxVisitors--;
+                  console.log('max Visitors before update: ',$scope.event.maxVisitors);
+                  $http.put('events/'+ event._id,$scope.event).success(function(res){
+                    console.log('max Visitors after update: ',$scope.event.maxVisitors);
+                    console.log("You are subscribed Successfully ");
+                    $scope.successsub = 'You are subscribed Successfully';
+                  });
+                });
+                //if the listOfVisitors array is not empty
+              } else {
+                var userExist = 0;
+              //  //fetch listOfVisitors to see if the user already subscribed
+                for (var k= 0; k<$scope.event.listOfVisitors.length; k++) {
+                  console.log('event.listOfVisitors[k] is : ',event.listOfVisitors[k]);
+                  if ($scope.event.listOfVisitors[k].userId === user[0]._id) {
+                    userExist++;
+                  }
+                  console.log('userExist = : ',userExist);
+                }// for Loop
+                if (userExist === 0) {
+                  $http.put('/events/'+ $scope.event._id+'/subscribe/'+user[0]._id+'/'+user[0].username).success(function(res){
+                    $scope.event.maxVisitors--;
+                    console.log('max Visitors before update: ',$scope.event.maxVisitors);
+                    $http.put('events/'+ event._id,$scope.event).success(function(res){
+                      console.log('max Visitors after update: ',$scope.event.maxVisitors);
+                      console.log("You are subscribed Successfully ");
+                      $scope.successsub = 'You are subscribed Successfully';
+                    });
+                  });
+                }
+                else {
+                  console.log('Sorry, you are already sybscribed');
+                  $scope.failsub = 'Sorry, you are already subscribed to this event';
+                }
+              }
             });
           });
         });
-      }; //reserve function
+      }; //the subscribe method
 
     }]);

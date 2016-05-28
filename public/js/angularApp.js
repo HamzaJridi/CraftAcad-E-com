@@ -101,7 +101,7 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
       templateUrl : 'public/views/adminReg.html',
       controller : 'AdminAuthCtrl',
       access: {restricted: true},
-      admin: {restricted: false}
+      admin: {restricted: true}
     })
     .when('/eventsCrud', {
       templateUrl : 'public/views/eventsCrud.html',
@@ -120,6 +120,12 @@ angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
       controller : 'EventDetailCtrl',
       access: {restricted: false},
       admin: {restricted: false}
+    })
+    .when('/visitors/:itemId', {
+      templateUrl : 'public/views/listVisitors.html',
+      controller : 'EventDetailCtrl',
+      access: {restricted: true},
+      admin: {restricted: true}
     })
     .when('/404', {
       templateUrl : 'public/views/404.html',
