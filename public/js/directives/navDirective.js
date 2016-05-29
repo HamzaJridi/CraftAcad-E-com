@@ -10,13 +10,13 @@ angular.module('myApp').directive('navdir', function() {
         $scope.user=response;
         $http.get('/users/'+$scope.user._id).success(function(user){
           console.log(user);
-          if(user){
-            $rootScope.islogged = true;
-          }
-          if(user.role === "admin"){
-            $rootScope.islogged = true;
-            $rootScope.isAdmin = true;
-          }
+          //if(user[0]){
+          //  $rootScope.islogged = true;
+          //}
+          //if(user[0].role === "admin"){
+          //  $rootScope.islogged = true;
+          //  $rootScope.isAdmin = true;
+          //}
         });
       });
     }]

@@ -1,20 +1,72 @@
-<section class="card login" id="navbar">
-  <form name="myform" ng-submit="login()" novalidate>
-    <div class="textintro">
-      <h1>Welcome Here!!</h1>
-      <p>Please Log-In</p>
-      <h2 class="error validationerror">{{errorMessage}}</h2>
-    </div>
+<section id="auth-body">
+  <div class="form">
 
-    <fieldset>
-      <input type="text" name="username" placeholder="User Name" ng-model="loginForm.username" ng-required="true"/>
-      <p class="error validationerror" ng-show="myform.username.$invalid && myform.username.$touched"> Please enter a valid UserName</p>
+    <ul class="tab-group">
+      <li class="tab"><a href="#register">Sign Up</a></li>
+      <li class="tab active"><a href="#login">Log In</a></li>
+    </ul>
 
-      <input type="password" name="password" placeholder="Password" ng-model="loginForm.password" ng-required="true"/>
-      <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
-    </fieldset>
+    <div class="tab-content">
+      <div id="login">
+        <h1>Welcome Back!</h1>
+        <p class="error validationerror">{{errorMessage}}</p>
 
-    <button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
-    <a href="#home"></a>
-  </form>
+        <form name="myform" ng-submit="login()" novalidate>
+
+          <div class="field-wrap">
+            <input type="text" name="username" placeholder="User Name" ng-model="loginForm.username" ng-required="true"/>
+            <p class="error validationerror" ng-show="myform.username.$invalid && myform.username.$touched"> Please enter a valid UserName</p>
+          </div>
+
+          <div class="field-wrap">
+            <input type="password" name="password" placeholder="Password" ng-model="loginForm.password" ng-required="true"/>
+            <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password Required</p>
+          </div>
+          <button class="button button-block">Log In</button>
+
+        </form>
+
+      </div>
+      <div id="signup">
+        <h1>Sign Up for Free</h1>
+
+        <form action="/" method="post">
+
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" />
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off"/>
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" required autocomplete="off"/>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Set A Password<span class="req">*</span>
+            </label>
+            <input type="password" required autocomplete="off"/>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div><!-- tab-content -->
+
+  </div> <!-- /form -->
 </section>

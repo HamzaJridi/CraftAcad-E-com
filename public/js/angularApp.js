@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute','ngMaterial','ui.bootstrap', 'ngAnimate'])
+angular.module('myApp', ['ngRoute','rzModule','ngMaterial','ui.bootstrap','ngAnimate'])
   .config(['$routeProvider',function($routeProvider){
   $routeProvider
     .when('/home', {
