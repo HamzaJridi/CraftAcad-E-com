@@ -1,8 +1,12 @@
 <section id="navbar">
-  <div>
-    <button style="margin: 2em 0 2em 5em" class="btn btn-primary" ng-click="PurchaseProds()">Purchase</button>
-    <button style="margin: 2em 0 2em 1em" class="btn btn-danger" ng-click="totalPrice()">Total Price</button>
-    <h1>Total Price : <span style="color: red"> ‎€	 {{cartTotalPrice}}</span></h1>
+  <div class="row">
+    <h1 class="col-xs-5"
+        style="color: black">Total Price :
+      <span style="color: red"> ‎€	 {{cartTotalPrice}}</span>
+    </h1>
+    <button class="btn btn-danger btn-lg col-xs-push-10"
+            ng-click="PurchaseProds()"
+            style="margin-top: 0.6em">Purchase</button>
   </div>
 
   <table class="table table-bordered table-striped">

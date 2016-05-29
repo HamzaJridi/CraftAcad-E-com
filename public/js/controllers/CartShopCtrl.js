@@ -27,9 +27,20 @@ angular.module('myApp').controller('CartShopCtrl',
           $http.get('/users/'+response._id).success(function(user){
             console.log(response);
             $scope.cart = user[0].cart;
+
+            //get the Total Price of the selected prods in the cart
+            $scope.cartTotalPrice = 0;
             for (var i = 0; i < $scope.cart.length; i++) {
                 $scope.products.push($scope.cart[i]);
-            }
+              let cartProd = $scope.cart[i];
+              console.log('prod is ', cartProd);
+              console.log('cartProd.price : ', cartProd.price);
+              console.log('cartProd.qte : ', cartProd.qte);
+              $scope.itemPrice = cartProd.price * cartProd.qte;
+              console.log('itemPrice : ', $scope.itemPrice);
+              $scope.cartTotalPrice += $scope.itemPrice;
+              console.log('cartTotalPrice : ', $scope.cartTotalPrice);
+            }//get the Total Price of the selected prods in the cart
             console.log('I\'ve got the requested data');
 
             $scope.purchasedProds = user[0].purchasedProds;
@@ -39,14 +50,11 @@ angular.module('myApp').controller('CartShopCtrl',
               $scope.purchasedProd = $scope.purchasedProds[j];
               $scope.title = $scope.purchasedProd.title;
               console.log('$scope.purchasedProduct: ', $scope.purchasedProd.title);
-
             }
-
-
           });
         });
       };
-
+//get the Total Price of the selected prods in the cart
       refresh();
 
       // Add a product to the Cart
@@ -61,23 +69,6 @@ angular.module('myApp').controller('CartShopCtrl',
         });
         $scope.successMessage = 'Your product has been added Successfully';
         console.log('Your product has been added Successfully');
-      };
-
-      //get the Total Price of the selected prods in the cart
-      $scope.totalPrice = function() {
-        $scope.cartTotalPrice = 0;
-        $http.get('/users/session').success(function(response) {
-          console.log(response);
-          $scope.user = response;
-          for (var i = 0; i < $scope.cart.length; i++) {
-            let cartProd = $scope.cart[i];
-            console.log('prod is ', cartProd);
-            console.log('prod.price : ', cartProd.price);
-            console.log('prod.qte : ', cartProd.qte);
-            $scope.cartTotalPrice += (cartProd.price * cartProd.qte);
-            console.log('cartTotalPrice : ', $scope.cartTotalPrice);
-          }
-        })
       };
 
 
