@@ -10,16 +10,15 @@
 
   <!--Products currently In Cart-->
   <div class="container" ng-show="!title">
-    <h3  style="text-align: center">This Client has no Products in his Shopping Cart right Now</h3>
+    <h3 style="text-align: center">This Client has no Products in his Shopping Cart right Now</h3>
     <hr class="featurette-divider" style="border: inset">
   </div>
   <div class="container-fluid row articles" ng-show="cartTitle">
     <h1 style="text-decoration: underline">Products currently In Cart :</h1>
     <ul>
-      <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
-          ng-repeat="cartProd in cartProds | limitTo:maxSize:(currentPage - 1) * maxSize">
+      <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods" ng-repeat="cartProd in cartProds | limitTo:maxSize:(currentPage - 1) * maxSize">
         <a href="#/suitDetails/{{cartProd.productId}}">
-          <img ng-src="public/img/prods/{{cartProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+          <img ng-src="public/img/prods/{{cartProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive" />
           <figcaption>
             <h4 style="text-align: center">{{cartProd.title}}</h4>
           </figcaption>
@@ -39,7 +38,7 @@
 
   <!--Purchased Products-->
   <div class="container" ng-show="!title">
-    <h3  style="text-align: center">This Client has no Purchased Products until Now</h3>
+    <h3 style="text-align: center">This Client has no Purchased Products until Now</h3>
     <hr class="featurette-divider" style="border: inset">
   </div>
 
@@ -47,20 +46,18 @@
   <div class="container-fluid row articles" ng-show="title">
     <h1 style="text-decoration: underline">Purchased Products :</h1>
     <ul>
-      <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
-          ng-repeat="orderedProd in orderedProds | limitTo:maxSize:(currentPage - 1) * maxSize">
+      <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods" ng-repeat="orderedProd in orderedProds | limitTo:maxSize:(currentPage - 1) * maxSize">
         <a href="#/suitDetails/{{orderedProd.productId}}">
-          <img ng-src="public/img/prods/{{orderedProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+          <img ng-src="public/img/prods/{{orderedProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive" />
           <figcaption>
-           <h4 style="text-align: center">{{orderedProd.title}}</h4>
+            <h4 style="text-align: center">{{orderedProd.title}}</h4>
           </figcaption>
         </a>
         <ul>
           <li>Purchased Items : {{orderedProd.qte}}</li>
           <li>Product's Price: €{{orderedProd.price}}</li>
           <li>Total Price : €{{orderedProd.totalPrice}}</li>
-          <li>Date :
-            {{orderedProd.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
+          <li>Date : {{orderedProd.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
           </li>
         </ul>
       </li>

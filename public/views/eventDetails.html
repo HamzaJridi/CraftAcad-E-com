@@ -1,29 +1,22 @@
 <section class="container" id="navbar">
   <div class="row">
-        <img ng-src="public/img/events/{{event.imgUrl}}"
-             alt="{{event.imgUrl}}"
-             class="img-responsive event"
-             style="float: left">
-        <div class="col-xs-6">
-          <h2 class="">{{event.name}}</h2>
-          <p>{{event.description}}</p>
-          <div class="new-btn">
-            <a href=""
-               class="hvr-shutter-out-horizontal">Price : € {{event.ticketPrice}}</a>
+    <img ng-src="public/img/events/{{event.imgUrl}}" alt="{{event.imgUrl}}" class="img-responsive event" style="float: left">
+    <div class="col-xs-6">
+      <h2 class="">{{event.name}}</h2>
+      <p>{{event.description}}</p>
+      <div class="new-btn">
+        <a href="" class="hvr-shutter-out-horizontal">Price : € {{event.ticketPrice}}</a>
 
-            <a href=""
-               class="hvr-shutter-out-horizontal"
-               ng-click="subscribe()"
-               ng-hide="successsub || failsub">Get your Ticket</a>
-            <!--<button class="hvr-shutter-out-horizontal"-->
-                    <!--ng-click="subscribe()">Get Ticket</button>-->
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="fash-date">
-            <h5>{{event.date |  date:"MM/dd"}}</h5>
-          </div>
-        </div>
+        <a href="" class="hvr-shutter-out-horizontal" ng-click="subscribe()" ng-hide="successsub || failsub">Get your Ticket</a>
+        <!--<button class="hvr-shutter-out-horizontal"-->
+        <!--ng-click="subscribe()">Get Ticket</button>-->
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="fash-date">
+        <h5>{{event.date |  date:"MM/dd"}}</h5>
+      </div>
+    </div>
   </div>
 
   <div class="col-xs-8 col-xs-push-2">

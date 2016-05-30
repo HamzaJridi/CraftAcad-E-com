@@ -9,14 +9,15 @@
 
       </button>
       <a class="navbar-brand" href="#home"><h1 style="margin-left: 0.8em">Man Fashion <span class="subhead">The Classy Shop</span></h1></a>
-    </div><!-- navbar-header -->
+    </div>
+    <!-- navbar-header -->
     <div class="collapse navbar-collapse bar" id="collapse">
 
       <ul class="nav navbar-nav navbar-right">
         <li class="navbtn"><a href="#home">Home</a></li>
 
         <!--DropDowns-->
-        <li class ="dropdown navbtn">
+        <li class="dropdown navbtn">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="navbtn"><a href="#showrooms">Show Rooms<span class="sr-only">(current)</span></a></li>
@@ -26,7 +27,7 @@
           </ul>
         </li>
 
-        <li class ="dropdown navbtn">
+        <li class="dropdown navbtn">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="navbtn"><a href="#suits">Suits & Blazers<span class="sr-only">(current)</span></a></li>
@@ -37,7 +38,7 @@
           </ul>
         </li>
 
-        <li class ="dropdown navbtn" ng-show="islogged">
+        <li class="dropdown navbtn" ng-show="islogged">
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="navbtn"><a href="#cartshop">My Shopping Cart</a></li>
@@ -57,10 +58,13 @@
         <li ng-show="!islogged" class="navbtn"><a href="#login">Log in</a></li>
         <!--<li ng-show="!islogged" class="navbtn"><a href="#register">Register</a></li>-->
         <li ng-show="islogged" class="navbtn"><a href="#logout">Logout</a></li>
-        <li><a href="#cartshop"><img src="public/img/shop.png"
-                                   class="shoplogo img-responsive">
-        </a></li>
+        <li>
+          <a href="#cartshop"><img src="public/img/shop.png" class="shoplogo img-responsive">
+          </a>
+        </li>
       </ul>
-    </div><!-- collapse navbar-collapse -->
-  </div><!-- container -->
+    </div>
+    <!-- collapse navbar-collapse -->
+  </div>
+  <!-- container -->
 </nav>

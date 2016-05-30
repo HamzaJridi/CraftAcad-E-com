@@ -9,40 +9,28 @@
     </label>
     <div class="col-xs-2">
       <label class="col-xs-12 row" style="margin-top: 1em">
-        <input type="radio" ng-model="direction" name="direction" checked>
-        Ascending
+        <input type="radio" ng-model="direction" name="direction" checked> Ascending
       </label>
       <label class="col-xs-12 row" style="margin-top: 1em">
-        <input type="radio" ng-model="direction" name="direction" value="reverse">
-        Descending
+        <input type="radio" ng-model="direction" name="direction" value="reverse"> Descending
       </label>
     </div>
     <div class="col-xs-4">
       <span style="color: #265a88">Limit the price :</span>
-      <rzslider rz-slider-model="slider.minValue"
-                rz-slider-high="slider.maxValue"
-                rz-slider-options="slider.options">
+      <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options">
       </rzslider>
     </div>
-    <input type="text"
-           ng-model="article"
-           placeholder="Search for an article"
-           class="col-xs-4"
-           style="margin-top: 1.5em"/>
+    <input type="text" ng-model="article" placeholder="Search for an article" class="col-xs-4" style="margin-top: 1.5em" />
   </div>
   <ul>
-    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
-        ng-repeat="item in products | filter : article| limitTo:maxSize:(currentPage - 1) * maxSize | orderBy:articleOrder:direction | byPrice:slider">
+    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods" ng-repeat="item in products | filter : article| limitTo:maxSize:(currentPage - 1) * maxSize | orderBy:articleOrder:direction | byPrice:slider">
       <a href="#/articlesDetails/{{item._id}}">
-        <img ng-src="public/img/prods/{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+        <img ng-src="public/img/prods/{{item.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive" />
       </a>
       <figcaption>
         <h4 style="text-align: center">{{item.title}}</h4>
       </figcaption>
-      <a href="#/articlesDetails/{{item._id}}"
-         class="btn btn-info col-xs-push-2 col-xs-8 col-md-push-2 col-md-8"
-         role="button"
-         style="color: white">
+      <a href="#/articlesDetails/{{item._id}}" class="btn btn-info col-xs-push-2 col-xs-8 col-md-push-2 col-md-8" role="button" style="color: white">
         <strong>‎€ {{item.price}}... click for détails</strong>
       </a>
     </li>

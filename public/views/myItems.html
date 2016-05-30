@@ -1,5 +1,5 @@
 <div class="container" ng-show="!title" id="navbar">
-  <h3  style="text-align: center">This Client has no Purchased Products until Now</h3>
+  <h3 style="text-align: center">This Client has no Purchased Products until Now</h3>
   <hr class="featurette-divider" style="border: inset">
 </div>
 
@@ -7,10 +7,9 @@
 <div class="container-fluid row articles" ng-show="title" id="navbar">
   <h1 style="text-decoration: underline">Purchased Products :</h1>
   <ul>
-    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods"
-        ng-repeat="purchasedProd in purchasedProds | limitTo:maxSize:(currentPage - 1) * maxSize">
+    <li class="col-lg-4 col-md-4 col-sm-12 col-xs-12 prods" ng-repeat="purchasedProd in purchasedProds | limitTo:maxSize:(currentPage - 1) * maxSize">
       <a href="#/suitDetails/{{purchasedProd.productId}}">
-        <img ng-src="public/img/prods/{{purchasedProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive"/>
+        <img ng-src="public/img/prods/{{purchasedProd.imgUrl}}" alt="{{item.imgUrl}}" class="prods img-responsive" />
         <figcaption>
           <h4 style="text-align: center">{{purchasedProd.title}}</h4>
         </figcaption>
@@ -19,8 +18,7 @@
         <li>Purchased Items : {{purchasedProd.qte}}</li>
         <li>Product's Price: €{{purchasedProd.price}}</li>
         <li>Total Price : €{{purchasedProd.totalPrice}}</li>
-        <li>Date :
-          {{purchasedProd.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
+        <li>Date : {{purchasedProd.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
         </li>
       </ul>
     </li>

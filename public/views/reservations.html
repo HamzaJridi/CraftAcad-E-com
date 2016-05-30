@@ -1,21 +1,21 @@
 <div class="container-fluid row articles" id="navbar">
   <table class="table table-responsive table-hover ">
     <thead>
-    <tr>
-      <th>User Name</th>
-      <th>Product ID</th>
-      <th>Reservation Date</th>
+      <tr>
+        <th>User Name</th>
+        <th>Product ID</th>
+        <th>Reservation Date</th>
 
-    </tr>
+      </tr>
     </thead>
     <tbody>
 
-    <tr ng-repeat="res in product.listReser">
-      <td>{{res.username}}</td>
-      <td>{{res.prodId}}</td>
-      <td>{{res.dateRes}}</td>
+      <tr ng-repeat="res in product.listReser">
+        <td>{{res.username}}</td>
+        <td>{{res.prodId}}</td>
+        <td>{{res.dateRes}}</td>
 
-    </tr>
+      </tr>
     </tbody>
   </table>
 </div>

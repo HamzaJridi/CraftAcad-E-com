@@ -2,32 +2,34 @@ var express = require('express');
 var passport = require('passport');
 var User = require('../models/userModel');
 
-var routes = function(Event){
+var routes = function (Event) {
   var eventRouter = express.Router();
   /** set the event route using eventRouter.route('newRoute') method*/
   eventRouter.route('/')
     //the post method require the bodyParser
-    .post(function(req,res){
+    .post(function (req, res) {
       var event = new Event(req.body);
       event.save();
       res.status(201).send(event);
     })
-    .get(function(req,res){
+    .get(function (req, res) {
       console.log('I got a GET Request for events');
-      Event.find(function (err,events) {
-        if(err){console.log(err)}
+      Event.find(function (err, events) {
+        if (err) {
+          console.log(err)
+        }
 
         res.json(events);
       });
     });
 
   //the Events Middleware for get, put and delete reqs
-  eventRouter.use('/:eventId',function(req,res,next){
-      //get the id passed in the url using req.params
-    Event.findById(req.params.eventId, function(err,event){
-      if(err){
+  eventRouter.use('/:eventId', function (req, res, next) {
+    //get the id passed in the url using req.params
+    Event.findById(req.params.eventId, function (err, event) {
+      if (err) {
         res.status(500).send(err);
-      } else if (event){
+      } else if (event) {
         req.event = event;
         next();
       } else {
@@ -38,13 +40,13 @@ var routes = function(Event){
 
   eventRouter.route('/:eventId')
     //get a specific item by its id and display it
-    .get(function(req,res){
+    .get(function (req, res) {
       //req.event = event in the middleware
       res.json(req.event);
     })
 
-    //get a specific item by its id to update it
-    .put(function(req,res){
+  //get a specific item by its id to update it
+  .put(function (req, res) {
       /** getting a single event item by its Id */
       //get the id passed in the url using req.params
       /**replace the event properties with what has
@@ -58,8 +60,8 @@ var routes = function(Event){
       //req.event.subsDeadLine = req.body.subsDeadLine;
       //req.event.listOfVisitors = req.body.listOfVisitors;
       //save changes in the db
-      req.event.save(function(err){
-        if(err){
+      req.event.save(function (err) {
+        if (err) {
           res.status(500).send(err);
         } else {
           //send back event to display it as a json format
@@ -69,12 +71,11 @@ var routes = function(Event){
 
     })
     //
-    .delete(function(req,res){
-      req.event.remove(function(err){
-        if(err) {
+    .delete(function (req, res) {
+      req.event.remove(function (err) {
+        if (err) {
           res.status(500).send(err);
-        }
-        else{
+        } else {
           res.status(204).send('Event Removed');
         }
       });
@@ -83,21 +84,26 @@ var routes = function(Event){
   /** THE SUBSCRIPTION METHODE */
   //add the userID and username into the list of the event's visitors
   eventRouter.put('/:eventId/subscribe/:userId/:username/',
-    function(req,res){
-      var eventId= req.params.eventId;
-      var userId= req.params.userId;
-      var username=req.params.username;
+    function (req, res) {
+      var eventId = req.params.eventId;
+      var userId = req.params.userId;
+      var username = req.params.username;
 
-      Event.update({_id:eventId},
-        { $push:{listOfVisitors:
-        { eventId:eventId,
-          userId:userId,
-          username:username
-        }
-        }},
-        function (err,data) {
-          if (err) { console.log(err); }
-          else {
+      Event.update({
+          _id: eventId
+        }, {
+          $push: {
+            listOfVisitors: {
+              eventId: eventId,
+              userId: userId,
+              username: username
+            }
+          }
+        },
+        function (err, data) {
+          if (err) {
+            console.log(err);
+          } else {
             res.json(data);
             console.log('data from subs event: ', data);
           }

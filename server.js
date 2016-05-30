@@ -7,12 +7,12 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var localStrategy = require('passport-local' ).Strategy;
+var localStrategy = require('passport-local').Strategy;
 /** open a connection to the db which is 'E-com'
  *  if the E-com db doesn't exist it'll be created */
 //mongoose.connect('mongodb://localhost/E-com');
 
- //to work with the remote db use this uri
+//to work with the remote db use this uri
 var uri = 'mongodb://hamza:hamza@ds025742.mlab.com:25742/e-commerce';
 mongoose.connect(uri);
 
@@ -20,15 +20,17 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
-  resave:false,
-  saveUninitialized:false
+  resave: false,
+  saveUninitialized: false
 }));
 
 app.use(passport.initialize());
@@ -64,18 +66,18 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(__dirname));
-app.get('/', function(req, res){
-  res.sendFile(__dirname+'/index.html');
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
 });
 
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.send(req.isAuthenticated() ? req.user : '0');
 });
 //app.get('/', function(req, res){
 //  res.send('Welcome to my API')
 //});
 
-app.listen(port, function(){
+app.listen(port, function () {
   console.log('Gulp is running the app on port ' + port);
 });

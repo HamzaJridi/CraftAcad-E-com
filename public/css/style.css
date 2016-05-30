@@ -1,17 +1,15 @@
 html {
-  background-color: rgba(242,247,249, 1);
+  background-color: rgba(242, 247, 249, 1);
 }
 .item {
   max-height: 600px;
 }
-
 .featurette {
   margin: 2em 5em;
 }
 .featurette-image {
   max-height: 500px;
 }
-
 .navbtn {
   font-size-adjust: 0.8;
   padding: 0.4em;
@@ -19,22 +17,23 @@ html {
 .navbar-brand {
   font-size-adjust: 0.8;
 }
-ul {list-style-type: none;}
-.prods, .constr{
+ul {
+  list-style-type: none;
+}
+.prods,
+.constr {
   display: block;
   margin: 1em auto;
 }
-.detl{
+.detl {
   margin: 5em auto;
 }
-.articles{
-  margin : 1em auto;
+.articles {
+  margin: 1em auto;
 }
-
 #navbar {
-  margin-top : 7.8em;
+  margin-top: 7.8em;
 }
-
 .full button span {
   background-color: limegreen;
   border-radius: 32px;
@@ -45,19 +44,17 @@ ul {list-style-type: none;}
   border-radius: 32px;
   color: black;
 }
-
 .not {
   background: no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;}
-
+  background-size: cover;
+}
 .wedArticles {
   height: 35em;
   width: 25em;
 }
-
 
 /**  Header Navigation **/
 
@@ -66,21 +63,17 @@ header .navbar {
   transition: all .5s ease-out;
   margin-right: 1em
 }
-
 header .navbar-default {
-  background-color:transparent;
+  background-color: transparent;
   border: none;
 }
-
 header .navbar-default .navbar-nav a {
   color: black;
   padding: 5px 8px;
 }
-
 header .navbar-default .navbar-nav a:hover {
   color: #E15D5F;
 }
-
 header .navbar-default .navbar-nav .active a {
   font-weight: 700;
   color: #E15D5F;
@@ -88,12 +81,10 @@ header .navbar-default .navbar-nav .active a {
   border-bottom: 4px solid #222222;
   text-shadow: none;
 }
-
 header .navbar-default .navbar-nav .active a:hover {
   color: #E15D5F;
   background: transparent;
   text-shadow: none;
-
 }
 
 /**  Navbar Brand **/
@@ -104,7 +95,6 @@ header .navbar-brand {
   background-position: 15px 0;
   height: auto;
 }
-
 header .navbar-brand h1 {
   font-family: serif;
   color: black;
@@ -116,7 +106,6 @@ header .navbar-brand h1 {
 .navbar {
   margin-bottom: 0;
 }
-
 header .navbar-brand span.subhead {
   display: block;
   font-family: "Roboto Slab", serif;
@@ -125,36 +114,31 @@ header .navbar-brand span.subhead {
 }
 
 /**  Navbar Toggle **/
+
 header .navbar-toggle {
   background-color: #279182;
 }
-
 header .navbar-default .navbar-toggle .icon-bar {
   background-color: black;
 }
-
-@media only screen
-and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   header .navbar-collapse.in {
-    background-color: rgba(228,193,193, .5);
+    background-color: rgba(228, 193, 193, .5);
   }
 }
 
 /**  nav inbody **/
 
 header .inbody {
-  background: rgba(104,73,49,.9);
+  background: rgba(104, 73, 49, .9);
 }
-
 header .navbar.inbody {
   padding-top: 0;
   padding-bottom: 0;
 }
-
 header .navbar.inbody .navbar-nav {
   /*padding-top: 10px;*/
 }
-
 header .inbody .navbar-brand {
   background-size: 43px;
   background-position: top left;
@@ -162,21 +146,17 @@ header .inbody .navbar-brand {
   padding-bottom: 0;
   margin-left: 10px;
 }
-
 header .inbody .navbar-brand h1 {
   font-size: 1.1em;
   padding-left: 38px;
 }
-
 header .inbody .navbar-brand span.subhead {
   display: none;
 }
-
-.bar{
+.bar {
   font-size: 1.5em;
   background-color: rgba(242, 247, 249, 0.31);
 }
-
 .shoplogo {
   width: 2.8em;
   height: 3em;
@@ -184,6 +164,7 @@ header .inbody .navbar-brand span.subhead {
 }
 
 /*--footer start here--*/
+
 .footer {
   background: #F1E7E7;
   padding: 3em 0em 3em 0em;
@@ -204,14 +185,14 @@ header .inbody .navbar-brand span.subhead {
 .ftr-btn {
   margin: 1em 0em 0em 0em;
 }
-.ftr-btn a{
+.ftr-btn a {
   font-size: 1em;
   font-weight: 400;
   color: #5F3B3B;
-  text-decoration:none;
+  text-decoration: none;
 }
-.ftr-btn a:hover{
-  text-decoration:none;
+.ftr-btn a:hover {
+  text-decoration: none;
   color: #bd4e83;
 }
 .footer-grid input[type="text"] {
@@ -225,7 +206,7 @@ header .inbody .navbar-brand span.subhead {
   margin: 0em 0em 1.5em 0em;
   border: 1px solid #5F3B3B;
 }
-.footer-grid input[type="submit"]{
+.footer-grid input[type="submit"] {
   font-size: 1em;
   font-weight: 400;
   padding: 0.4em 0.4em;
@@ -235,11 +216,11 @@ header .inbody .navbar-brand span.subhead {
   color: #000;
   border: 1px solid #BD4E83;
 }
-.footer-grid input[type="submit"]:hover{
-  background:#BD4E83;
+.footer-grid input[type="submit"]:hover {
+  background: #BD4E83;
   color: #fff;
   border: 1px solid #fff;
-  text-decoration:none;
+  text-decoration: none;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
@@ -249,17 +230,19 @@ header .inbody .navbar-brand span.subhead {
   text-align: center;
   padding: 4em 0em 0em 0em;
 }
-.copyright p a{
+.copyright p a {
   color: #BD4E83;
 }
-.copyright p a:hover{
+.copyright p a:hover {
   color: #fff;
-  text-decoration:none;
+  text-decoration: none;
 }
+
 /*--footer end here--*/
 
 
 /*--fashion-news start here--*/
+
 .fashion-news {
   padding: 4em 0em 5em 0em;
   background: no-repeat center center fixed;
@@ -303,7 +286,7 @@ header .inbody .navbar-brand span.subhead {
   padding: 0.4em 1em 0.4em 1em;
 }
 .new-btn a:hover {
-  text-decoration:none;
+  text-decoration: none;
 }
 .strip-two {
   margin: 3em 0em 3em 0em;
@@ -321,7 +304,9 @@ header .inbody .navbar-brand span.subhead {
   color: #fff;
   margin: 0em;
 }
+
 /* Shutter Out Horizontal */
+
 .hvr-shutter-out-horizontal {
   display: inline-block;
   vertical-align: middle;
@@ -332,7 +317,7 @@ header .inbody .navbar-brand span.subhead {
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background:#fff;
+  background: #fff;
   color: #000;
   border: 2px solid #bd4e83;
   -webkit-transition-property: color;
@@ -348,7 +333,7 @@ header .inbody .navbar-brand span.subhead {
   bottom: 0;
   left: 0;
   right: 0;
-  background:#bd4e83;
+  background: #bd4e83;
   color: #fff;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -361,14 +346,17 @@ header .inbody .navbar-brand span.subhead {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.hvr-shutter-out-horizontal:hover, .hvr-shutter-out-horizontal:focus, .hvr-shutter-out-horizontal:active {
+.hvr-shutter-out-horizontal:hover,
+.hvr-shutter-out-horizontal:focus,
+.hvr-shutter-out-horizontal:active {
   color: white;
 }
-.hvr-shutter-out-horizontal:hover:before, .hvr-shutter-out-horizontal:focus:before, .hvr-shutter-out-horizontal:active:before {
+.hvr-shutter-out-horizontal:hover:before,
+.hvr-shutter-out-horizontal:focus:before,
+.hvr-shutter-out-horizontal:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
-
 .event {
   width: 200px;
   height: 200px;
@@ -385,7 +373,6 @@ header .inbody .navbar-brand span.subhead {
 .secondfeaturette p a {
   margin-bottom: 1em;
 }
-
 .imgcrud {
   width: 10em;
   height: 10em;

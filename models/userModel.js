@@ -8,28 +8,43 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 //The User mongoose Schema
 var User = new Schema({
-  firstname : {type : String },
-  lastname : {type : String },
-  username : {type : String, unique : true },
-  role : { type:String , default : "customer"},
-  password : {type : String },
-  cart : [{
-    productId : String,
-    title : String,
-    imgUrl : String,
-    price : Number,
-    quantity : Number,
-    qte : Number,
-    totalPrice : Number
+  firstname: {
+    type: String
+  },
+  lastname: {
+    type: String
+  },
+  username: {
+    type: String,
+    unique: true
+  },
+  role: {
+    type: String,
+    default: "customer"
+  },
+  password: {
+    type: String
+  },
+  cart: [{
+    productId: String,
+    title: String,
+    imgUrl: String,
+    price: Number,
+    quantity: Number,
+    qte: Number,
+    totalPrice: Number
   }],
-  purchasedProds : [{
-    productId : String,
-    title : String,
-    imgUrl : String,
-    price : Number,
-    qte : Number,
-    totalPrice : Number,
-    date : {type : Date, default : Date.now}
+  purchasedProds: [{
+    productId: String,
+    title: String,
+    imgUrl: String,
+    price: Number,
+    qte: Number,
+    totalPrice: Number,
+    date: {
+      type: Date,
+      default: Date.now
+    }
   }]
 
 });

@@ -1,23 +1,22 @@
 <section class="container" id="navbar">
   <div class="row">
     <div class=" col-xs-push-2 col-xs-8 row" style="margin-bottom: 1em">
-      <img class="featurette-image img-responsive center-block col-sm-6"
-           ng-src="public/img/prods/{{product.imgUrl}}"
-           alt="{{product.title}}">
-      <img class="featurette-image img-responsive center-block col-sm-6"
-           ng-src="public/img/prods/{{product.imgUrl}}"
-           alt="{{product.title}}">
-    </div> <!--Images-->
+      <img class="featurette-image img-responsive center-block col-sm-6" ng-src="public/img/prods/{{product.imgUrl}}" alt="{{product.title}}">
+      <img class="featurette-image img-responsive center-block col-sm-6" ng-src="public/img/prods/{{product.imgUrl}}" alt="{{product.title}}">
+    </div>
+    <!--Images-->
 
     <div class="col-xs-push-3 col-xs-6">
       <div style="margin-bottom: 2em">
         <h1 style="text-align:center">{{product.title}}</h1>
-        <p class=""><strong>{{product.descr}}</strong> <br/></p>
-      </div><!--description-->
+        <p class=""><strong>{{product.descr}}</strong>
+          <br/>
+        </p>
+      </div>
+      <!--description-->
 
       <div class="row">
-        <div ng-show="!islogged"
-             class="col-xs-push-2 col-xs-10">
+        <div ng-show="!islogged" class="col-xs-push-2 col-xs-10">
           <h3 style="color: red">Please log in to add it to your cart</h3>
         </div>
         <div class="col-xs-12 col-xs-push-2" style="margin-bottom: 1em">
@@ -27,62 +26,31 @@
           <button class="btn btn-md btn-default">
             <strong>Ref : {{product.ref}}</strong>
           </button>
-          <button ng-show="!rent"
-                  ng-disabled="!islogged || successMessage"
-                  class="btn btn-md btn-danger"
-                  ng-click="addToCart(product)">
+          <button ng-show="!rent" ng-disabled="!islogged || successMessage" class="btn btn-md btn-danger" ng-click="addToCart(product)">
             <strong>Add to Cart</strong>
           </button>
           <h3 ng-show="successMessage" style="color: #DA3637">{{successMessage}}</h3>
         </div>
-          <md-input-container ng-show="!rent"
-                              class="col-xs-4 col-xs-push-4">
-            <label style="color: red"> Quantity </label>
-            <input type="number"
-                   min="1"
-                   max="{{product.quantity}}"
-                   ng-model="qte"
-                   placeholder="Select the Qte"
-                   id="quante"
-                   required/>
-          </md-input-container>
+        <md-input-container ng-show="!rent" class="col-xs-4 col-xs-push-4">
+          <label style="color: red"> Quantity </label>
+          <input type="number" min="1" max="{{product.quantity}}" ng-model="qte" placeholder="Select the Qte" id="quante" required/>
+        </md-input-container>
       </div>
-    </div> <!--prod details-->
+    </div>
+    <!--prod details-->
 
-    <div ng-show="rent && islogged"
-         class="col-xs-push-4 col-xs-8"
-         style="margin-top: 0.5em" >
+    <div ng-show="rent && islogged" class="col-xs-push-4 col-xs-8" style="margin-top: 0.5em">
       <h3 style="color: #1b6d85">Please pick a date for the reservation</h3>
     </div>
     <!--Calendar-->
-    <div ng-show="rent && islogged"
-         class="col-xs-push-4 col-xs-7">
-      <md-datepicker
-          md-date-filter="disableDate"
-          ng-model="date"
-          md-placeholder="Reservation Date"
-          md-min-date="minDate">
+    <div ng-show="rent && islogged" class="col-xs-push-4 col-xs-7">
+      <md-datepicker md-date-filter="disableDate" ng-model="date" md-placeholder="Reservation Date" md-min-date="minDate">
       </md-datepicker>
-      <button
-            class="btn btn-md btn-danger"
-            style="margin-left: 2em"
-            ng-click="reserve(date,product)"
-            ng-disabled="message">
-          <strong>Reserve this Product</strong>
-        </button>
+      <button class="btn btn-md btn-danger" style="margin-left: 2em" ng-click="reserve(date,product)" ng-disabled="message">
+        <strong>Reserve this Product</strong>
+      </button>
       <h3 ng-show="message" style="color: #DA3637">{{message}}</h3>
-    </div> <!--Calendar-->
+    </div>
+    <!--Calendar-->
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
