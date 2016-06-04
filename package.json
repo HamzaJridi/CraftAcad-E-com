@@ -25,6 +25,7 @@
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-mongodb-data": "^1.0.2"
   }
 }
